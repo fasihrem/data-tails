@@ -4,6 +4,7 @@ import Three from "./three";
 import D3 from "./d3";
 import Navbar from "./navbar";
 
+
 function App() {
   return (
     <div className="App">
@@ -25,6 +26,8 @@ function App() {
 
         <Three />
         {/*<D3 />*/}
+
+
 
     </div>
   );

@@ -11,15 +11,15 @@ import D3 from "./d3";
 
 
 const router = createBrowserRouter([
-     {
+    {
          path: '/',
          element: <App/>
-     },
-     {
+    },
+    {
          path: '/d3',
          element: <D3/>
-     }
-     ]);
+    }
+    ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
