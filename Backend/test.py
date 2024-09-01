@@ -42,7 +42,7 @@ def main():
         
 
     df = pd.DataFrame(names, columns = ['Subreddits'])
-    df.to_csv('Subreddits.csv')
+    df.to_csv('data/Subreddits.csv')
 
 if __name__ == "__main__":
     main()
