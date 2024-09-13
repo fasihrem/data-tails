@@ -9,24 +9,19 @@ from pymongo.server_api import ServerApi
 from bs4 import BeautifulSoup
 import requests 
 
-df = pd.read_csv("/home/fasih/Final Year Project/data-tails/Backend/data/Subreddits.csv")
-subReddit = df['Subreddits'].to_list() #actual list of all subreddits
-
 # print(subReddit) 
 
 #setting up praw
-reddit = praw.Reddit(client_id='P4-FFLW065bTLnGSqfCnlg', 
-                    client_secret='-EBrPckd7kwt0b8OaxJ-5cfwYRExQw', user_agent='MyRedditScraper/1.0 (Macintosh; Intel Mac OS X 14.3.1; Apple Silicon) Python/3.12 (fasihrem@gmail.com)')
+# reddit = praw.Reddit(client_id='P4-FFLW065bTLnGSqfCnlg', 
+#                     client_secret='-EBrPckd7kwt0b8OaxJ-5cfwYRExQw', user_agent='MyRedditScraper/1.0 (Macintosh; Intel Mac OS X 14.3.1; Apple Silicon) Python/3.12 (fasihrem@gmail.com)')
 
-print(reddit.read_only)
+# print(reddit.read_only)
 
 
 # uri = "mongodb+srv://fasihrem:Z3Dgx6tG7oIrumRr@cluster0.hoksb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 uri = "mongodb://localhost:27017"
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
-
-
 
 
 # Send a ping to confirm a successful connection
@@ -76,18 +71,35 @@ def get_valid_proxies():
 
     return proxy_data
 
-def rotate_user_agent(proxy):
-    if proxy:
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
-            'http': f'http://{proxy}',
-            'https': f'https://{proxy}'
+# def rotate_user_agent(proxy):
+#     if proxy:
+#         headers = {
+#             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+#             'http': f'http://{proxy}',
+#             'https': f'https://{proxy}'
+#         }
+#     else:
+#         headers = {
+#             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+#         }
+#     return headers
+
+
+def rotate_user_agent(proxy_list):
+    import random
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+    }
+    if proxy_list:
+        selected_proxy = random.choice(proxy_list)
+        proxies = {
+            'http': selected_proxy,
+            'https': selected_proxy
         }
     else:
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
-        }
-    return headers
+        proxies = None
+    return headers, proxies
+
 
 def get_all_comments(submission):
     comments = []
@@ -101,14 +113,38 @@ def get_all_comments(submission):
             comments.append(comment)
     return comments
 
-def scrapper_func(subReddit, proxy):
+
+def scrapper_func(subReddit, proxy_list):
 
     global df2
+
+    # headers, proxies = rotate_user_agent(proxy)
+
+    # reddit = praw.Reddit(client_id='P4-FFLW065bTLnGSqfCnlg', 
+    #                 client_secret='-EBrPckd7kwt0b8OaxJ-5cfwYRExQw',
+    #                 user_agent='MyRedditScraper/1.0 (Macintosh; Intel Mac OS X 14.3.1; Apple Silicon) Python/3.12 (fasihrem@gmail.com)',
+    #                 requestor_kwargs={
+    #                      'headers': headers,
+    #                      'proxies': proxies
+    #                 })
     
-    #rotateuseragent function call
-    headers = rotate_user_agent(proxy)
+    # print(reddit.read_only)
+
+
     for subreddits in subReddit:  # Iterate through list of all subreddits individually
+        headers, proxies = rotate_user_agent(proxy_list)
+        reddit = praw.Reddit(
+            client_id='P4-FFLW065bTLnGSqfCnlg',
+            client_secret='-EBrPckd7kwt0b8OaxJ-5cfwYRExQw',
+            user_agent='MyRedditScraper/1.0 (Macintosh; Intel Mac OS X 14.3.1; Apple Silicon) Python/3.12 (fasihrem@gmail.com)',
+            requestor_kwargs={
+                'headers': headers,
+                'proxies': proxies
+            }
+        )
+
         subreddit = reddit.subreddit(subreddits)  # Make subreddit instance to scrape
+
 
         start_time = time.time()
         print(f"In subreddit r/{subreddits}, scraping new at {datetime.now()}")
@@ -151,7 +187,9 @@ def scrapper_func(subReddit, proxy):
                 newComments.append(comment.body)
 
             imageUrl = submission.url
+            
             postUrl = "https://www.reddit.com" + submission.permalink
+            
 
             new_post = {
                 "type": news,
@@ -321,7 +359,13 @@ def scrapper_func(subReddit, proxy):
 
 
 def main():
+
+    df = pd.read_csv("/home/fasih/Final Year Project/data-tails/Backend/data/Subreddits.csv")
+    subReddit = df['Subreddits'].to_list() #actual list of all subreddits
+
     valid_proxies = get_valid_proxies()
+
+    print(valid_proxies)
 
     scrapper_func(subReddit, valid_proxies)
 
