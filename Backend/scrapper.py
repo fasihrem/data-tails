@@ -136,11 +136,7 @@ def scrapper_func(subReddit, proxy_list):
         reddit = praw.Reddit(
             client_id='P4-FFLW065bTLnGSqfCnlg',
             client_secret='-EBrPckd7kwt0b8OaxJ-5cfwYRExQw',
-            user_agent='MyRedditScraper/1.0 (Macintosh; Intel Mac OS X 14.3.1; Apple Silicon) Python/3.12 (fasihrem@gmail.com)',
-            requestor_kwargs={
-                'headers': headers,
-                'proxies': proxies
-            }
+            user_agent='MyRedditScraper/1.0 (Macintosh; Intel Mac OS X 14.3.1; Apple Silicon) Python/3.12 (fasihrem@gmail.com)'
         )
 
         subreddit = reddit.subreddit(subreddits)  # Make subreddit instance to scrape
@@ -191,6 +187,7 @@ def scrapper_func(subReddit, proxy_list):
             postUrl = "https://www.reddit.com" + submission.permalink
             
 
+
             new_post = {
                 "type": news,
                 "subReddit": subreddits,
@@ -207,6 +204,7 @@ def scrapper_func(subReddit, proxy_list):
             }
 
             new_posts.append(new_post)
+            
 
 
         # Convert list to DataFrame and concatenate with existing DataFrame
