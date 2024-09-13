@@ -2,7 +2,7 @@ import praw
 from datetime import datetime
 import pandas as pd 
 from pymongo import MongoClient
-import warnings 
+import warnings
 import time
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
