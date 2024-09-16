@@ -85,20 +85,20 @@ def rotate_user_agent(proxy):
     return headers
 
 
-def get_all_comments(submission):
-    comments = []
-    comment_queue = list(submission.comments)
-    while comment_queue:
-        comment = comment_queue.pop(0)
-        if isinstance(comment, praw.models.MoreComments):
-            # Handle MoreComments object (you might want to load more comments here if necessary)
-            comment_queue.extend(comment.comments())
-        else:
-            comments.append(comment)
-    return comments
+# def get_all_comments(submission):
+#     comments = []
+#     comment_queue = list(submission.comments)
+#     while comment_queue:
+#         comment = comment_queue.pop(0)
+#         if isinstance(comment, praw.models.MoreComments):
+#             # Handle MoreComments object (you might want to load more comments here if necessary)
+#             comment_queue.extend(comment.comments())
+#         else:
+#             comments.append(comment)
+#     return comments
 
 
-def scrapper_func(subReddit, proxy_list):
+def scrapper_func(subReddit):
 
     global df2
 
@@ -263,25 +263,44 @@ def scrapper_func(subReddit, proxy_list):
 
             # try:
             #     comment1 = submission.comments[0].body if len(submission.comments) > 0 else ""
+            #     print(comment1)
             # except IndexError:
             #     comment1 = ""
             # try:
             #     comment2 = submission.comments[1].body if len(submission.comments) > 1 else ""
+            #     print(comment2)
             # except IndexError:
             #     comment2 = ""
             # try:
             #     comment3 = submission.comments[2].body if len(submission.comments) > 2 else ""
+            #     print(comment3)
             # except IndexError:
             #     comment3 = ""
 
             noOfComments = submission.num_comments
 
-            all_comments = get_all_comments(submission)
-            topComments = []
 
+            # for i in range(noOfComments):
+            #     try:
+            #         cmmt = submission.comments[i].body
+            #         topComments.append(submission.comments[i].body)
+            #         # print(cmmt)
+            #     except IndexError:
+            #         # cmnt = ""
+            #         topComments.append("")
 
-            for comment in all_comments:
-                topComments.append(comment.body)
+            comments_list = []
+            for i in range(noOfComments):
+                try:
+                    comment_body = submission.comments[i].body
+                    comments_list.append(comment_body)
+                    print(comment_body)
+                except AttributeError:
+                    # Handle cases where the comment might not have a body (e.g., MoreComments objects)
+                    comments_list.append("")
+
+            # for top_level_comment in submission.comments:
+            #     print(top_level_comment.body)
 
             imageUrl = submission.url
             postUrl = "https://www.reddit.com" + submission.permalink
@@ -324,7 +343,7 @@ def scrapper_func(subReddit, proxy_list):
         print(f"Successfully uploaded r/{subreddits} onto MongoDB")
 
         # Save data to CSV
-        df2.to_csv(f"./data/{subreddits}.csv", sep=',', encoding="utf-8")
+        df2.to_csv(f"./data/macbook/{subreddits}.csv", sep=',', encoding="utf-8")
         print("Saved as CSV file")
 
         df2 = pd.DataFrame(columns=df2.columns)  # Clear DataFrame for next subreddit
@@ -333,16 +352,7 @@ def scrapper_func(subReddit, proxy_list):
     print("All data successfully saved to MongoDB and separate CSV files")
 
 
-def main():
+df = pd.read_csv("/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/data/Subreddits.csv")
+subReddit = df['Subreddits'].to_list() #actual list of all subreddits
 
-    df = pd.read_csv("/home/fasih/Final Year Project/data-tails/Backend/data/Subreddits.csv")
-    subReddit = df['Subreddits'].to_list() #actual list of all subreddits
-
-    valid_proxies = get_valid_proxies()
-
-    print(valid_proxies)
-
-    scrapper_func(subReddit, valid_proxies)
-
-if __name__ == "__main__":
-    main()
+scrapper_func(subReddit)
