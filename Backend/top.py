@@ -22,10 +22,10 @@ df2 = pd.DataFrame(columns=[
 #     "isNSFW", "comments", "noOfComments", "imageUrl", "postUrl"
 # ])
 
-subReddits = ["pakistan", "islamabad", "lahore", "karachi", "technology", "tech", "technews", "news",
-              "worldnews", "sports", "youtube", "television", "relationship_advice", "relationships",
-              "AskReddit", "ask", "Discussion", "Filmmakers", "filmmaking", "Movies", "MovieSuggestions",
-              "FASTNU", "NUST", "LinusTechTips"]
+#subReddits = ["pakistan", "islamabad", "lahore", "karachi", "technology", "tech", "technews", "news",
+ #             "worldnews", "sports", "youtube", "television", "relationship_advice", "relationships",
+  #            "AskReddit", "ask", "Discussion", "Filmmakers", "filmmaking", "Movies", "MovieSuggestions",
+   #           "FASTNU", "NUST", "LinusTechTips"]
 
 #shitba:
 # subReddits = ["Music", "todayilearned", "science", "showerthoughts", "space", "askscience", "mildlyinteresting",
@@ -39,6 +39,11 @@ subReddits = ["pakistan", "islamabad", "lahore", "karachi", "technology", "tech"
 #         "Bitcoin", "cars", "programming", "apple", "YouShouldKnow", "nevertellmetheodds" "frugal", "coolguides",
 #         "socialskills", "foodhacks", "nasa", "nutrition", "NoStupidQuestions", "Economics", "TravelHacks", "biology",
 #         "dating_advice"]
+
+#uni pc
+subReddits = ["Survival", "unpopularopinion", "formula1", "PremierLeague", "bodyweightfitness", "MovieDetails", "learnprogramming", "Cooking", "iphone"
+"iphone", "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology", "running", "compsci", "motorcycles",
+"math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific", "JapaTravel", "bodybuilding", "Astronomy", "writing", "Health", "Athiesm"]
 
 count = 0
 
