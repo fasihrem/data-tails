@@ -28,17 +28,18 @@ subReddits = ["pakistan", "islamabad", "lahore", "karachi", "technology", "tech"
               "FASTNU", "NUST", "LinusTechTips"]
 
 #shitba:
-srs = ["Music", "todayilearned", "science", "showerthoughts", "space", "askscience", "mildlyinteresting",
-       "explainlikeimfive", "LifeProTips", "GetMotivated", "Gadgets", "dataisbeautiful", "futurology",
-       "Documentaries", "UpliftingNews", "personalfinance", "tifu", "philosophy", "history", "Damnthatsinteresting",
-       "wallstreetbets", "NatureIsFuckingLit", "creepy", "InternetIsBeautiful"]
+# subReddits = ["Music", "todayilearned", "science", "showerthoughts", "space", "askscience", "mildlyinteresting",
+#        "explainlikeimfive", "LifeProTips", "GetMotivated", "Gadgets", "dataisbeautiful", "futurology",
+#        "Documentaries", "UpliftingNews", "personalfinance", "tifu", "philosophy", "history", "Damnthatsinteresting",
+#        "wallstreetbets", "NatureIsFuckingLit", "creepy", "InternetIsBeautiful"]
 
 #maryam:
-srs2 = ["lifehacks", "nba", "Fitness", "interestingasfuck", "travel", "nfl", "AdviceAnimals", "CryptoCurrency",
-        "politics", "NetflixBestOf", "mildlyinfuriating", "soccer", "Parenting", "europe", "buildapc", "gardening",
-        "Bitcoin", "cars", "programming", "apple", "YouShouldKnow", "nevertellmetheodds" "frugal", "coolguides",
-        "socialskills", "foodhacks", "nasa", "nutrition", "NoStupidQuestions", "Economics", "TravelHacks", "biology",
-        "dating_advice"]
+# subReddits = ["lifehacks", "nba", "Fitness", "interestingasfuck", "travel", "nfl", "AdviceAnimals", "CryptoCurrency",
+#         "politics", "NetflixBestOf", "mildlyinfuriating", "soccer", "Parenting", "europe", "buildapc", "gardening",
+#         "Bitcoin", "cars", "programming", "apple", "YouShouldKnow", "nevertellmetheodds" "frugal", "coolguides",
+#         "socialskills", "foodhacks", "nasa", "nutrition", "NoStupidQuestions", "Economics", "TravelHacks", "biology",
+#         "dating_advice"]
+
 count = 0
 
 for subreddits in subReddits:
