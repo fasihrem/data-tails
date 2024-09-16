@@ -13,7 +13,8 @@ import requests
 
 #setting up praw
 # reddit = praw.Reddit(client_id='P4-FFLW065bTLnGSqfCnlg', 
-#                     client_secret='-EBrPckd7kwt0b8OaxJ-5cfwYRExQw', user_agent='MyRedditScraper/1.0 (Macintosh; Intel Mac OS X 14.3.1; Apple Silicon) Python/3.12 (fasihrem@gmail.com)')
+#                     client_secret='-EBrPckd7kwt0b8OaxJ-5cfwYRExQw',
+#                     user_agent='MyRedditScraper/1.0 (Macintosh; Intel Mac OS X 14.3.1; Apple Silicon) Python/3.12 (fasihrem@gmail.com)')
 
 # print(reddit.read_only)
 
