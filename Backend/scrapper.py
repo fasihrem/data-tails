@@ -71,34 +71,18 @@ def get_valid_proxies():
 
     return proxy_data
 
-# def rotate_user_agent(proxy):
-#     if proxy:
-#         headers = {
-#             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
-#             'http': f'http://{proxy}',
-#             'https': f'https://{proxy}'
-#         }
-#     else:
-#         headers = {
-#             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
-#         }
-#     return headers
-
-
-def rotate_user_agent(proxy_list):
-    import random
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
-    }
-    if proxy_list:
-        selected_proxy = random.choice(proxy_list)
-        proxies = {
-            'http': selected_proxy,
-            'https': selected_proxy
+def rotate_user_agent(proxy):
+    if proxy:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+            'http': f'http://{proxy}',
+            'https': f'https://{proxy}'
         }
     else:
-        proxies = None
-    return headers, proxies
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+        }
+    return headers
 
 
 def get_all_comments(submission):
@@ -118,21 +102,8 @@ def scrapper_func(subReddit, proxy_list):
 
     global df2
 
-    # headers, proxies = rotate_user_agent(proxy)
-
-    # reddit = praw.Reddit(client_id='P4-FFLW065bTLnGSqfCnlg', 
-    #                 client_secret='-EBrPckd7kwt0b8OaxJ-5cfwYRExQw',
-    #                 user_agent='MyRedditScraper/1.0 (Macintosh; Intel Mac OS X 14.3.1; Apple Silicon) Python/3.12 (fasihrem@gmail.com)',
-    #                 requestor_kwargs={
-    #                      'headers': headers,
-    #                      'proxies': proxies
-    #                 })
-    
-    # print(reddit.read_only)
-
-
     for subreddits in subReddit:  # Iterate through list of all subreddits individually
-        headers, proxies = rotate_user_agent(proxy_list)
+        # headers, proxies = rotate_user_agent(proxy_list)
         reddit = praw.Reddit(
             client_id='P4-FFLW065bTLnGSqfCnlg',
             client_secret='-EBrPckd7kwt0b8OaxJ-5cfwYRExQw',
@@ -143,136 +114,136 @@ def scrapper_func(subReddit, proxy_list):
 
 
         start_time = time.time()
-        print(f"In subreddit r/{subreddits}, scraping new at {datetime.now()}")
+        # print(f"In subreddit r/{subreddits}, scraping new at {datetime.now()}")
 
-        new_posts = []
+        # new_posts = []
   
-        for submission in subreddit.new(limit=1000):
-            warnings.filterwarnings('ignore')
+        # for submission in subreddit.new(limit=1000):
+        #     warnings.filterwarnings('ignore')
 
-            postTitle = submission.title
-            postDesc = submission.selftext
-            postTime = submission.created_utc
-            timeAsDT = datetime.fromtimestamp(postTime)
+        #     postTitle = submission.title
+        #     postDesc = submission.selftext
+        #     postTime = submission.created_utc
+        #     timeAsDT = datetime.fromtimestamp(postTime)
 
-            authorName = submission.author.name if submission.author else ""
+        #     authorName = submission.author.name if submission.author else ""
 
-            noOfUpvotes = submission.score
-            isNSFW = submission.over_18
+        #     noOfUpvotes = submission.score
+        #     isNSFW = submission.over_18
             
             
-            # try:
-            #     comment1 = submission.comments[0].body if len(submission.comments) > 0 else ""
-            # except IndexError:
-            #     comment1 = ""
-            # try:
-            #     comment2 = submission.comments[1].body if len(submission.comments) > 1 else ""
-            # except IndexError:
-            #     comment2 = ""
-            # try:
-            #     comment3 = submission.comments[2].body if len(submission.comments) > 2 else ""
-            # except IndexError:
-            #     comment3 = ""
+        #     # try:
+        #     #     comment1 = submission.comments[0].body if len(submission.comments) > 0 else ""
+        #     # except IndexError:
+        #     #     comment1 = ""
+        #     # try:
+        #     #     comment2 = submission.comments[1].body if len(submission.comments) > 1 else ""
+        #     # except IndexError:
+        #     #     comment2 = ""
+        #     # try:
+        #     #     comment3 = submission.comments[2].body if len(submission.comments) > 2 else ""
+        #     # except IndexError:
+        #     #     comment3 = ""
 
-            noOfComments = submission.num_comments
+        #     noOfComments = submission.num_comments
 
-            all_comments = get_all_comments(submission)
-            newComments = []
+        #     all_comments = get_all_comments(submission)
+        #     newComments = []
 
-            for comment in all_comments:
-                newComments.append(comment.body)
+        #     for comment in all_comments:
+        #         newComments.append(comment.body)
 
-            imageUrl = submission.url
+        #     imageUrl = submission.url
             
-            postUrl = "https://www.reddit.com" + submission.permalink
-            
-
-
-            new_post = {
-                "type": news,
-                "subReddit": subreddits,
-                "postTitle": postTitle,
-                "postDesc": postDesc,
-                "postTime": timeAsDT,
-                "authorName": authorName,
-                "noOfUpvotes": noOfUpvotes,
-                "isNSFW": isNSFW,
-                "comments" : newComments,
-                "noOfComments": noOfComments,
-                "imageUrl": imageUrl,
-                "postUrl": postUrl
-            }
-
-            new_posts.append(new_post)
+        #     postUrl = "https://www.reddit.com" + submission.permalink
             
 
 
-        # Convert list to DataFrame and concatenate with existing DataFrame
-        new_posts_df = pd.DataFrame(new_posts)
-        df2 = pd.concat([df2, new_posts_df], ignore_index=True).drop_duplicates(subset=['postDesc', 'postTitle'])
-        time.sleep(5)
+        #     new_post = {
+        #         "type": news,
+        #         "subReddit": subreddits,
+        #         "postTitle": postTitle,
+        #         "postDesc": postDesc,
+        #         "postTime": timeAsDT,
+        #         "authorName": authorName,
+        #         "noOfUpvotes": noOfUpvotes,
+        #         "isNSFW": isNSFW,
+        #         "comments" : newComments,
+        #         "noOfComments": noOfComments,
+        #         "imageUrl": imageUrl,
+        #         "postUrl": postUrl
+        #     }
 
-        print(f"In subreddit r/{subreddits}, scraping hot at {datetime.now()}")
-
-        hot_posts = []
-        for submission in subreddit.hot(limit=1000):
-            warnings.filterwarnings('ignore')
-            postTitle = submission.title
-            postDesc = submission.selftext
-            postTime = submission.created_utc
-            timeAsDT = datetime.fromtimestamp(postTime)
-
-            authorName = submission.author.name if submission.author else ""
-
-            noOfUpvotes = submission.score
-            isNSFW = submission.over_18
-
-            # try:
-            #     comment1 = submission.comments[0].body if len(submission.comments) > 0 else ""
-            # except IndexError:
-            #     comment1 = ""
-            # try:
-            #     comment2 = submission.comments[1].body if len(submission.comments) > 1 else ""
-            # except IndexError:
-            #     comment2 = ""
-            # try:
-            #     comment3 = submission.comments[2].body if len(submission.comments) > 2 else ""
-            # except IndexError:
-            #     comment3 = ""
-
-            noOfComments = submission.num_comments
-
-            all_comments = get_all_comments(submission)
-            hotComments = []
+        #     new_posts.append(new_post)
+            
 
 
-            for comment in all_comments:
-                hotComments.append(comment.body)
+        # # Convert list to DataFrame and concatenate with existing DataFrame
+        # new_posts_df = pd.DataFrame(new_posts)
+        # df2 = pd.concat([df2, new_posts_df], ignore_index=True).drop_duplicates(subset=['postDesc', 'postTitle'])
+        # time.sleep(5)
 
-            imageUrl = submission.url
-            postUrl = "https://www.reddit.com" + submission.permalink
+        # print(f"In subreddit r/{subreddits}, scraping hot at {datetime.now()}")
 
-            hot_post = {
-                "type": hots,
-                "subReddit": subreddits,
-                "postTitle": postTitle,
-                "postDesc": postDesc,
-                "postTime": timeAsDT,
-                "authorName": authorName,
-                "noOfUpvotes": noOfUpvotes,
-                "isNSFW": isNSFW,
-                "comments": hotComments,
-                "noOfComments": noOfComments,
-                "imageUrl": imageUrl,
-                "postUrl": postUrl
-            }
+        # hot_posts = []
+        # for submission in subreddit.hot(limit=1000):
+        #     warnings.filterwarnings('ignore')
+        #     postTitle = submission.title
+        #     postDesc = submission.selftext
+        #     postTime = submission.created_utc
+        #     timeAsDT = datetime.fromtimestamp(postTime)
 
-            hot_posts.append(hot_post)
+        #     authorName = submission.author.name if submission.author else ""
 
-        # Convert list to DataFrame and concatenate with existing DataFrame
-        hot_posts_df = pd.DataFrame(hot_posts)
-        df2 = pd.concat([df2, hot_posts_df], ignore_index=True).drop_duplicates(subset=['postDesc', 'postTitle'])
-        time.sleep(5)
+        #     noOfUpvotes = submission.score
+        #     isNSFW = submission.over_18
+
+        #     # try:
+        #     #     comment1 = submission.comments[0].body if len(submission.comments) > 0 else ""
+        #     # except IndexError:
+        #     #     comment1 = ""
+        #     # try:
+        #     #     comment2 = submission.comments[1].body if len(submission.comments) > 1 else ""
+        #     # except IndexError:
+        #     #     comment2 = ""
+        #     # try:
+        #     #     comment3 = submission.comments[2].body if len(submission.comments) > 2 else ""
+        #     # except IndexError:
+        #     #     comment3 = ""
+
+        #     noOfComments = submission.num_comments
+
+        #     all_comments = get_all_comments(submission)
+        #     hotComments = []
+
+
+        #     for comment in all_comments:
+        #         hotComments.append(comment.body)
+
+        #     imageUrl = submission.url
+        #     postUrl = "https://www.reddit.com" + submission.permalink
+
+        #     hot_post = {
+        #         "type": hots,
+        #         "subReddit": subreddits,
+        #         "postTitle": postTitle,
+        #         "postDesc": postDesc,
+        #         "postTime": timeAsDT,
+        #         "authorName": authorName,
+        #         "noOfUpvotes": noOfUpvotes,
+        #         "isNSFW": isNSFW,
+        #         "comments": hotComments,
+        #         "noOfComments": noOfComments,
+        #         "imageUrl": imageUrl,
+        #         "postUrl": postUrl
+        #     }
+
+        #     hot_posts.append(hot_post)
+
+        # # Convert list to DataFrame and concatenate with existing DataFrame
+        # hot_posts_df = pd.DataFrame(hot_posts)
+        # df2 = pd.concat([df2, hot_posts_df], ignore_index=True).drop_duplicates(subset=['postDesc', 'postTitle'])
+        # time.sleep(5)
 
         print(f"In subreddit r/{subreddits}, scraping top at {datetime.now()}")
 
@@ -330,11 +301,17 @@ def scrapper_func(subReddit, proxy_list):
                 "postUrl": postUrl
             }
 
-            top_posts.append(top_post)
+            duplicate = df2[(df2['postDesc'] == top_post['postDesc']) & (df2['postTitle'] == top_post['postTitle'])]
+        
+            if not duplicate.empty:
+                print("nah man u dupe")
+            else:
+                top_posts.append(top_post)
 
         # Convert list to DataFrame and concatenate with existing DataFrame
-        top_posts_df = pd.DataFrame(top_posts)
-        df2 = pd.concat([df2, top_posts_df], ignore_index=True).drop_duplicates(subset=['postDesc', 'postTitle'])
+        # top_posts_df = pd.DataFrame(top_posts)
+        # df2 = pd.concat([df2, top_posts_df], ignore_index=True).drop_duplicates(subset=['postDesc', 'postTitle'])
+        df2 = pd.concat([df2, top_posts], ignore_index=True)
 
         end_time = time.time()
         elapsed_time = end_time - start_time
