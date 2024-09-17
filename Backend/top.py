@@ -23,8 +23,8 @@ df2 = pd.DataFrame(columns=[
   #            "AskReddit", "ask", "Discussion", "Filmmakers", "filmmaking", "Movies", "MovieSuggestions",
    #           "FASTNU", "NUST", "LinusTechTips"]
 
-#religious - fasih
-subReddits = ["religion", "Chritianity", "Catholicism", "islam", "progressive_islam", "Judaism", "Buddhism", "hinduism", "Freethought", "exmuslim",
+#religious - fasih (alr done = religion)
+subReddits = ["Christianity", "Catholicism", "islam", "progressive_islam", "Judaism", "Buddhism", "hinduism", "Freethought", "exmuslim",
                 "exmormon", "skeptic", "crime"]
 
 #shitba:
