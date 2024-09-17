@@ -55,7 +55,7 @@ for subreddits in subReddits:
     start_time = time.time()
     print(f"in r/{subreddits}")
 
-    for submission in subreddit.top(limit=1000, time_filter="all"):
+    for submission in subreddit.hot(limit=1000):
         postTitle = submission.title
         postDesc = submission.selftext
         postTime = submission.created_utc
@@ -83,8 +83,8 @@ for subreddits in subReddits:
         if not duplicate.empty:
             print("dupe")
         else:
-            top_post = {
-                "type": "top",
+            hot_post = {
+                "type": "hot",
                 "subReddit": subreddits,
                 "postTitle": postTitle,
                 "postDesc": postDesc,
@@ -98,13 +98,13 @@ for subreddits in subReddits:
                 "postUrl": postUrl
             }
 
-        top_post_df = pd.DataFrame([top_post])
-        df2 = pd.concat([df2, top_post_df], ignore_index=True)
+        hot_posts_df = pd.DataFrame([hot_post])
+        df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
 
         count = count+1
         print("records: ", count)
 
-    df2.to_csv("./Backend/data/uni_pc/"+subreddits+"_top.csv", sep=',', encoding="utf-8")
+    df2.to_csv("./Backend/data/uni_pc/"+subreddits+"_hot.csv", sep=',', encoding="utf-8")
     df2 = pd.DataFrame(columns=df2.columns)
     count = 0
 
