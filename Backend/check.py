@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-directory = "./Backend/data/uni_pc"
+directory = "/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/data/macbook"
 
 files = os.listdir(directory)
 count = 0
