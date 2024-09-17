@@ -48,6 +48,9 @@ subReddits =  ["iphone", "hardware", "Entrepreneur", "unitedkingdom", "careergui
                "motorcycles", "math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific", "JapaTravel", "bodybuilding", "Astronomy",
                "writing", "Health", "Athiesm"]
 
+religiousSRS = ["religion", "Chritianity", "Catholicism", "islam", "progressive_islam", "Judaism", "Buddhism", "hinduism", "Freethought", "exmuslim",
+                "exmormon", "skeptic"]
+
 count = 0
 
 for subreddits in subReddits:
