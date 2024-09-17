@@ -98,7 +98,7 @@ for subreddits in subReddits:
         count = count+1
         print("records: ", count)
 
-    df2.to_csv("./Backend/data/uni_pc/"+subreddits+"_hot.csv", sep=',', encoding="utf-8")
+    df2.to_csv("/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/data/macbook/"+subreddits+"_hot.csv", sep=',', encoding="utf-8")
     df2 = pd.DataFrame(columns=df2.columns)
     count = 0
 
