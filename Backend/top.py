@@ -41,9 +41,10 @@ df2 = pd.DataFrame(columns=[
 #         "dating_advice"]
 
 #uni pc
-subReddits = ["Survival", "unpopularopinion", "formula1", "PremierLeague", "bodyweightfitness", "MovieDetails", "learnprogramming", "Cooking", "iphone"
-"iphone", "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology", "running", "compsci", "motorcycles",
-"math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific", "JapaTravel", "bodybuilding", "Astronomy", "writing", "Health", "Athiesm"]
+subReddits = ["Survival", "unpopularopinion", "formula1", "PremierLeague", "bodyweightfitness", "MovieDetails", "learnprogramming", "Cooking", "iphone",
+              "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology", "running", "compsci", "motorcycles",
+              "math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific", "JapaTravel", "bodybuilding", "Astronomy", "writing", "Health",
+              "Athiesm"]
 
 count = 0
 
@@ -111,7 +112,7 @@ for subreddits in subReddits:
         count = count+1
         print("records: ", count)
 
-    df2.to_csv("./data/uni_pc/"+subreddits+"_top.csv", sep=',', encoding="utf-8")
+    df2.to_csv("./Backend/data/uni_pc/"+subreddits+"_top.csv", sep=',', encoding="utf-8")
     df2 = pd.DataFrame(columns=df2.columns)
     count = 0
 
