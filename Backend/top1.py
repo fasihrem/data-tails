@@ -34,16 +34,16 @@ df2 = pd.DataFrame(columns=[
 #        "wallstreetbets", "NatureIsFuckingLit", "creepy", "InternetIsBeautiful"]
 
 #maryam:
-# subReddits = ["lifehacks", "nba", "Fitness", "interestingasfuck", "travel", "nfl", "AdviceAnimals", "CryptoCurrency",
-#         "politics", "NetflixBestOf", "mildlyinfuriating", "soccer", "Parenting", "europe", "buildapc", "gardening",
-#         "Bitcoin", "cars", "programming", "apple", "YouShouldKnow", "nevertellmetheodds" "frugal", "coolguides",
-#         "socialskills", "foodhacks", "nasa", "nutrition", "NoStupidQuestions", "Economics", "TravelHacks", "biology",
-#         "dating_advice"]
+subReddits = ["lifehacks", "nba", "Fitness", "interestingasfuck", "travel", "nfl", "AdviceAnimals", "CryptoCurrency",
+        "politics", "NetflixBestOf", "mildlyinfuriating", "soccer", "Parenting", "europe", "buildapc", "gardening",
+        "Bitcoin", "cars", "programming", "apple", "YouShouldKnow", "nevertellmetheodds" "frugal", "coolguides",
+        "socialskills", "foodhacks", "nasa", "nutrition", "NoStupidQuestions", "Economics", "TravelHacks", "biology",
+        "dating_advice"]
 
 #uni pc
-subReddits = ["Survival", "unpopularopinion", "formula1", "PremierLeague", "bodyweightfitness", "MovieDetails", "learnprogramming", "Cooking", "iphone"
-"iphone", "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology", "running", "compsci", "motorcycles",
-"math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific", "JapaTravel", "bodybuilding", "Astronomy", "writing", "Health", "Athiesm"]
+#subReddits = ["Survival", "unpopularopinion", "formula1", "PremierLeague", "bodyweightfitness", "MovieDetails", "learnprogramming", "Cooking", "iphone"
+#"iphone", "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology", "running", "compsci", "motorcycles",
+#"math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific", "JapaTravel", "bodybuilding", "Astronomy", "writing", "Health", "Athiesm"]
 
 count = 0
 
@@ -111,7 +111,7 @@ for subreddits in subReddits:
         count = count+1
         print("records: ", count)
 
-    df2.to_csv("./data/uni_pc/"+subreddits+"_top.csv", sep=',', encoding="utf-8")
+    df2.to_csv("./data/maryam/"+subreddits+"_top.csv", sep=',', encoding="utf-8")
     df2 = pd.DataFrame(columns=df2.columns)
     count = 0
 
