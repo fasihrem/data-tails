@@ -24,8 +24,8 @@ df2 = pd.DataFrame(columns=[
    #           "FASTNU", "NUST", "LinusTechTips"]
 
 #religious - fasih (alr done = religion)
-subReddits = ["Christianity", "Catholicism", "islam", "progressive_islam", "Judaism", "Buddhism", "hinduism", "Freethought", "exmuslim",
-                "exmormon", "skeptic", "crime"]
+# subReddits = ["Christianity", "Catholicism", "islam", "progressive_islam", "Judaism", "Buddhism", "hinduism", "Freethought", "exmuslim",
+#                 "exmormon", "skeptic", "crime"]
 
 #shitba:
 # subReddits = ["Music", "todayilearned", "science", "showerthoughts", "space", "askscience", "mildlyinteresting",
@@ -45,9 +45,10 @@ subReddits = ["Christianity", "Catholicism", "islam", "progressive_islam", "Juda
 
 #uni pc
 # subReddits =  ["iphone", "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology", "running", "compsci",
-#                "motorcycles", "math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific"]
-
-# subReddits = ["JapanTravel", "bodybuilding", "Astronomy", "writing", "Health", "Atheism", "travelpartners"]
+#                "motorcycles", "math", "HealthyFood", "chemistry"
+ 
+ 
+subReddits = ["Baking", "StockMarket", "oddlyspecific", "JapanTravel", "bodybuilding", "Astronomy", "writing", "Health", "Atheism", "travelpartners"]
 
 
 count = 0

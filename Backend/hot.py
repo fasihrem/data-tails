@@ -24,8 +24,8 @@ df2 = pd.DataFrame(columns=[
 #              "FASTNU", "NUST", "LinusTechTips"]
 
 #religious - fasih (alr done = religion)
-subReddits = ["Christianity", "Catholicism", "islam", "progressive_islam", "Judaism", "Buddhism", "hinduism", "Freethought", "exmuslim",
-                "exmormon", "skeptic"]
+#subReddits = ["Christianity", "Catholicism", "islam", "progressive_islam", "Judaism", "Buddhism", "hinduism", "Freethought", "exmuslim",
+#               "exmormon", "skeptic"]
 
 #shitba:
 # subReddits = ["Music", "todayilearned", "science", "showerthoughts", "space", "askscience", "mildlyinteresting",
@@ -41,11 +41,10 @@ subReddits = ["Christianity", "Catholicism", "islam", "progressive_islam", "Juda
 #         "dating_advice"]
 
 #uni pc
-# subReddits =  ["Survival", "unpopularopinion", "formula1", "PremierLeague", "bodyweightfitness", "MovieDetails", "learnprogramming", "Cooking",
-#                "iphone", "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology", "running",
-#                "compsci", "motorcycles", "math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific"]
-
-# subReddits = ["JapanTravel", "bodybuilding", "Astronomy", "writing", "Health", "Atheism", "travelpartners"]
+subReddits =  ["Survival", "unpopularopinion", "formula1", "PremierLeague", "bodyweightfitness", "MovieDetails", "learnprogramming", "Cooking",
+                "iphone", "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology", "running",
+                "compsci", "motorcycles", "math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific", "JapanTravel", "bodybuilding",
+                "Astronomy", "writing", "Health", "Atheism", "travelpartners"]
 
 count = 0
 
@@ -103,7 +102,7 @@ for subreddits in subReddits:
         count = count+1
         print("records: ", count)
 
-    df2.to_csv("/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/data/macbook/"+subreddits+"_hot.csv", sep=',', encoding="utf-8")
+    df2.to_csv("/home/fasih/Final Year Project/data-tails/Backend/data/uni_pc/"+subreddits+"_hot.csv", sep=',', encoding="utf-8")
     df2 = pd.DataFrame(columns=df2.columns)
     count = 0
 
