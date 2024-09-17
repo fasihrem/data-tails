@@ -43,8 +43,9 @@ subReddits = ["religion", "Chritianity", "Catholicism", "islam", "progressive_is
 #uni pc
 # subReddits =  ["Survival", "unpopularopinion", "formula1", "PremierLeague", "bodyweightfitness", "MovieDetails", "learnprogramming", "Cooking",
 #                "iphone", "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology", "running",
-#                "compsci", "motorcycles", "math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific", "JapaTravel", "bodybuilding",
-#                "Astronomy", "writing", "Health", "Athiesm"]
+#                "compsci", "motorcycles", "math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific"]
+
+# subReddits = ["JapanTravel", "bodybuilding", "Astronomy", "writing", "Health", "Atheism", "travelpartners"]
 
 count = 0
 
