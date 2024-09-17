@@ -18,10 +18,14 @@ df2 = pd.DataFrame(columns=[
 ])
 
 #fasih
-subReddits = ["pakistan", "islamabad", "lahore", "karachi", "technology", "tech", "technews", "news",
-             "worldnews", "sports", "youtube", "television", "relationship_advice", "relationships",
-             "AskReddit", "ask", "Discussion", "Filmmakers", "filmmaking", "Movies", "MovieSuggestions",
-             "FASTNU", "NUST", "LinusTechTips"]
+# subReddits = ["pakistan", "islamabad", "lahore", "karachi", "technology", "tech", "technews", "news",
+#              "worldnews", "sports", "youtube", "television", "relationship_advice", "relationships",
+#              "AskReddit", "ask", "Discussion", "Filmmakers", "filmmaking", "Movies", "MovieSuggestions",
+#              "FASTNU", "NUST", "LinusTechTips"]
+
+#religious - fasih
+subReddits = ["religion", "Chritianity", "Catholicism", "islam", "progressive_islam", "Judaism", "Buddhism", "hinduism", "Freethought", "exmuslim",
+                "exmormon", "skeptic"]
 
 #shitba:
 # subReddits = ["Music", "todayilearned", "science", "showerthoughts", "space", "askscience", "mildlyinteresting",
