@@ -47,7 +47,7 @@ subReddits = ["Christianity", "Catholicism", "islam", "progressive_islam", "Juda
 # subReddits =  ["iphone", "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology", "running", "compsci",
 #                "motorcycles", "math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific"]
 
-subReddits = ["JapanTravel", "bodybuilding", "Astronomy", "writing", "Health", "Atheism", "travelpartners"]
+# subReddits = ["JapanTravel", "bodybuilding", "Astronomy", "writing", "Health", "Atheism", "travelpartners"]
 
 
 count = 0
@@ -106,7 +106,7 @@ for subreddits in subReddits:
         count = count+1
         print("records: ", count)
 
-    df2.to_csv("/home/fasih/Final Year Project/data-tails/Backend/data/uni_pc"+subreddits+"_top.csv", sep=',', encoding="utf-8")
+    df2.to_csv("/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/data/macbook/"+subreddits+"_top.csv", sep=',', encoding="utf-8")
     df2 = pd.DataFrame(columns=df2.columns)
     count = 0
 
