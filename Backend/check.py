@@ -1,13 +1,14 @@
 import os
 import pandas as pd
 
-directory = "/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/data/macbook"
+# directory = "/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/data/macbook"
+ud = "/home/fasih/Final Year Project/data-tails/Backend/data/uni_pc"
 
-files = os.listdir(directory)
+files = os.listdir(ud)
 count = 0
 for filename in files:
     if filename.endswith(".csv"):
-        file_path = os.path.join(directory, filename)
+        file_path = os.path.join(ud, filename)
         try:
             df = pd.read_csv(file_path)
             print(filename, " has total records: ", df.shape[0])
