@@ -44,9 +44,8 @@ df2 = pd.DataFrame(columns=[
 # subReddits =  ["Survival", "unpopularopinion", "formula1", "PremierLeague", "bodyweightfitness", "MovieDetails", "learnprogramming", "Cooking",
 #                 "iphone", "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology", "running",
 #                 
-
-subReddits = ["compsci", "motorcycles", "math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific", "JapanTravel", "bodybuilding", 
-            "Astronomy", "writing", "Health", "Atheism", "travelpartners"]
+#["compsci", "motorcycles", "math", "HealthyFood", "chemistry"]"Baking", 
+subReddits = ["StockMarket", "oddlyspecific", "JapanTravel", "bodybuilding", "Astronomy", "writing", "Health", "Atheism", "travelpartners"]
 
 count = 0
 
