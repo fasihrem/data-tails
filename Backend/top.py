@@ -17,36 +17,11 @@ df2 = pd.DataFrame(columns=[
     "isNSFW", "comments", "noOfComments", "imageUrl", "postUrl"
 ])
 
-# mainDF = pd.DataFrame(columns=[
-#     "type", "subReddit", "postTitle", "postDesc", "postTime", "authorName", "noOfUpvotes",
-#     "isNSFW", "comments", "noOfComments", "imageUrl", "postUrl"
-# ])
-
-#subReddits = ["pakistan", "islamabad", "lahore", "karachi", "technology", "tech", "technews", "news",
- #             "worldnews", "sports", "youtube", "television", "relationship_advice", "relationships",
-  #            "AskReddit", "ask", "Discussion", "Filmmakers", "filmmaking", "Movies", "MovieSuggestions",
-   #           "FASTNU", "NUST", "LinusTechTips"]
-
-#shitba:
-# subReddits = ["Music", "todayilearned", "science", "showerthoughts", "space", "askscience", "mildlyinteresting",
-#        "explainlikeimfive", "LifeProTips", "GetMotivated", "Gadgets", "dataisbeautiful", "futurology",
-#        "Documentaries", "UpliftingNews", "personalfinance", "tifu", "philosophy", "history", "Damnthatsinteresting",
-#        "wallstreetbets", "NatureIsFuckingLit", "creepy", "InternetIsBeautiful"]
-
-#maryam:
-# subReddits = ["lifehacks", "nba", "Fitness", "interestingasfuck", "travel", "nfl", "AdviceAnimals", "CryptoCurrency",
-#         "politics", "NetflixBestOf", "mildlyinfuriating", "soccer", "Parenting", "europe", "buildapc", "gardening",
-#         "Bitcoin", "cars", "programming", "apple", "YouShouldKnow", "nevertellmetheodds" "frugal", "coolguides",
-#         "socialskills", "foodhacks", "nasa", "nutrition", "NoStupidQuestions", "Economics", "TravelHacks", "biology",
-#         "dating_advice"]
-
-#uni pc done
-# srs = ["Survival", "unpopularopinion", "formula1", "PremierLeague", "bodyweightfitness", "MovieDetails", "learnprogramming", "Cooking"]
-
-#uni pc
-subReddits =  ["iphone", "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology", "running", "compsci",
-               "motorcycles", "math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific", "JapaTravel", "bodybuilding", "Astronomy",
-               "writing", "Health", "Athiesm"]
+# shitba: "Music", "todayilearned", "science", "showerthoughts", "askscience",  "mildlyinteresting", "space",
+subReddits = [
+       "explainlikeimfive", "LifeProTips", "GetMotivated", "Gadgets", "dataisbeautiful", "futurology",
+       "Documentaries", "UpliftingNews", "personalfinance", "tifu", "philosophy", "history", "Damnthatsinteresting",
+       "wallstreetbets", "NatureIsFuckingLit", "creepy", "InternetIsBeautiful"]
 
 count = 0
 
@@ -104,7 +79,7 @@ for subreddits in subReddits:
         count = count+1
         print("records: ", count)
 
-    df2.to_csv("./Backend/data/uni_pc/"+subreddits+"_top.csv", sep=',', encoding="utf-8")
+    df2.to_csv("./data/shitba/"+subreddits+"_top.csv", sep=',', encoding="utf-8")
     df2 = pd.DataFrame(columns=df2.columns)
     count = 0
 
