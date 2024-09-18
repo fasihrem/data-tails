@@ -2,6 +2,7 @@ import os
 import glob
 import pandas as pd
 from pymongo import MongoClient
+from pymongo.server_api import ServerApi
 
 # Function to map the structure of a given DataFrame to the common schema
 def MapToCommonSchema(DF):
@@ -61,7 +62,16 @@ def Reading(file_path):
 
 # Connect to MongoDB
 def MongoDBConnection():
-    client = MongoClient('mongodb://localhost:27017/')
+    uri = "mongodb://localhost:27017"
+    # Create a new client and connect to the server
+    client = MongoClient(uri, server_api=ServerApi('1'))
+    # Send a ping to confirm a successful connection
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+    except Exception as e:
+        print(e)
+
     db = client['DataTails'] 
     collection = db['Data']
     return collection
@@ -81,7 +91,7 @@ def CheckingDuplicates(collection, records):
             print(f"Duplicate record found and skipped: {record['postUrl']} at {record['postTime']} with {record['noOfComments']} comments")
 
 # Directory containing the CSV files
-Dir = '/home/fasih/Final Year Project/data-tails/Backend/data/uni_pc'
+Dir = '/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/data/macbook/'
 Files = glob.glob(os.path.join(Dir, '*.csv'))
 FinalDF = []
 collection = MongoDBConnection()
@@ -90,6 +100,7 @@ for File in Files:
     try:
         ProcessedDF = Reading(File)
         FinalDF.append(ProcessedDF)
+        print(f"file {File} added to FinalDF")
     except ValueError as e:
         print(e)
 
