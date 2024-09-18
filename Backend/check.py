@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 # directory = "/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/data/macbook"
-ud = "/home/fasih/Final Year Project/data-tails/Backend/data/uni_pc"
+ud = "/home/fasih/Final Year Project/data-tails/Backend/data/uni_pc/"
 
 files = os.listdir(ud)
 count = 0
@@ -16,6 +16,6 @@ for filename in files:
             count = count+df.shape[0]
         except Exception as e:
             print(f'Error reading {filename}: {e}')
-            
-            
+
+
 print("total records: ", count)
