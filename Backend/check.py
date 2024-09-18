@@ -10,6 +10,7 @@ for filename in files:
         file_path = os.path.join(directory, filename)
         try:
             df = pd.read_csv(file_path)
+            # print(df.columns)
             print(filename, " has total records: ", df.shape[0])
             count = count+df.shape[0]
         except Exception as e:
