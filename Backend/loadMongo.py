@@ -91,7 +91,7 @@ def CheckingDuplicates(collection, records):
             print(f"Duplicate record found and skipped: {record['postUrl']} at {record['postTime']} with {record['noOfComments']} comments")
 
 # Directory containing the CSV files
-Dir = '/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/data/macbook/'
+Dir = '/home/fasih/Final Year Project/data-tails/Backend/data/uni_pc/'
 Files = glob.glob(os.path.join(Dir, '*.csv'))
 FinalDF = []
 collection = MongoDBConnection()
