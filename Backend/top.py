@@ -17,9 +17,9 @@ df2 = pd.DataFrame(columns=[
     "isNSFW", "comments", "noOfComments", "imageUrl", "postUrl"
 ])
 
-# shitba: "Music", "todayilearned", "science", "showerthoughts", "askscience",  "mildlyinteresting", "space",
-subReddits = [
-       "explainlikeimfive", "LifeProTips", "GetMotivated", "Gadgets", "dataisbeautiful", "futurology",
+# shitba: 
+subReddits = ["Music", "todayilearned", "science", "showerthoughts", "askscience",  "mildlyinteresting", "space",
+        "explainlikeimfive", "LifeProTips", "GetMotivated", "Gadgets", "dataisbeautiful", "futurology",
        "Documentaries", "UpliftingNews", "personalfinance", "tifu", "philosophy", "history", "Damnthatsinteresting",
        "wallstreetbets", "NatureIsFuckingLit", "creepy", "InternetIsBeautiful"]
 
