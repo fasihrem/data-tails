@@ -72,8 +72,8 @@ def MongoDBConnection():
     except Exception as e:
         print(e)
 
-    db = client['DataTails'] 
-    collection = db['Data']
+    db = client['Data-Tails'] 
+    collection = db['RedditData']
     return collection
 
 # Function to insert records into MongoDB while avoiding duplicates
