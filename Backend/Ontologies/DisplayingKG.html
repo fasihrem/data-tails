@@ -66,7 +66,7 @@
             .on("zoom", ({ transform }) => container.attr("transform", transform)));
 
         // Load JSON data
-        d3.json("D3KG.json").then(function(graph) {
+        d3.json("./D3KG.json").then(function(graph) {
             graph.nodes = graph.nodes.filter(d => d.label !== null && d.id !== null);
             graph.links = graph.links.filter(d => d.source !== null && d.target !== null);
 
@@ -109,11 +109,18 @@
 
             const tooltip = d3.select(".tooltip");
 
+            // Improved hover functionality for displaying more details
             node.on("mouseover", function(event, d) {
                 tooltip.transition().duration(200).style("opacity", .9);
-                tooltip.html(`ID: ${d.id}<br>Name: ${d.label || 'No Label'}`)
-                    .style("left", (event.pageX + 5) + "px")
-                    .style("top", (event.pageY - 28) + "px");
+                tooltip.html(`
+                    <strong>Node Details</strong><br>
+                    ID: ${d.id}<br>
+                    Label: ${d.label || 'No Label'}<br>
+                    Description: ${d.description || 'N/A'}<br>
+                    Type: ${d.type || 'Unknown'}
+                `)
+                .style("left", (event.pageX + 5) + "px")
+                .style("top", (event.pageY - 28) + "px");
             }).on("mouseout", function() {
                 tooltip.transition().duration(500).style("opacity", 0);
             });
