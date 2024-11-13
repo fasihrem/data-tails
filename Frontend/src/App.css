@@ -1,5 +1,143 @@
+/*body{*/
+/*  background: linear-gradient(#BE285E 30%, #28BE88 51%);*/
+/*  !*background-color: #BE285E;*!*/
+/*  height: 3000px; !* Used to enable scrolling *!*/
+/*  font-family: "Nexa Bold";*/
+/*  !*font-weight: lighter;*!*/
+/*  min-height: 100vh; !* Ensures the body fills the viewport *!*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*}*/
+
+.app-body{
+  background: linear-gradient(#BE285E 40%, #28BE88 51%);
+  /*background-color: #BE285E;*/
+  height: 2000px; /* Used to enable scrolling */
+  font-family: "Nexa Bold";
+  /*font-weight: lighter;*/
+  min-height: 100vh; /* Ensures the body fills the viewport */
+  display: flex;
+  flex-direction: column;
+}
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+h1{
+  /*font-size: 90px;*/
+  line-height: 75px;
+  /*font-weight: bold;*/
+}
+
+.login-side{
+  text-align: left;
+  float: right;
+  padding-right: 140px;
+  padding-top: 170px;
+  margin-left: auto;
+}
+
+.header-under h1{
+  font-size: 90px;
+}
+
+.login-side h1{
+  font-size: 85px;
+}
+
+.one-bg{
+  background: #28BE88;
+  width: 154px;
+  height: 76px;
+}
+
+.login{
+  background: #FF8577;
+  border: 3px solid black;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 25px;
+  position: absolute;
+  right: 250px;
+  bottom: 350px;
+}
+
+.signup{
+  background: #FF8577;
+  border: 3px solid black;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 25px;
+  position: absolute;
+  right: 400px;
+  bottom: 350px;
+}
+
+.guest{
+  color: #d9d9d9;
+  opacity: 75%;
+  position: absolute;
+  bottom: 320px;
+  right: 311px;
+}
+
+a:hover{
+  opacity: 100%;
+  cursor: pointer;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+.white{
+  color: white;
+  font-size: 78px;
+}
+
+.black{
+  color: black;
+  font-size: 85px;
+}
+
+.highlight{
+  background-color: #28BE88;
+  padding: 2px;
+  margin: 0 2px;
+  rotate: 0.2deg;
+}
+
+.main-header{
+  width: 650px;
+  height: 156px;
+  background:black;
+  position: absolute;
+  left: 130px;
+  top: 250px;
+
+}
+
+.header-under{
+  width: 650px;
+  height: 156px;
+  background: white;
+  position: absolute;
+  top: -20px;
+  left: -50px;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+p{
+  text-align: left;
+  padding-left: 50px;
 }
 
 .App-logo {

@@ -8,6 +8,9 @@ import {
      RouterProvider,
  } from "react-router-dom";
 import D3 from "./d3";
+import Home from "./homepage";
+import Login from "./login";
+import Signup from "./signup";
 
 
 const router = createBrowserRouter([
@@ -18,6 +21,18 @@ const router = createBrowserRouter([
     {
          path: '/d3',
          element: <D3/>
+    },
+    {
+         path: '/homepage',
+         element: <Home/>
+    },
+    {
+        path: '/login',
+        element: <Login/>
+    },
+    {
+        path: '/signup',
+        element: <Signup/>
     }
     ]);
 

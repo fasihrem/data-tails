@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
+import Navbar from "./navbar";
 
 class BarChart extends Component {
     componentDidMount() {
@@ -24,6 +25,7 @@ class BarChart extends Component {
             .attr("fill", "green");
     }
     render() {
+        <Navbar/>
         return <div id={"#" + this.props.id}></div>
     }
 }
