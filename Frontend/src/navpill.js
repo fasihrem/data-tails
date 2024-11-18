@@ -12,9 +12,9 @@ function NavPill() {
 
       if (scrollPosition >= 830)  //for my browser its 830 idk if it will be same for u
                                     //u can check the console of webpage to see at what position
-                                  //pink bg tranitions insert that value 
+                                  //pink bg tranitions insert that value
          {
-        setShowNavbar(true); 
+        setShowNavbar(true);
       } else
        {
         setShowNavbar(false);
@@ -30,15 +30,16 @@ function NavPill() {
   }, []);
 
   return (
-    <div className={`navbar ${showNavbar ? "show" : ""}`}>
-      <div className="navbar-logo">
-    <ul className="navbar-menu">
-        <li><a href="/">Home</a></li>
-          <li><a href="/homepage">Chat</a></li>
-          <li><a href="/about">About</a></li>
-        </ul>
+      <div className={`navpill ${showNavbar ? "show" : ""}`}>
+          <span className="logo">DataTails™</span>
+          <div className="navpill-logo">
+              <ul className="navpill-menu">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/homepage">Chat</a></li>
+                  <li><a href="/about">About</a></li>
+              </ul>
+          </div>
       </div>
-    </div>
   );
 }
 

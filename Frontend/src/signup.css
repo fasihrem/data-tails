@@ -1,0 +1,79 @@
+.signup-page{
+    width: 100vw;
+    height: 100vh;
+    background: #F5F5F5;
+}
+
+.signup-box {
+    width: 30%;
+    border-radius: 40px;
+    margin-top: 75px;
+    background-color: #BE285E;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    position: relative;
+    left: 32%;
+    overflow: hidden; /* Prevents content overflow */
+}
+
+/* Username and Password Inputs */
+.username-box-sp,
+.password-box-sp {
+    font-family: Courier;
+    display: block;
+    width: 75%;
+    height: 50px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    outline: none;
+    box-sizing: border-box;
+    position: relative;
+    left: 13%;
+    text-align: center;
+}
+
+.fname-box,
+.lname-box {
+    font-family: Courier;
+    width: 35%;
+    height: 50px;
+    text-align: center;
+    border-radius: 40px;
+    border: none;
+    padding: 10px;
+    margin: 0 5px;
+    box-sizing: border-box;
+    position: relative;
+    left: 13%;
+}
+
+.enter-btn-sp {
+    display: block;
+    position: relative;
+    left: 35%;
+    width: 30%;
+    padding: 10px;
+    margin: 15px 0;
+    background-color: #28BE88;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Button Hover Effect */
+.enter-btn-sp:hover {
+    background-color: #37dca1;
+}
+
+.signup-head {
+    text-align: center;
+    margin-top: -20px;
+    margin-bottom: 10px;
+}

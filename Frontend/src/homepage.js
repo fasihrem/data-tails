@@ -1,7 +1,24 @@
 import './home.css';
 import Navbar from "./navbar";
+import {useState} from "react";
+import axios from "axios";
 
 function MyHome() {
+    const [input, setInput] = useState('');
+    const [response, setResponse] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post('http://localhost:5000/api/chatInput', {
+        message: input,
+      });
+      setResponse(res.data.response);
+    }
+    catch (error) {
+      console.error("error sending to flask,", error);
+    }
+  };
 
 
   return (
@@ -22,7 +39,15 @@ function MyHome() {
             </h1>
         </div>
 
-        <input type="text" placeholder="Query Here!"></input>
+        <form onSubmit={handleSubmit}>
+            <input
+                className="chat-text"
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Query Here!"/>
+        </form>
+        {response && <p>Response: {response}</p>}
     </div>
   );
 }

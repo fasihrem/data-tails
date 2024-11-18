@@ -10,12 +10,17 @@
   width: 390px;
   height: 65px;
   background-color: #BE285E;
-  border-radius: 60px;
   border: 3px solid black;
+  border-radius: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 25px;
+  transition: font-size 0.3s;
+}
+
+.navbar-menu a:hover{
+  font-size: 35px;
 }
 
 .navbar-menu {
@@ -35,6 +40,7 @@
   text-decoration: none;
   color: white;
   font-weight: bold;
+  transition: font-size 0.3s;
 }
 
 .logo{
@@ -49,7 +55,7 @@
   flex-direction: column;
   align-items: center;
   position: absolute;
-  right: 2%;
+  right: 4%;
 }
 
 .nav-login{
@@ -63,15 +69,25 @@
   border-radius: 30px;
   font-weight: bold;
   font-size: 15px;
+  transition: background-color 0.3s;
+}
+
+.nav-login:hover{
+  background-color: #e14a81;
 }
 
 .nav-signup{
   margin-bottom: 10px; /* Add spacing between buttons */
   width: 80px;
   height: 34px;
-  background: #28BE88;
+  background-color: #28BE88;
   border: none;
   border-radius: 30px;
   font-weight: bold;
   font-size: 15px;
+  transition: background-color 0.3s;
+}
+
+.nav-signup:hover{
+  background-color: #37dca1;
 }

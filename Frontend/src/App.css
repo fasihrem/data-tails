@@ -1,13 +1,7 @@
-/*body{*/
-/*  background: linear-gradient(#BE285E 30%, #28BE88 51%);*/
-/*  !*background-color: #BE285E;*!*/
-/*  height: 3000px; !* Used to enable scrolling *!*/
-/*  font-family: "Nexa Bold";*/
-/*  !*font-weight: lighter;*!*/
-/*  min-height: 100vh; !* Ensures the body fills the viewport *!*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*}*/
+::selection {
+    background-color: black;
+    color: white; /* Optional: Change the text color for better contrast */
+}
 
 .app-body{
   background: linear-gradient(#BE285E 40%, #28BE88 51%);

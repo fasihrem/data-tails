@@ -26,10 +26,10 @@
     color: black;
 }
 
-input[type=text]{
+.chat-text{
   border: none;
   height: 37px;
-  width: 668px;
+  width: 45%;
   border-radius: 20px;
   background: #605F5E;
   font-size: 16px;
@@ -37,7 +37,7 @@ input[type=text]{
   text-align: left;
   padding-left: 30px;
   position: absolute;
-  right: 350px;
+  left: 27%;
   bottom: 355px;
   color: #BCBCBC;
 }
