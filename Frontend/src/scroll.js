@@ -30,7 +30,6 @@ function ScrollToTopButton() {
 
   return (
     <div>
-      {/* ... other content ... */}
       <div className="outer-circle">
         <button
           ref={scrollButtonRef}
