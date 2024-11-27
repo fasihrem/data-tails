@@ -46,3 +46,9 @@ DataTails/
 ├── D3KG.json                  # JSON file containing nodes and links for visualization
 ├── index.html                 # Main HTML for visualization with D3.js
 └── README.md                  # Project documentation
+
+---
+
+## Ontology Logic and Knowledge Graph
+
+---
