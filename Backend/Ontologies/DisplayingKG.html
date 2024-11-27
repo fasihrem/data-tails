@@ -46,10 +46,21 @@
             font: 12px sans-serif;
             border-radius: 8px;
             opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+        /* Loading spinner */
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #333;
         }
     </style>
 </head>
 <body>
+    <div id="loading">Loading graph...</div>
     <svg></svg>
     <div class="tooltip"></div>
 
@@ -67,6 +78,9 @@
 
         // Load JSON data
         d3.json("./D3KG.json").then(function(graph) {
+            // Hide loading spinner
+            document.getElementById('loading').style.display = 'none';
+
             graph.nodes = graph.nodes.filter(d => d.label !== null && d.id !== null);
             graph.links = graph.links.filter(d => d.source !== null && d.target !== null);
 
@@ -100,11 +114,11 @@
                     .on("drag", dragged)
                     .on("end", dragended));
 
-            node.append("circle").attr("r", 10).attr("fill", "#69b3a2");
+            node.append("circle").attr("r", 12).attr("fill", "#69b3a2");
 
             node.append("text")
                 .attr("dy", -3)
-                .attr("x", 12)
+                .attr("x", 15)
                 .text(d => d.label || "Unnamed");
 
             const tooltip = d3.select(".tooltip");
