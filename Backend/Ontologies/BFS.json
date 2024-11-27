@@ -1,0 +1,109 @@
+{
+    "nodes": [
+        {
+            "id": "Subreddit_1",
+            "label": "http://reddit.com/subreddit/Advice",
+            "type": "Subreddit",
+            "group": 0
+        },
+        {
+            "id": "Topic_5",
+            "label": "http://reddit.com/topic/Advice_0",
+            "type": "Topic",
+            "group": 5
+        },
+        {
+            "id": "Topic_6",
+            "label": "http://reddit.com/topic/Advice_1",
+            "type": "Topic",
+            "group": 5
+        },
+        {
+            "id": "Topic_7",
+            "label": "http://reddit.com/topic/Advice_2",
+            "type": "Topic",
+            "group": 5
+        },
+        {
+            "id": "Topic_8",
+            "label": "http://reddit.com/topic/Advice_3",
+            "type": "Topic",
+            "group": 5
+        },
+        {
+            "id": "Topic_9",
+            "label": "http://reddit.com/topic/Advice_4",
+            "type": "Topic",
+            "group": 5
+        },
+        {
+            "id": "Post_13",
+            "label": "http://reddit.com/post9402",
+            "type": "Post",
+            "group": 1,
+            "highlighted": true
+        },
+        {
+            "id": "Author_14",
+            "label": "http://reddit.com/user/Ok-Tiger-9169",
+            "type": "Author",
+            "group": 2
+        },
+        {
+            "id": "Comment_15",
+            "label": "http://reddit.com/comment/9402",
+            "type": "Comment",
+            "group": 3
+        }
+    ],
+    "links": [
+        {
+            "source": "Subreddit_1",
+            "target": "Post_13",
+            "type": "Contains",
+            "weight": 1
+        },
+        {
+            "source": "Post_13",
+            "target": "Author_14",
+            "type": "CreatedBy",
+            "weight": 1
+        },
+        {
+            "source": "Post_13",
+            "target": "Comment_15",
+            "type": "HasReply",
+            "weight": 1
+        },
+        {
+            "source": "Post_13",
+            "target": "Topic_5",
+            "type": "RelatedTo",
+            "weight": 1
+        },
+        {
+            "source": "Post_13",
+            "target": "Topic_6",
+            "type": "RelatedTo",
+            "weight": 1
+        },
+        {
+            "source": "Post_13",
+            "target": "Topic_7",
+            "type": "RelatedTo",
+            "weight": 1
+        },
+        {
+            "source": "Post_13",
+            "target": "Topic_8",
+            "type": "RelatedTo",
+            "weight": 1
+        },
+        {
+            "source": "Post_13",
+            "target": "Topic_9",
+            "type": "RelatedTo",
+            "weight": 1
+        }
+    ]
+}
