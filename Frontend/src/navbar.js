@@ -16,7 +16,7 @@ function Navbar() {
                         <a href="/homepage">Chat</a>
                     </li>
                     <li>
-                        <a>About</a>
+                        <a>Pricing</a>
                     </li>
                 </ul>
             </div>

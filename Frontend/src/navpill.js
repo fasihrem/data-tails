@@ -36,7 +36,7 @@ function NavPill() {
               <ul className="navpill-menu">
                   <li><a href="/">Home</a></li>
                   <li><a href="/homepage">Chat</a></li>
-                  <li><a href="/about">About</a></li>
+                  <li><a href="/about">Pricing</a></li>
               </ul>
           </div>
       </div>

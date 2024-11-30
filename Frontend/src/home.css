@@ -47,6 +47,9 @@
 }
 
 .messages {
+    font-family: "Inter";
+    font-weight: bold;
+    font-size: 10px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -73,7 +76,7 @@
     max-width: 60%;
     padding: 10px 15px;
     border-radius: 15px;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.5;
     word-wrap: break-word;
 }
@@ -81,13 +84,13 @@
 .message.user {
     align-self: flex-end;
     background-color: #E0E0E0;
-    color: #000;
+    color: #605F5E;
 }
 
 .message.bot {
     align-self: flex-start;
     background-color: #605F5E;
-    color: #FFF;
+    color: #E0E0E0;
 }
 
 /* Transition for the input box */
@@ -98,8 +101,8 @@
     padding: 10px;
     width: 100%;
     max-width: 600px;
-    background: #F5F5F5;
-    border-top: 1px solid #E0E0E0;
+    /*background: #F5F5F5;*/
+    /*border-top: 1px solid #E0E0E0;*/
     position: fixed; /* Stay at the bottom once moved */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%) translateY(0); /* Center adjustment */
@@ -135,15 +138,21 @@
     border-radius: 20px;
     padding: 0 15px;
     font-size: 16px;
-    background: #E0E0E0;
+    background: #605F5E;
     color: #000;
 }
 
 .chat-text::placeholder {
+    font-family: "Inter";
+    font-weight: bold;
+    position: fixed;
+    left: 20px;
     color: #BCBCBC;
 }
 /* Submit button */
 .chat-submit {
+    font-family: "Inter";
+    font-weight: bold;
     background-color: #BE285E;
     color: #FFF;
     border: none;
@@ -154,5 +163,5 @@
 }
 
 .chat-submit:hover {
-    background-color: #A0224B;
+    background-color: #e14a81;
 }

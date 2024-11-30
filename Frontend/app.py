@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from groqbot import chat_with_groq
+import pymongo
 
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:3000"])
@@ -11,6 +12,7 @@ def chat_page():
     user_input = request.json.get('message', '')
     response = chat_with_groq(user_input)
     print(f"User input: {user_input}")  # Print to the console
+    print(f"Groq Response: {response}")
     return jsonify({"response": f"{response}"})  # Send a response
 
 
