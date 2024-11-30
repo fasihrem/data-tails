@@ -1,43 +1,158 @@
-.ai-page{
+.ai-page {
     width: 100%;
     height: 100vh;
     background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+}
+
+/* For the chat container */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center it vertically */
+    align-items: center; /* Center it horizontally */
+    padding: 20px;
+    overflow-y: auto;
+    transition: all 0.5s ease; /* Transition only applies when class changes */
+}
+
+/* When chat starts, align the chat at the bottom */
+.chat-container.chat-started {
+    justify-content: flex-end; /* Move the content to the bottom */
 }
 
 .start-text {
-  /*text-align: center;*/
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 40vh; /* Adjust height as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    transition: all 0.5s ease;
 }
 
-.home-start-text{
+.home-start-text {
     line-height: 45px;
 }
-.purp{
+
+.purp {
     font-size: 80px;
     color: #BE285E;
 }
 
-.green{
+.green {
     font-size: 40px;
     color: black;
 }
 
-.chat-text{
-  border: none;
-  height: 37px;
-  width: 45%;
-  border-radius: 20px;
-  background: #605F5E;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: left;
-  padding-left: 30px;
-  position: absolute;
-  left: 27%;
-  bottom: 355px;
-  color: #BCBCBC;
+.messages {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+    overflow-y: auto; /* Allows scrolling for previous messages */
+    padding: 10px;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #BE285E #F5F5F5; /* Customize scrollbar colors */
+}
+
+.messages::-webkit-scrollbar {
+    width: 8px; /* Scrollbar width for Webkit browsers */
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: #BE285E;
+    border-radius: 4px;
+}
+
+.message {
+    max-width: 60%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.message.user {
+    align-self: flex-end;
+    background-color: #E0E0E0;
+    color: #000;
+}
+
+.message.bot {
+    align-self: flex-start;
+    background-color: #605F5E;
+    color: #FFF;
+}
+
+/* Transition for the input box */
+.chat-input-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 600px;
+    background: #F5F5F5;
+    border-top: 1px solid #E0E0E0;
+    position: fixed; /* Stay at the bottom once moved */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%) translateY(0); /* Center adjustment */
+    bottom: 50%; /* Initially at center */
+    transition: bottom 0.5s ease; /* Only transition the vertical movement */
+}
+
+/* After the query is submitted, move the input form to the bottom */
+.chat-input-form.moved {
+    bottom: 20px; /* Stick to the bottom */
+}
+
+
+.chat-input-center {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.chat-input-bottom {
+    position: static;
+    margin-top: auto;
+    background: #F5F5F5;
+    border-top: 1px solid #E0E0E0;
+}
+
+/* Input box */
+.chat-text {
+    flex-grow: 1;
+    height: 37px;
+    border: none;
+    border-radius: 20px;
+    padding: 0 15px;
+    font-size: 16px;
+    background: #E0E0E0;
+    color: #000;
+}
+
+.chat-text::placeholder {
+    color: #BCBCBC;
+}
+/* Submit button */
+.chat-submit {
+    background-color: #BE285E;
+    color: #FFF;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.chat-submit:hover {
+    background-color: #A0224B;
 }

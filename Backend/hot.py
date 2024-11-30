@@ -1,3 +1,5 @@
+import os
+
 import praw
 from datetime import datetime
 import pandas as pd
@@ -21,31 +23,24 @@ df2 = pd.DataFrame(columns=[
 # subReddits = ["pakistan", "islamabad", "lahore", "karachi", "technology", "tech", "technews", "news",
 #              "worldnews", "sports", "youtube", "television", "relationship_advice", "relationships",
 #              "AskReddit", "ask", "Discussion", "Filmmakers", "filmmaking", "Movies", "MovieSuggestions",
-#              "FASTNU", "NUST", "LinusTechTips"]
+#              "FASTNU", "NUST", "LinusTechTips", "religion", "Christianity", "Catholicism", "islam",
+#              "progressive_islam", "Judaism", "Buddhism", "hinduism", "Freethought", "exmuslim",
+#              "exmormon", "skeptic", "Music", "todayilearned", "science", "showerthoughts", "space",
+#              "askscience", "mildlyinteresting", "explainlikeimfive", "LifeProTips", "GetMotivated",
+#              "Gadgets", "dataisbeautiful", "futurology", "Documentaries", "UpliftingNews", "personalfinance",
+#              "tifu", "philosophy", "history", "Damnthatsinteresting", "wallstreetbets", "NatureIsFuckingLit",
+#              "creepy", "InternetIsBeautiful", "lifehacks", "nba", "Fitness", "interestingasfuck", "travel", "nfl",
+#              "AdviceAnimals", "CryptoCurrency","politics", "NetflixBestOf", "mildlyinfuriating", "soccer", "Parenting",
+#              "europe", "buildapc", "gardening", "Bitcoin", "cars", "programming", "apple", "YouShouldKnow",
+#              "nevertellmetheodds" "frugal", "coolguides", "socialskills", "foodhacks", "nasa", "nutrition",
+#              "NoStupidQuestions", "Economics", "TravelHacks", "biology", "dating_advice", "Survival", "unpopularopinion",
+#              "formula1", "PremierLeague", "bodyweightfitness", "MovieDetails", "learnprogramming", "Cooking", "iphone",
+#              "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology",
+#              "running", "compsci", "motorcycles", "math", "HealthyFood", "chemistry", "Baking", "StockMarket", "oddlyspecific",
+#              "JapanTravel", "bodybuilding", "Astronomy", "writing", "Health", "Atheism", "travelpartners"]
 
-#religious - fasih (alr done = religion Christianity Catholicism)
-#subReddits = ["islam", "progressive_islam", "Judaism", "Buddhism", "hinduism", "Freethought", "exmuslim",
-#              "exmormon", "skeptic"]
-
-#shitba:
-# subReddits = ["Music", "todayilearned", "science", "showerthoughts", "space", "askscience", "mildlyinteresting",
-#        "explainlikeimfive", "LifeProTips", "GetMotivated", "Gadgets", "dataisbeautiful", "futurology",
-#        "Documentaries", "UpliftingNews", "personalfinance", "tifu", "philosophy", "history", "Damnthatsinteresting",
-#        "wallstreetbets", "NatureIsFuckingLit", "creepy", "InternetIsBeautiful"]
-
-#maryam:
-# subReddits = ["lifehacks", "nba", "Fitness", "interestingasfuck", "travel", "nfl", "AdviceAnimals", "CryptoCurrency",
-#         "politics", "NetflixBestOf", "mildlyinfuriating", "soccer", "Parenting", "europe", "buildapc", "gardening",
-#         "Bitcoin", "cars", "programming", "apple", "YouShouldKnow", "nevertellmetheodds" "frugal", "coolguides",
-#         "socialskills", "foodhacks", "nasa", "nutrition", "NoStupidQuestions", "Economics", "TravelHacks", "biology",
-#         "dating_advice"]
-
-#uni pc
-# subReddits =  ["Survival", "unpopularopinion", "formula1", "PremierLeague", "bodyweightfitness", "MovieDetails", "learnprogramming", "Cooking",
-#                 "iphone", "hardware", "Entrepreneur", "unitedkingdom", "careerguidance", "homeautomation", "changemyview", "psychology", "running",
-#                 
-#["compsci", "motorcycles", "math", "HealthyFood", "chemistry"]"Baking", 
-subReddits = ["StockMarket", "oddlyspecific", "JapanTravel", "bodybuilding", "Astronomy", "writing", "Health", "Atheism", "travelpartners"]
+subReddits = ["AskReddit", "Damnthatsinteresting", "Music", "mildlyinteresting", "news", "showerthoughts", "todayilearned",
+              "wallstreetbets", "worldnews", "StockMarket", "travel", "TravelHacks", "CryptoCurrency", "YouShouldKnow", "LifeProTips"]
 
 count = 0
 
@@ -103,7 +98,12 @@ for subreddits in subReddits:
         count = count+1
         print("records: ", count)
 
-    df2.to_csv("/home/fasih/Final Year Project/data-tails/Backend/data/uni_pc/"+subreddits+"_hot.csv", sep=',', encoding="utf-8")
+    today = datetime.now()
+    formatted_date = today.strftime('%A %d%b').lower()
+
+    os.makedirs(formatted_date, exist_ok=True)
+
+    df2.to_csv(f"/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/data/{subreddits}_{formatted_date}_hot_.csv", sep=',', encoding="utf-8")
     df2 = pd.DataFrame(columns=df2.columns)
     count = 0
 

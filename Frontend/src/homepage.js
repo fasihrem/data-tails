@@ -1,55 +1,81 @@
 import './home.css';
 import Navbar from "./navbar";
-import {useState} from "react";
+import { useState } from "react";
 import axios from "axios";
 
 function MyHome() {
     const [input, setInput] = useState('');
     const [response, setResponse] = useState('');
+    const [messages, setMessages] = useState([]);
+    const [isChatStarted, setIsChatStarted] = useState(false); // Track chat start
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post('http://localhost:5000/api/chatInput', {
-        message: input,
-      });
-      setResponse(res.data.response);
-    }
-    catch (error) {
-      console.error("error sending to flask,", error);
-    }
-  };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (input.trim() === "") return; // Prevent empty submissions
+        setIsChatStarted(true); // Trigger input box to move down
 
+        const userMessage = { text: input, type: "user" };
+        setMessages((prev) => [...prev, userMessage]); // Add user message
 
-  return (
-    <div className="ai-page">
-        <Navbar/>
-        <div className="start-text">
-            <h1 className="home-start-text">
-                <span className="purp">
-                    Hello!
-                </span>
-                <br></br>
-                <span className="green">
-                    How can I be of
-                    <span className="highlight">
-                        service today?
-                    </span>
-                </span>
-            </h1>
+        try {
+            const res = await axios.post('http://localhost:5000/api/chatInput', {
+                message: input,
+            });
+            const botMessage = { text: res.data.response, type: "bot" };
+            setMessages((prev) => [...prev, botMessage]); // Add bot response
+        } catch (error) {
+            console.error("Error sending to Flask,", error);
+            const errorMessage = { text: "Error: Could not fetch response.", type: "bot" };
+            setMessages((prev) => [...prev, errorMessage]); // Add error response
+        } finally {
+            setInput(""); // Clear input
+        }
+    };
+
+    return (
+        <div className="ai-page">
+            <Navbar />
+            <div className={`chat-container ${isChatStarted ? "chat-started" : ""}`}>
+                {!isChatStarted && (
+                    <div className="start-text">
+                        <h1 className="home-start-text">
+                            <span className="purp">Hello!</span>
+                            <br />
+                            <span className="green">
+                                How can I be of
+                                <span className="highlight">service today?</span>
+                            </span>
+                        </h1>
+                    </div>
+                )}
+                <div className="messages">
+                    {messages.map((msg, index) => (
+                        <div
+                            key={index}
+                            className={`message ${msg.type === "user" ? "user" : "bot"}`}
+                        >
+                            {msg.text}
+                        </div>
+                    ))}
+                </div>
+                <form
+                    onSubmit={handleSubmit}
+                    className={`chat-input-form ${isChatStarted ? "moved" : ""}`}
+                >
+                    <input
+                        className="chat-text"
+                        type="text"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        placeholder="Query here!"
+                    />
+                    <button type="submit" className="chat-submit">
+                        Send
+                    </button>
+                </form>
+            </div>
         </div>
-
-        <form onSubmit={handleSubmit}>
-            <input
-                className="chat-text"
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Query Here!"/>
-        </form>
-        {response && <p>Response: {response}</p>}
-    </div>
-  );
+    );
 }
 
-export default MyHome
+export default MyHome;

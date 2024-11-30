@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from groqbot import chat_with_groq
 
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:3000"])
@@ -8,8 +9,9 @@ CORS(app, origins=["http://localhost:3000"])
 def chat_page():
     # Extract user input from the request
     user_input = request.json.get('message', '')
+    response = chat_with_groq(user_input)
     print(f"User input: {user_input}")  # Print to the console
-    return jsonify({"response": f"Received: {user_input}"})  # Send a response
+    return jsonify({"response": f"{response}"})  # Send a response
 
 
 USER_CREDENTIALS = {
@@ -37,7 +39,7 @@ def signup():
     username = data.get('username', '')
     password = data.get('password', '')
 
-    print(f"Full Name: {fname}  {lname} Username: {username}, Password: {password}")
+    print(f"Full Name: {fname} , {lname} Username: {username}, Password: {password}")
 
     return jsonify({"success": True, "message": "Signup successful!"})
 
