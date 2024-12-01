@@ -2,12 +2,21 @@ import './home.css';
 import Navbar from "./navbar";
 import { useState } from "react";
 import axios from "axios";
+import Filter from './filter.png';
+import Settings from './setting.png';
+import Graph from './chart.png';
 
 function MyHome() {
     const [input, setInput] = useState('');
     const [response, setResponse] = useState('');
     const [messages, setMessages] = useState([]);
     const [isChatStarted, setIsChatStarted] = useState(false); // Track chat start
+
+    const filterSubmit = async (e) => {
+        e.preventDefault();
+
+        console.log("filter pressed")
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -38,9 +47,20 @@ function MyHome() {
             <div className={`chat-container ${isChatStarted ? "chat-started" : ""}`}>
                 {!isChatStarted && (
                     <div className="start-text">
+                        <div className="extra-buttons">
+                            <div className="filter-button" onClick={filterSubmit}>
+                                <img src={Filter} alt="filter logo"/>
+                            </div>
+                            <div className="filter-button" onClick={filterSubmit}>
+                                <img src={Graph} alt="filter logo"/>
+                            </div>
+                            <div className="filter-button" onClick={filterSubmit}>
+                                <img src={Settings} alt="filter logo"/>
+                            </div>
+                        </div>
                         <h1 className="home-start-text">
                             <span className="purp">Hello!</span>
-                            <br />
+                            <br/>
                             <span className="green">
                                 How can I be of
                                 <span className="highlight">service today?</span>

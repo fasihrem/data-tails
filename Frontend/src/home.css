@@ -20,7 +20,7 @@
 
 /* When chat starts, align the chat at the bottom */
 .chat-container.chat-started {
-    justify-content: flex-end; /* Move the content to the bottom */
+    justify-content: flex-start; /* Move the content to the bottom */
 }
 
 .start-text {
@@ -106,7 +106,7 @@
     position: fixed; /* Stay at the bottom once moved */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%) translateY(0); /* Center adjustment */
-    bottom: 50%; /* Initially at center */
+    bottom: 45%; /* Initially at center */
     transition: bottom 0.5s ease; /* Only transition the vertical movement */
 }
 
@@ -118,7 +118,7 @@
 
 .chat-input-center {
     position: absolute;
-    top: 52%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -164,4 +164,37 @@
 
 .chat-submit:hover {
     background-color: #e14a81;
+}
+
+.filter-button{
+    display: flex;              /* Use Flexbox */
+    justify-content: center;    /* Horizontally align */
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #D9D9D9;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.filter-button:hover{
+    cursor: pointer;
+}
+
+.filter-button img{
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.extra-buttons{
+    display: flex;
+    flex-direction: row;        /* Arrange children horizontally */
+    justify-content: flex-end; /* Push buttons to the right */
+    align-items: center;
+    gap: 5px;
+    position: fixed;
+    right: 30%;
+    top: 20%
 }

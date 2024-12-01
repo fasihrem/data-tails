@@ -6,6 +6,16 @@ import pymongo
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:3000"])
 
+@app.route('/api/setFilter', methods=['POST'])
+def getFilters():
+
+    return jsonify("got filters")
+
+@app.route('/api/setCronjob', methods=['POST'])
+def getCronjob():
+
+    return jsonify("got cronjob deets")
+
 @app.route('/api/chatInput', methods=['POST'])
 def chat_page():
     # Extract user input from the request
