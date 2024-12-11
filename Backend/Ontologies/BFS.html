@@ -20,7 +20,7 @@
             stroke-width: 1.5px;
         }
         .node.highlighted circle {
-            stroke: #000;
+            stroke: #fff;
             stroke-width: 2px;
         }
         .node text {
@@ -126,7 +126,7 @@
                     if (d.type === 'Comment') return '#FFEB3B'; // Yellow for Comments
                     if (d.type === 'Post') return '#00BCD4'; // Cyan for posts
                     if (d.type === 'Topic') return '#FFC0CB'; // Pink for topics
-                    if (d.highlighted === 'true') return '#A9A9A9'; // Dark grey for head
+                    if (d.highlighted === 'Head') return '#A9A99'; // Dark grey for head
                     return '#69b3a2'; // Default color for other types
                 });
             console.log(node.highlighted)

@@ -2,105 +2,177 @@
     "nodes": [
         {
             "id": "Subreddit_1",
-            "label": "http://reddit.com/subreddit/Advice",
+            "label": "Subreddit(Advice)",
             "type": "Subreddit",
             "group": 0
         },
         {
+            "id": "Post_2",
+            "label": "Post(post9400)",
+            "type": "Post",
+            "group": 1
+        },
+        {
+            "id": "Author_3",
+            "label": "Author(GoblinKing69_)",
+            "type": "Author",
+            "group": 2,
+            "highlighted": "Head"
+        },
+        {
+            "id": "Comment_4",
+            "label": "Comment(9400)",
+            "type": "Comment",
+            "group": 3
+        },
+        {
             "id": "Topic_5",
-            "label": "http://reddit.com/topic/Advice_0",
+            "label": "Topic(Advice_0)",
             "type": "Topic",
             "group": 5
         },
         {
             "id": "Topic_6",
-            "label": "http://reddit.com/topic/Advice_1",
+            "label": "Topic(Advice_1)",
             "type": "Topic",
             "group": 5
         },
         {
             "id": "Topic_7",
-            "label": "http://reddit.com/topic/Advice_2",
+            "label": "Topic(Advice_2)",
             "type": "Topic",
             "group": 5
         },
         {
             "id": "Topic_8",
-            "label": "http://reddit.com/topic/Advice_3",
+            "label": "Topic(Advice_3)",
             "type": "Topic",
             "group": 5
         },
         {
             "id": "Topic_9",
-            "label": "http://reddit.com/topic/Advice_4",
+            "label": "Topic(Advice_4)",
             "type": "Topic",
             "group": 5
         },
         {
-            "id": "Post_13",
-            "label": "http://reddit.com/post9402",
+            "id": "Post_2928",
+            "label": "Post(post15080)",
             "type": "Post",
-            "group": 1,
-            "highlighted": true
+            "group": 1
         },
         {
-            "id": "Author_14",
-            "label": "http://reddit.com/user/Ok-Tiger-9169",
-            "type": "Author",
-            "group": 2
-        },
-        {
-            "id": "Comment_15",
-            "label": "http://reddit.com/comment/9402",
+            "id": "Comment_2929",
+            "label": "Comment(15080)",
             "type": "Comment",
             "group": 3
         }
     ],
     "links": [
         {
-            "source": "Subreddit_1",
-            "target": "Post_13",
-            "type": "Contains",
-            "weight": 1
-        },
-        {
-            "source": "Post_13",
-            "target": "Author_14",
+            "source": "Post_2",
+            "target": "Author_3",
             "type": "CreatedBy",
             "weight": 1
         },
         {
-            "source": "Post_13",
-            "target": "Comment_15",
+            "source": "Author_3",
+            "target": "Comment_4",
+            "type": "CommentedBy",
+            "weight": 1
+        },
+        {
+            "source": "Post_2928",
+            "target": "Author_3",
+            "type": "CreatedBy",
+            "weight": 1
+        },
+        {
+            "source": "Author_3",
+            "target": "Comment_2929",
+            "type": "CommentedBy",
+            "weight": 1
+        },
+        {
+            "source": "Subreddit_1",
+            "target": "Post_2",
+            "type": "Contains",
+            "weight": 1
+        },
+        {
+            "source": "Post_2",
+            "target": "Comment_4",
             "type": "HasReply",
             "weight": 1
         },
         {
-            "source": "Post_13",
+            "source": "Post_2",
             "target": "Topic_5",
             "type": "RelatedTo",
             "weight": 1
         },
         {
-            "source": "Post_13",
+            "source": "Post_2",
             "target": "Topic_6",
             "type": "RelatedTo",
             "weight": 1
         },
         {
-            "source": "Post_13",
+            "source": "Post_2",
             "target": "Topic_7",
             "type": "RelatedTo",
             "weight": 1
         },
         {
-            "source": "Post_13",
+            "source": "Post_2",
             "target": "Topic_8",
             "type": "RelatedTo",
             "weight": 1
         },
         {
-            "source": "Post_13",
+            "source": "Post_2",
+            "target": "Topic_9",
+            "type": "RelatedTo",
+            "weight": 1
+        },
+        {
+            "source": "Subreddit_1",
+            "target": "Post_2928",
+            "type": "Contains",
+            "weight": 1
+        },
+        {
+            "source": "Post_2928",
+            "target": "Comment_2929",
+            "type": "HasReply",
+            "weight": 1
+        },
+        {
+            "source": "Post_2928",
+            "target": "Topic_5",
+            "type": "RelatedTo",
+            "weight": 1
+        },
+        {
+            "source": "Post_2928",
+            "target": "Topic_6",
+            "type": "RelatedTo",
+            "weight": 1
+        },
+        {
+            "source": "Post_2928",
+            "target": "Topic_7",
+            "type": "RelatedTo",
+            "weight": 1
+        },
+        {
+            "source": "Post_2928",
+            "target": "Topic_8",
+            "type": "RelatedTo",
+            "weight": 1
+        },
+        {
+            "source": "Post_2928",
             "target": "Topic_9",
             "type": "RelatedTo",
             "weight": 1
