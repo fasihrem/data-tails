@@ -35,7 +35,7 @@ DataTails is a data analytics and visualization platform that uses advanced know
 ---
 
 ## Project Structure
-
+```plaintext
 DataTails/
 ├── src/
 │   ├── ontology/              # Ontology logic and knowledge graph generation
@@ -46,7 +46,7 @@ DataTails/
 ├── D3KG.json                  # JSON file containing nodes and links for visualization
 ├── index.html                 # Main HTML for visualization with D3.js
 └── README.md                  # Project documentation
-
+```
 ---
 
 ## Core Components
