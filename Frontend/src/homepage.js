@@ -18,6 +18,18 @@ function MyHome() {
         console.log("filter pressed")
     }
 
+    const cronSubmit = async (e) => {
+        e.preventDefault();
+
+        console.log("cronjob pressed")
+    }
+
+    const graphSubmit = async (e) => {
+        e.preventDefault();
+
+        console.log("viz pressed")
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (input.trim() === "") return; // Prevent empty submissions
@@ -51,10 +63,10 @@ function MyHome() {
                             <div className="filter-button" onClick={filterSubmit}>
                                 <img src={Filter} alt="filter logo"/>
                             </div>
-                            <div className="filter-button" onClick={filterSubmit}>
+                            <div className="filter-button" onClick={graphSubmit}>
                                 <img src={Graph} alt="filter logo"/>
                             </div>
-                            <div className="filter-button" onClick={filterSubmit}>
+                            <div className="filter-button" onClick={cronSubmit}>
                                 <img src={Settings} alt="filter logo"/>
                             </div>
                         </div>

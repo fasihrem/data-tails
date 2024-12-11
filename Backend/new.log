@@ -1,16 +1,7387 @@
-Traceback (most recent call last):
-  File "/home/fasih/FYP/data-tails/Backend/new.py", line 1, in <module>
-    import praw
-ModuleNotFoundError: No module named 'praw'
-Traceback (most recent call last):
-  File "/home/fasih/FYP/data-tails/Backend/new.py", line 1, in <module>
-    import praw
-ModuleNotFoundError: No module named 'praw'
-Traceback (most recent call last):
-  File "/home/fasih/FYP/data-tails/Backend/new.py", line 1, in <module>
-    import praw
-ModuleNotFoundError: No module named 'praw'
-Traceback (most recent call last):
-  File "/home/fasih/FYP/data-tails/Backend/new.py", line 1, in <module>
-    import praw
-ModuleNotFoundError: No module named 'praw'
+/usr/local/bin/python3 /Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py
+True
+in r/AskReddit
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  1
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  2
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  3
+records:  4
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  5
+records:  6
+records:  7
+records:  8
+records:  9
+records:  10
+records:  11
+records:  12
+records:  13
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  14
+records:  15
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  16
+records:  17
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  18
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  19
+records:  20
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  21
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  22
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  23
+records:  24
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  25
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  26
+records:  27
+records:  28
+records:  29
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  30
+records:  31
+records:  32
+records:  33
+records:  34
+records:  35
+records:  36
+records:  37
+records:  38
+records:  39
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  40
+records:  41
+dupe
+records:  42
+records:  43
+records:  44
+records:  45
+records:  46
+records:  47
+records:  48
+records:  49
+records:  50
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  51
+records:  52
+records:  53
+records:  54
+records:  55
+records:  56
+records:  57
+records:  58
+records:  59
+records:  60
+records:  61
+records:  62
+records:  63
+records:  64
+records:  65
+records:  66
+records:  67
+records:  68
+records:  69
+records:  70
+records:  71
+records:  72
+records:  73
+records:  74
+records:  75
+records:  76
+records:  77
+records:  78
+records:  79
+records:  80
+records:  81
+records:  82
+records:  83
+records:  84
+records:  85
+records:  86
+records:  87
+records:  88
+records:  89
+records:  90
+records:  91
+records:  92
+records:  93
+records:  94
+records:  95
+records:  96
+records:  97
+records:  98
+records:  99
+records:  100
+records:  101
+records:  102
+records:  103
+records:  104
+records:  105
+records:  106
+records:  107
+records:  108
+records:  109
+records:  110
+records:  111
+records:  112
+records:  113
+records:  114
+records:  115
+records:  116
+records:  117
+records:  118
+records:  119
+records:  120
+records:  121
+records:  122
+records:  123
+records:  124
+records:  125
+records:  126
+records:  127
+records:  128
+records:  129
+records:  130
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  131
+records:  132
+records:  133
+records:  134
+records:  135
+records:  136
+records:  137
+records:  138
+records:  139
+records:  140
+records:  141
+records:  142
+records:  143
+records:  144
+records:  145
+records:  146
+records:  147
+records:  148
+records:  149
+records:  150
+records:  151
+records:  152
+records:  153
+records:  154
+records:  155
+records:  156
+records:  157
+records:  158
+records:  159
+records:  160
+records:  161
+records:  162
+records:  163
+records:  164
+records:  165
+records:  166
+records:  167
+records:  168
+records:  169
+records:  170
+records:  171
+records:  172
+records:  173
+records:  174
+records:  175
+records:  176
+records:  177
+records:  178
+records:  179
+records:  180
+records:  181
+records:  182
+records:  183
+records:  184
+records:  185
+records:  186
+records:  187
+records:  188
+records:  189
+records:  190
+dupe
+records:  191
+records:  192
+records:  193
+records:  194
+records:  195
+records:  196
+records:  197
+records:  198
+records:  199
+records:  200
+records:  201
+records:  202
+records:  203
+records:  204
+records:  205
+records:  206
+records:  207
+records:  208
+records:  209
+records:  210
+records:  211
+records:  212
+records:  213
+records:  214
+records:  215
+records:  216
+records:  217
+records:  218
+records:  219
+records:  220
+records:  221
+records:  222
+records:  223
+records:  224
+records:  225
+records:  226
+records:  227
+records:  228
+records:  229
+records:  230
+records:  231
+records:  232
+records:  233
+records:  234
+records:  235
+records:  236
+records:  237
+records:  238
+records:  239
+records:  240
+records:  241
+records:  242
+records:  243
+records:  244
+records:  245
+records:  246
+records:  247
+records:  248
+records:  249
+records:  250
+records:  251
+records:  252
+records:  253
+records:  254
+records:  255
+records:  256
+records:  257
+records:  258
+records:  259
+records:  260
+records:  261
+records:  262
+records:  263
+records:  264
+records:  265
+records:  266
+records:  267
+records:  268
+records:  269
+records:  270
+records:  271
+records:  272
+records:  273
+records:  274
+records:  275
+records:  276
+records:  277
+records:  278
+records:  279
+records:  280
+records:  281
+records:  282
+records:  283
+records:  284
+dupe
+records:  285
+records:  286
+records:  287
+records:  288
+records:  289
+records:  290
+records:  291
+records:  292
+records:  293
+records:  294
+records:  295
+records:  296
+records:  297
+records:  298
+records:  299
+records:  300
+records:  301
+records:  302
+records:  303
+records:  304
+records:  305
+records:  306
+dupe
+records:  307
+records:  308
+records:  309
+records:  310
+records:  311
+records:  312
+records:  313
+records:  314
+records:  315
+records:  316
+records:  317
+records:  318
+records:  319
+records:  320
+records:  321
+records:  322
+records:  323
+records:  324
+records:  325
+records:  326
+records:  327
+records:  328
+records:  329
+records:  330
+records:  331
+records:  332
+records:  333
+records:  334
+records:  335
+records:  336
+records:  337
+records:  338
+records:  339
+records:  340
+records:  341
+records:  342
+records:  343
+records:  344
+records:  345
+records:  346
+records:  347
+records:  348
+records:  349
+records:  350
+records:  351
+records:  352
+records:  353
+records:  354
+records:  355
+records:  356
+records:  357
+records:  358
+records:  359
+records:  360
+records:  361
+records:  362
+records:  363
+records:  364
+records:  365
+records:  366
+records:  367
+records:  368
+records:  369
+records:  370
+records:  371
+records:  372
+records:  373
+records:  374
+records:  375
+records:  376
+records:  377
+records:  378
+records:  379
+records:  380
+records:  381
+records:  382
+records:  383
+records:  384
+records:  385
+records:  386
+records:  387
+records:  388
+records:  389
+records:  390
+records:  391
+records:  392
+records:  393
+records:  394
+records:  395
+records:  396
+records:  397
+records:  398
+records:  399
+records:  400
+records:  401
+records:  402
+records:  403
+records:  404
+records:  405
+records:  406
+records:  407
+records:  408
+records:  409
+records:  410
+records:  411
+records:  412
+records:  413
+records:  414
+records:  415
+records:  416
+records:  417
+records:  418
+records:  419
+records:  420
+records:  421
+records:  422
+records:  423
+records:  424
+records:  425
+records:  426
+records:  427
+records:  428
+records:  429
+records:  430
+records:  431
+records:  432
+records:  433
+records:  434
+records:  435
+records:  436
+records:  437
+records:  438
+records:  439
+records:  440
+dupe
+records:  441
+records:  442
+records:  443
+records:  444
+records:  445
+records:  446
+records:  447
+records:  448
+records:  449
+records:  450
+records:  451
+records:  452
+records:  453
+records:  454
+records:  455
+records:  456
+records:  457
+records:  458
+dupe
+records:  459
+records:  460
+records:  461
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  462
+records:  463
+records:  464
+records:  465
+records:  466
+records:  467
+records:  468
+records:  469
+records:  470
+records:  471
+records:  472
+records:  473
+records:  474
+records:  475
+records:  476
+records:  477
+records:  478
+records:  479
+records:  480
+records:  481
+records:  482
+records:  483
+records:  484
+records:  485
+records:  486
+records:  487
+records:  488
+records:  489
+records:  490
+records:  491
+records:  492
+records:  493
+records:  494
+records:  495
+records:  496
+records:  497
+records:  498
+records:  499
+records:  500
+records:  501
+records:  502
+records:  503
+records:  504
+records:  505
+records:  506
+records:  507
+records:  508
+records:  509
+records:  510
+records:  511
+records:  512
+records:  513
+records:  514
+records:  515
+records:  516
+records:  517
+records:  518
+records:  519
+records:  520
+records:  521
+records:  522
+records:  523
+records:  524
+records:  525
+records:  526
+records:  527
+records:  528
+records:  529
+records:  530
+records:  531
+records:  532
+records:  533
+records:  534
+records:  535
+records:  536
+records:  537
+records:  538
+records:  539
+records:  540
+records:  541
+records:  542
+records:  543
+records:  544
+records:  545
+records:  546
+records:  547
+records:  548
+records:  549
+records:  550
+records:  551
+records:  552
+records:  553
+records:  554
+records:  555
+records:  556
+records:  557
+records:  558
+records:  559
+records:  560
+records:  561
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+dupe
+records:  562
+records:  563
+records:  564
+records:  565
+records:  566
+records:  567
+records:  568
+records:  569
+dupe
+records:  570
+records:  571
+records:  572
+records:  573
+records:  574
+records:  575
+records:  576
+records:  577
+records:  578
+records:  579
+records:  580
+records:  581
+records:  582
+records:  583
+records:  584
+records:  585
+records:  586
+records:  587
+records:  588
+records:  589
+records:  590
+records:  591
+records:  592
+records:  593
+records:  594
+records:  595
+records:  596
+records:  597
+records:  598
+dupe
+records:  599
+records:  600
+records:  601
+records:  602
+records:  603
+records:  604
+records:  605
+records:  606
+records:  607
+records:  608
+dupe
+records:  609
+records:  610
+records:  611
+records:  612
+records:  613
+records:  614
+records:  615
+records:  616
+records:  617
+records:  618
+records:  619
+records:  620
+records:  621
+records:  622
+records:  623
+records:  624
+records:  625
+records:  626
+records:  627
+records:  628
+records:  629
+records:  630
+records:  631
+records:  632
+records:  633
+records:  634
+records:  635
+records:  636
+records:  637
+dupe
+records:  638
+records:  639
+records:  640
+records:  641
+records:  642
+records:  643
+records:  644
+records:  645
+records:  646
+records:  647
+records:  648
+records:  649
+records:  650
+records:  651
+dupe
+records:  652
+records:  653
+records:  654
+records:  655
+records:  656
+records:  657
+records:  658
+records:  659
+records:  660
+records:  661
+records:  662
+records:  663
+records:  664
+records:  665
+records:  666
+records:  667
+records:  668
+records:  669
+records:  670
+records:  671
+records:  672
+records:  673
+records:  674
+records:  675
+records:  676
+records:  677
+records:  678
+records:  679
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  680
+records:  681
+records:  682
+records:  683
+records:  684
+records:  685
+records:  686
+records:  687
+records:  688
+records:  689
+records:  690
+records:  691
+records:  692
+records:  693
+records:  694
+records:  695
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  696
+records:  697
+records:  698
+records:  699
+records:  700
+records:  701
+records:  702
+records:  703
+records:  704
+records:  705
+records:  706
+records:  707
+records:  708
+records:  709
+records:  710
+records:  711
+records:  712
+records:  713
+dupe
+records:  714
+records:  715
+records:  716
+records:  717
+records:  718
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  719
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  720
+records:  721
+records:  722
+records:  723
+records:  724
+records:  725
+records:  726
+records:  727
+records:  728
+records:  729
+records:  730
+records:  731
+records:  732
+records:  733
+records:  734
+records:  735
+records:  736
+records:  737
+records:  738
+records:  739
+records:  740
+records:  741
+records:  742
+records:  743
+records:  744
+records:  745
+records:  746
+records:  747
+records:  748
+records:  749
+records:  750
+records:  751
+records:  752
+records:  753
+records:  754
+records:  755
+records:  756
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  757
+records:  758
+records:  759
+records:  760
+records:  761
+records:  762
+records:  763
+records:  764
+records:  765
+records:  766
+records:  767
+records:  768
+records:  769
+records:  770
+records:  771
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  772
+records:  773
+records:  774
+records:  775
+records:  776
+records:  777
+records:  778
+records:  779
+records:  780
+records:  781
+records:  782
+records:  783
+records:  784
+done with r/AskReddit and csv saved
+in r/Damnthatsinteresting
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+records:  1
+records:  2
+records:  3
+records:  4
+records:  5
+records:  6
+records:  7
+records:  8
+records:  9
+records:  10
+records:  11
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  12
+records:  13
+records:  14
+records:  15
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  16
+records:  17
+records:  18
+records:  19
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  20
+records:  21
+records:  22
+records:  23
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  24
+records:  25
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  26
+records:  27
+records:  28
+records:  29
+records:  30
+records:  31
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  32
+records:  33
+records:  34
+records:  35
+records:  36
+records:  37
+records:  38
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  39
+records:  40
+records:  41
+records:  42
+records:  43
+records:  44
+records:  45
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  46
+records:  47
+records:  48
+records:  49
+records:  50
+records:  51
+records:  52
+records:  53
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  54
+records:  55
+records:  56
+records:  57
+records:  58
+records:  59
+records:  60
+records:  61
+records:  62
+records:  63
+records:  64
+records:  65
+records:  66
+records:  67
+records:  68
+records:  69
+records:  70
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  71
+records:  72
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  73
+records:  74
+records:  75
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  76
+records:  77
+records:  78
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  79
+records:  80
+records:  81
+records:  82
+records:  83
+records:  84
+records:  85
+records:  86
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  87
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  88
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  89
+records:  90
+records:  91
+records:  92
+records:  93
+records:  94
+records:  95
+records:  96
+records:  97
+records:  98
+records:  99
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  100
+records:  101
+records:  102
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  103
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  104
+records:  105
+records:  106
+records:  107
+records:  108
+records:  109
+records:  110
+records:  111
+records:  112
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  113
+records:  114
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  115
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  116
+records:  117
+records:  118
+records:  119
+records:  120
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  121
+records:  122
+records:  123
+records:  124
+records:  125
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  126
+records:  127
+records:  128
+records:  129
+records:  130
+records:  131
+records:  132
+records:  133
+records:  134
+records:  135
+records:  136
+records:  137
+records:  138
+records:  139
+records:  140
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  141
+records:  142
+records:  143
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  144
+records:  145
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  146
+records:  147
+records:  148
+records:  149
+records:  150
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  151
+records:  152
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  153
+records:  154
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  155
+records:  156
+records:  157
+records:  158
+records:  159
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  160
+records:  161
+records:  162
+records:  163
+records:  164
+records:  165
+records:  166
+records:  167
+records:  168
+records:  169
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  170
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  171
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  172
+records:  173
+records:  174
+records:  175
+records:  176
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  177
+records:  178
+records:  179
+records:  180
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  181
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  182
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  183
+records:  184
+records:  185
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  186
+records:  187
+records:  188
+records:  189
+records:  190
+records:  191
+records:  192
+records:  193
+records:  194
+records:  195
+records:  196
+records:  197
+records:  198
+records:  199
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  200
+records:  201
+records:  202
+records:  203
+records:  204
+records:  205
+records:  206
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  207
+records:  208
+records:  209
+records:  210
+records:  211
+records:  212
+records:  213
+records:  214
+records:  215
+records:  216
+records:  217
+records:  218
+records:  219
+records:  220
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  221
+records:  222
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  223
+records:  224
+records:  225
+records:  226
+records:  227
+records:  228
+records:  229
+records:  230
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  231
+records:  232
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  233
+records:  234
+records:  235
+records:  236
+records:  237
+records:  238
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  239
+records:  240
+records:  241
+records:  242
+records:  243
+records:  244
+records:  245
+records:  246
+records:  247
+records:  248
+records:  249
+records:  250
+records:  251
+records:  252
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  253
+records:  254
+records:  255
+records:  256
+records:  257
+records:  258
+records:  259
+records:  260
+records:  261
+records:  262
+records:  263
+records:  264
+records:  265
+records:  266
+records:  267
+records:  268
+records:  269
+records:  270
+records:  271
+records:  272
+records:  273
+records:  274
+records:  275
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  276
+records:  277
+records:  278
+records:  279
+records:  280
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  281
+records:  282
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  283
+records:  284
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  285
+records:  286
+records:  287
+records:  288
+records:  289
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  290
+records:  291
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  292
+records:  293
+records:  294
+records:  295
+records:  296
+records:  297
+records:  298
+records:  299
+records:  300
+records:  301
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  302
+records:  303
+records:  304
+records:  305
+records:  306
+records:  307
+records:  308
+records:  309
+records:  310
+records:  311
+records:  312
+records:  313
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  314
+records:  315
+records:  316
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  317
+records:  318
+records:  319
+records:  320
+records:  321
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  322
+records:  323
+records:  324
+records:  325
+records:  326
+records:  327
+records:  328
+records:  329
+records:  330
+records:  331
+records:  332
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  333
+records:  334
+records:  335
+records:  336
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  337
+records:  338
+records:  339
+records:  340
+records:  341
+records:  342
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  343
+records:  344
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  345
+records:  346
+records:  347
+records:  348
+records:  349
+records:  350
+records:  351
+records:  352
+records:  353
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  354
+records:  355
+records:  356
+records:  357
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  358
+records:  359
+records:  360
+records:  361
+records:  362
+records:  363
+records:  364
+records:  365
+records:  366
+records:  367
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  368
+records:  369
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  370
+records:  371
+records:  372
+records:  373
+records:  374
+records:  375
+records:  376
+records:  377
+records:  378
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  379
+records:  380
+records:  381
+records:  382
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  383
+records:  384
+records:  385
+records:  386
+records:  387
+records:  388
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  389
+records:  390
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  391
+records:  392
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  393
+records:  394
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  395
+records:  396
+records:  397
+records:  398
+records:  399
+records:  400
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  401
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  402
+records:  403
+records:  404
+records:  405
+records:  406
+records:  407
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  408
+records:  409
+records:  410
+records:  411
+records:  412
+records:  413
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  414
+records:  415
+records:  416
+records:  417
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  418
+records:  419
+records:  420
+records:  421
+records:  422
+records:  423
+records:  424
+records:  425
+records:  426
+records:  427
+records:  428
+records:  429
+records:  430
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  431
+records:  432
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  433
+records:  434
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  435
+records:  436
+records:  437
+records:  438
+records:  439
+records:  440
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  441
+records:  442
+records:  443
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  444
+records:  445
+records:  446
+records:  447
+records:  448
+records:  449
+records:  450
+records:  451
+records:  452
+records:  453
+records:  454
+records:  455
+records:  456
+records:  457
+done with r/Damnthatsinteresting and csv saved
+in r/Music
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  1
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+records:  2
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  3
+records:  4
+records:  5
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  6
+records:  7
+records:  8
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  9
+records:  10
+records:  11
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  12
+records:  13
+records:  14
+records:  15
+records:  16
+records:  17
+records:  18
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  19
+records:  20
+records:  21
+records:  22
+records:  23
+records:  24
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  25
+records:  26
+records:  27
+records:  28
+records:  29
+records:  30
+records:  31
+records:  32
+records:  33
+records:  34
+records:  35
+records:  36
+records:  37
+records:  38
+records:  39
+records:  40
+records:  41
+records:  42
+records:  43
+records:  44
+records:  45
+records:  46
+records:  47
+records:  48
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  49
+records:  50
+records:  51
+records:  52
+records:  53
+records:  54
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  55
+records:  56
+records:  57
+records:  58
+records:  59
+records:  60
+records:  61
+records:  62
+records:  63
+records:  64
+records:  65
+records:  66
+records:  67
+records:  68
+records:  69
+records:  70
+records:  71
+records:  72
+records:  73
+records:  74
+records:  75
+records:  76
+records:  77
+records:  78
+records:  79
+records:  80
+records:  81
+records:  82
+records:  83
+records:  84
+records:  85
+records:  86
+records:  87
+records:  88
+records:  89
+records:  90
+records:  91
+records:  92
+records:  93
+records:  94
+records:  95
+records:  96
+records:  97
+records:  98
+records:  99
+records:  100
+records:  101
+records:  102
+records:  103
+records:  104
+records:  105
+records:  106
+dupe
+records:  107
+records:  108
+records:  109
+records:  110
+records:  111
+records:  112
+records:  113
+records:  114
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  115
+records:  116
+records:  117
+records:  118
+records:  119
+records:  120
+records:  121
+records:  122
+records:  123
+records:  124
+records:  125
+records:  126
+records:  127
+records:  128
+records:  129
+records:  130
+records:  131
+records:  132
+records:  133
+records:  134
+records:  135
+records:  136
+records:  137
+records:  138
+records:  139
+records:  140
+records:  141
+records:  142
+records:  143
+records:  144
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  145
+records:  146
+records:  147
+records:  148
+records:  149
+records:  150
+records:  151
+records:  152
+records:  153
+records:  154
+records:  155
+records:  156
+records:  157
+records:  158
+records:  159
+records:  160
+records:  161
+records:  162
+records:  163
+records:  164
+records:  165
+records:  166
+records:  167
+records:  168
+records:  169
+records:  170
+records:  171
+records:  172
+records:  173
+records:  174
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  175
+records:  176
+records:  177
+records:  178
+records:  179
+records:  180
+records:  181
+records:  182
+records:  183
+records:  184
+records:  185
+records:  186
+records:  187
+records:  188
+records:  189
+records:  190
+records:  191
+records:  192
+records:  193
+records:  194
+records:  195
+records:  196
+records:  197
+records:  198
+records:  199
+records:  200
+records:  201
+records:  202
+records:  203
+records:  204
+records:  205
+records:  206
+records:  207
+records:  208
+records:  209
+records:  210
+records:  211
+records:  212
+records:  213
+records:  214
+records:  215
+records:  216
+records:  217
+records:  218
+records:  219
+records:  220
+records:  221
+records:  222
+records:  223
+records:  224
+records:  225
+records:  226
+records:  227
+records:  228
+records:  229
+records:  230
+records:  231
+records:  232
+records:  233
+records:  234
+records:  235
+records:  236
+records:  237
+records:  238
+records:  239
+records:  240
+records:  241
+records:  242
+records:  243
+records:  244
+records:  245
+records:  246
+records:  247
+records:  248
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  249
+records:  250
+records:  251
+records:  252
+records:  253
+records:  254
+records:  255
+records:  256
+records:  257
+records:  258
+records:  259
+records:  260
+records:  261
+records:  262
+records:  263
+records:  264
+records:  265
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  266
+records:  267
+records:  268
+records:  269
+records:  270
+records:  271
+records:  272
+records:  273
+records:  274
+records:  275
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  276
+records:  277
+records:  278
+records:  279
+records:  280
+records:  281
+records:  282
+records:  283
+records:  284
+records:  285
+records:  286
+records:  287
+records:  288
+records:  289
+records:  290
+records:  291
+records:  292
+records:  293
+records:  294
+records:  295
+records:  296
+records:  297
+records:  298
+records:  299
+records:  300
+records:  301
+records:  302
+records:  303
+records:  304
+records:  305
+records:  306
+records:  307
+records:  308
+records:  309
+records:  310
+records:  311
+records:  312
+records:  313
+records:  314
+records:  315
+records:  316
+records:  317
+records:  318
+records:  319
+records:  320
+records:  321
+records:  322
+records:  323
+records:  324
+records:  325
+records:  326
+records:  327
+records:  328
+records:  329
+records:  330
+records:  331
+records:  332
+records:  333
+records:  334
+records:  335
+records:  336
+records:  337
+records:  338
+records:  339
+records:  340
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  341
+records:  342
+records:  343
+records:  344
+records:  345
+records:  346
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  347
+records:  348
+records:  349
+records:  350
+records:  351
+records:  352
+records:  353
+records:  354
+records:  355
+records:  356
+records:  357
+records:  358
+records:  359
+records:  360
+records:  361
+records:  362
+records:  363
+records:  364
+records:  365
+records:  366
+records:  367
+records:  368
+records:  369
+records:  370
+records:  371
+records:  372
+records:  373
+records:  374
+records:  375
+records:  376
+records:  377
+records:  378
+records:  379
+records:  380
+records:  381
+records:  382
+records:  383
+records:  384
+records:  385
+records:  386
+records:  387
+records:  388
+records:  389
+records:  390
+records:  391
+records:  392
+records:  393
+records:  394
+records:  395
+records:  396
+records:  397
+records:  398
+records:  399
+records:  400
+records:  401
+records:  402
+records:  403
+records:  404
+records:  405
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  406
+records:  407
+records:  408
+records:  409
+records:  410
+records:  411
+records:  412
+records:  413
+records:  414
+records:  415
+records:  416
+records:  417
+records:  418
+records:  419
+records:  420
+records:  421
+records:  422
+records:  423
+records:  424
+records:  425
+records:  426
+records:  427
+records:  428
+records:  429
+records:  430
+records:  431
+records:  432
+dupe
+records:  433
+records:  434
+records:  435
+records:  436
+records:  437
+records:  438
+records:  439
+records:  440
+records:  441
+records:  442
+records:  443
+records:  444
+records:  445
+records:  446
+records:  447
+records:  448
+records:  449
+records:  450
+records:  451
+records:  452
+records:  453
+records:  454
+records:  455
+records:  456
+records:  457
+records:  458
+records:  459
+records:  460
+records:  461
+records:  462
+records:  463
+records:  464
+records:  465
+records:  466
+records:  467
+records:  468
+records:  469
+records:  470
+records:  471
+records:  472
+records:  473
+records:  474
+records:  475
+records:  476
+records:  477
+records:  478
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  479
+records:  480
+records:  481
+records:  482
+records:  483
+records:  484
+records:  485
+records:  486
+records:  487
+records:  488
+records:  489
+records:  490
+records:  491
+records:  492
+records:  493
+records:  494
+records:  495
+records:  496
+records:  497
+records:  498
+records:  499
+records:  500
+records:  501
+records:  502
+records:  503
+records:  504
+records:  505
+records:  506
+records:  507
+dupe
+records:  508
+records:  509
+records:  510
+records:  511
+records:  512
+records:  513
+records:  514
+records:  515
+records:  516
+records:  517
+records:  518
+records:  519
+records:  520
+records:  521
+records:  522
+records:  523
+records:  524
+records:  525
+records:  526
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  527
+records:  528
+records:  529
+records:  530
+records:  531
+records:  532
+records:  533
+records:  534
+records:  535
+records:  536
+records:  537
+records:  538
+records:  539
+records:  540
+records:  541
+records:  542
+records:  543
+records:  544
+records:  545
+records:  546
+records:  547
+records:  548
+records:  549
+records:  550
+records:  551
+records:  552
+records:  553
+records:  554
+records:  555
+records:  556
+records:  557
+records:  558
+records:  559
+records:  560
+records:  561
+records:  562
+records:  563
+records:  564
+records:  565
+records:  566
+records:  567
+records:  568
+records:  569
+records:  570
+records:  571
+records:  572
+records:  573
+records:  574
+records:  575
+records:  576
+records:  577
+records:  578
+records:  579
+records:  580
+records:  581
+records:  582
+records:  583
+records:  584
+records:  585
+records:  586
+records:  587
+records:  588
+records:  589
+records:  590
+records:  591
+records:  592
+records:  593
+records:  594
+records:  595
+records:  596
+records:  597
+dupe
+records:  598
+records:  599
+records:  600
+records:  601
+records:  602
+records:  603
+records:  604
+records:  605
+records:  606
+records:  607
+records:  608
+records:  609
+records:  610
+records:  611
+records:  612
+records:  613
+records:  614
+records:  615
+records:  616
+records:  617
+records:  618
+records:  619
+records:  620
+records:  621
+records:  622
+records:  623
+records:  624
+records:  625
+records:  626
+dupe
+records:  627
+records:  628
+records:  629
+done with r/Music and csv saved
+in r/mildlyinteresting
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  1
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+records:  2
+records:  3
+records:  4
+records:  5
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  6
+records:  7
+records:  8
+records:  9
+records:  10
+records:  11
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  12
+records:  13
+records:  14
+records:  15
+records:  16
+records:  17
+records:  18
+records:  19
+records:  20
+records:  21
+records:  22
+records:  23
+records:  24
+records:  25
+records:  26
+records:  27
+records:  28
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  29
+records:  30
+records:  31
+records:  32
+records:  33
+records:  34
+records:  35
+records:  36
+records:  37
+records:  38
+records:  39
+records:  40
+records:  41
+records:  42
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  43
+records:  44
+records:  45
+records:  46
+records:  47
+records:  48
+records:  49
+records:  50
+records:  51
+records:  52
+records:  53
+records:  54
+records:  55
+records:  56
+records:  57
+records:  58
+records:  59
+records:  60
+records:  61
+records:  62
+records:  63
+records:  64
+records:  65
+records:  66
+records:  67
+records:  68
+records:  69
+records:  70
+records:  71
+records:  72
+records:  73
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  74
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  75
+records:  76
+records:  77
+records:  78
+records:  79
+records:  80
+records:  81
+records:  82
+records:  83
+records:  84
+records:  85
+records:  86
+records:  87
+records:  88
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  89
+records:  90
+records:  91
+records:  92
+records:  93
+records:  94
+records:  95
+records:  96
+records:  97
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  98
+records:  99
+records:  100
+records:  101
+records:  102
+records:  103
+records:  104
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  105
+records:  106
+records:  107
+records:  108
+records:  109
+records:  110
+records:  111
+records:  112
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  113
+records:  114
+records:  115
+records:  116
+records:  117
+records:  118
+records:  119
+records:  120
+records:  121
+records:  122
+records:  123
+records:  124
+records:  125
+records:  126
+records:  127
+records:  128
+records:  129
+records:  130
+records:  131
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  132
+records:  133
+records:  134
+records:  135
+records:  136
+records:  137
+records:  138
+records:  139
+records:  140
+records:  141
+records:  142
+records:  143
+records:  144
+records:  145
+records:  146
+records:  147
+records:  148
+records:  149
+records:  150
+records:  151
+records:  152
+records:  153
+records:  154
+records:  155
+records:  156
+records:  157
+records:  158
+records:  159
+records:  160
+records:  161
+records:  162
+records:  163
+records:  164
+records:  165
+records:  166
+records:  167
+records:  168
+records:  169
+records:  170
+records:  171
+records:  172
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  173
+records:  174
+records:  175
+records:  176
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  177
+records:  178
+records:  179
+records:  180
+records:  181
+records:  182
+records:  183
+records:  184
+records:  185
+records:  186
+records:  187
+records:  188
+records:  189
+records:  190
+records:  191
+records:  192
+records:  193
+records:  194
+records:  195
+records:  196
+records:  197
+records:  198
+records:  199
+records:  200
+records:  201
+records:  202
+records:  203
+records:  204
+records:  205
+records:  206
+records:  207
+records:  208
+records:  209
+records:  210
+records:  211
+records:  212
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  213
+records:  214
+records:  215
+records:  216
+records:  217
+records:  218
+records:  219
+records:  220
+records:  221
+records:  222
+records:  223
+records:  224
+records:  225
+records:  226
+records:  227
+records:  228
+records:  229
+records:  230
+records:  231
+records:  232
+records:  233
+records:  234
+records:  235
+records:  236
+records:  237
+records:  238
+records:  239
+records:  240
+records:  241
+records:  242
+records:  243
+records:  244
+records:  245
+records:  246
+records:  247
+records:  248
+records:  249
+records:  250
+records:  251
+records:  252
+records:  253
+records:  254
+records:  255
+records:  256
+records:  257
+records:  258
+records:  259
+records:  260
+records:  261
+records:  262
+records:  263
+records:  264
+records:  265
+records:  266
+records:  267
+records:  268
+records:  269
+records:  270
+records:  271
+records:  272
+records:  273
+records:  274
+records:  275
+records:  276
+records:  277
+records:  278
+records:  279
+records:  280
+records:  281
+records:  282
+records:  283
+records:  284
+records:  285
+records:  286
+records:  287
+records:  288
+records:  289
+records:  290
+records:  291
+records:  292
+records:  293
+records:  294
+records:  295
+records:  296
+records:  297
+records:  298
+records:  299
+records:  300
+records:  301
+records:  302
+records:  303
+records:  304
+records:  305
+records:  306
+records:  307
+records:  308
+records:  309
+records:  310
+records:  311
+records:  312
+records:  313
+records:  314
+records:  315
+records:  316
+records:  317
+records:  318
+records:  319
+records:  320
+records:  321
+records:  322
+records:  323
+records:  324
+records:  325
+records:  326
+records:  327
+records:  328
+records:  329
+records:  330
+records:  331
+records:  332
+records:  333
+records:  334
+records:  335
+records:  336
+records:  337
+records:  338
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  339
+records:  340
+records:  341
+records:  342
+records:  343
+records:  344
+records:  345
+records:  346
+records:  347
+records:  348
+records:  349
+records:  350
+records:  351
+records:  352
+records:  353
+records:  354
+records:  355
+records:  356
+records:  357
+records:  358
+records:  359
+records:  360
+records:  361
+records:  362
+records:  363
+records:  364
+records:  365
+records:  366
+records:  367
+records:  368
+records:  369
+records:  370
+records:  371
+records:  372
+records:  373
+records:  374
+records:  375
+records:  376
+records:  377
+records:  378
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  379
+records:  380
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  381
+records:  382
+records:  383
+records:  384
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  385
+records:  386
+records:  387
+records:  388
+records:  389
+records:  390
+records:  391
+records:  392
+records:  393
+records:  394
+records:  395
+records:  396
+records:  397
+records:  398
+records:  399
+records:  400
+records:  401
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  402
+records:  403
+records:  404
+records:  405
+records:  406
+records:  407
+records:  408
+records:  409
+records:  410
+records:  411
+records:  412
+records:  413
+records:  414
+records:  415
+records:  416
+records:  417
+records:  418
+records:  419
+records:  420
+records:  421
+records:  422
+records:  423
+records:  424
+records:  425
+records:  426
+records:  427
+records:  428
+records:  429
+records:  430
+records:  431
+records:  432
+records:  433
+records:  434
+records:  435
+records:  436
+records:  437
+records:  438
+records:  439
+records:  440
+records:  441
+records:  442
+records:  443
+records:  444
+records:  445
+records:  446
+records:  447
+records:  448
+records:  449
+records:  450
+records:  451
+records:  452
+records:  453
+records:  454
+records:  455
+records:  456
+records:  457
+records:  458
+records:  459
+records:  460
+records:  461
+records:  462
+records:  463
+records:  464
+records:  465
+records:  466
+records:  467
+records:  468
+records:  469
+records:  470
+records:  471
+records:  472
+records:  473
+records:  474
+records:  475
+records:  476
+records:  477
+records:  478
+records:  479
+records:  480
+records:  481
+records:  482
+records:  483
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  484
+records:  485
+records:  486
+records:  487
+records:  488
+records:  489
+records:  490
+records:  491
+records:  492
+records:  493
+records:  494
+records:  495
+records:  496
+records:  497
+records:  498
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  499
+records:  500
+records:  501
+records:  502
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  503
+records:  504
+records:  505
+records:  506
+records:  507
+records:  508
+records:  509
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  510
+records:  511
+records:  512
+records:  513
+records:  514
+records:  515
+records:  516
+records:  517
+records:  518
+records:  519
+records:  520
+records:  521
+records:  522
+records:  523
+records:  524
+records:  525
+records:  526
+records:  527
+records:  528
+records:  529
+records:  530
+records:  531
+records:  532
+records:  533
+records:  534
+records:  535
+records:  536
+records:  537
+records:  538
+records:  539
+records:  540
+records:  541
+records:  542
+records:  543
+records:  544
+records:  545
+records:  546
+records:  547
+records:  548
+records:  549
+records:  550
+records:  551
+records:  552
+records:  553
+records:  554
+records:  555
+records:  556
+records:  557
+records:  558
+records:  559
+records:  560
+records:  561
+records:  562
+records:  563
+records:  564
+records:  565
+records:  566
+records:  567
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  568
+records:  569
+records:  570
+records:  571
+records:  572
+records:  573
+records:  574
+records:  575
+records:  576
+records:  577
+records:  578
+records:  579
+records:  580
+records:  581
+records:  582
+records:  583
+records:  584
+records:  585
+records:  586
+records:  587
+records:  588
+records:  589
+records:  590
+records:  591
+records:  592
+records:  593
+records:  594
+records:  595
+records:  596
+records:  597
+records:  598
+records:  599
+records:  600
+records:  601
+records:  602
+records:  603
+records:  604
+records:  605
+records:  606
+records:  607
+records:  608
+records:  609
+records:  610
+records:  611
+records:  612
+records:  613
+records:  614
+records:  615
+records:  616
+records:  617
+records:  618
+records:  619
+records:  620
+records:  621
+records:  622
+records:  623
+records:  624
+records:  625
+records:  626
+records:  627
+records:  628
+records:  629
+records:  630
+records:  631
+records:  632
+records:  633
+records:  634
+records:  635
+records:  636
+records:  637
+records:  638
+records:  639
+records:  640
+records:  641
+records:  642
+records:  643
+records:  644
+records:  645
+records:  646
+records:  647
+records:  648
+records:  649
+records:  650
+records:  651
+records:  652
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  653
+records:  654
+records:  655
+records:  656
+records:  657
+records:  658
+records:  659
+records:  660
+records:  661
+records:  662
+records:  663
+records:  664
+records:  665
+records:  666
+records:  667
+records:  668
+records:  669
+records:  670
+records:  671
+records:  672
+records:  673
+records:  674
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  675
+records:  676
+records:  677
+records:  678
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  679
+records:  680
+records:  681
+records:  682
+records:  683
+records:  684
+records:  685
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  686
+done with r/mildlyinteresting and csv saved
+in r/news
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+records:  1
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  2
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  3
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  4
+records:  5
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  6
+records:  7
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  8
+records:  9
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  10
+records:  11
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  12
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  13
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  14
+records:  15
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  16
+records:  17
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  18
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  19
+records:  20
+records:  21
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  22
+records:  23
+records:  24
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  25
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  26
+records:  27
+records:  28
+records:  29
+records:  30
+records:  31
+records:  32
+records:  33
+records:  34
+records:  35
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  36
+records:  37
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  38
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  39
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  40
+records:  41
+records:  42
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  43
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  44
+records:  45
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  46
+records:  47
+records:  48
+records:  49
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  50
+records:  51
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  52
+records:  53
+records:  54
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  55
+records:  56
+records:  57
+records:  58
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  59
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  60
+records:  61
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  62
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  63
+records:  64
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  65
+records:  66
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  67
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  68
+records:  69
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  70
+records:  71
+records:  72
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  73
+records:  74
+records:  75
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  76
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  77
+records:  78
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  79
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  80
+records:  81
+records:  82
+records:  83
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  84
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  85
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  86
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  87
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  88
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  89
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  90
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  91
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  92
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  93
+records:  94
+records:  95
+records:  96
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  97
+records:  98
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  99
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  100
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  101
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  102
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  103
+records:  104
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  105
+records:  106
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  107
+records:  108
+records:  109
+records:  110
+records:  111
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  112
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  113
+records:  114
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  115
+records:  116
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  117
+records:  118
+records:  119
+records:  120
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  121
+records:  122
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  123
+records:  124
+records:  125
+records:  126
+records:  127
+records:  128
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  129
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  130
+records:  131
+records:  132
+records:  133
+records:  134
+records:  135
+records:  136
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  137
+records:  138
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  139
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  140
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  141
+records:  142
+records:  143
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  144
+records:  145
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  146
+records:  147
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  148
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  149
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  150
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  151
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  152
+records:  153
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  154
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  155
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  156
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  157
+records:  158
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  159
+records:  160
+records:  161
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  162
+records:  163
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  164
+done with r/news and csv saved
+in r/showerthoughts
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  1
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+records:  2
+records:  3
+records:  4
+records:  5
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  6
+records:  7
+records:  8
+records:  9
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  10
+records:  11
+records:  12
+records:  13
+records:  14
+records:  15
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  16
+records:  17
+records:  18
+records:  19
+records:  20
+records:  21
+records:  22
+records:  23
+records:  24
+records:  25
+records:  26
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  27
+records:  28
+records:  29
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  30
+records:  31
+records:  32
+records:  33
+records:  34
+records:  35
+records:  36
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  37
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  38
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  39
+records:  40
+records:  41
+records:  42
+records:  43
+done with r/showerthoughts and csv saved
+in r/todayilearned
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  1
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+records:  2
+records:  3
+records:  4
+records:  5
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  6
+records:  7
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  8
+records:  9
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  10
+records:  11
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  12
+records:  13
+records:  14
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  15
+records:  16
+records:  17
+records:  18
+records:  19
+records:  20
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  21
+records:  22
+records:  23
+records:  24
+records:  25
+records:  26
+records:  27
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  28
+records:  29
+records:  30
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  31
+records:  32
+records:  33
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  34
+records:  35
+records:  36
+records:  37
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  38
+records:  39
+records:  40
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  41
+records:  42
+records:  43
+records:  44
+records:  45
+records:  46
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  47
+records:  48
+records:  49
+records:  50
+records:  51
+records:  52
+records:  53
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  54
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  55
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  56
+records:  57
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  58
+records:  59
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  60
+records:  61
+records:  62
+records:  63
+records:  64
+records:  65
+records:  66
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  67
+records:  68
+records:  69
+records:  70
+records:  71
+records:  72
+records:  73
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  74
+records:  75
+records:  76
+records:  77
+records:  78
+records:  79
+records:  80
+records:  81
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  82
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  83
+records:  84
+records:  85
+records:  86
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  87
+records:  88
+records:  89
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  90
+records:  91
+records:  92
+records:  93
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  94
+records:  95
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  96
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  97
+records:  98
+records:  99
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  100
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  101
+records:  102
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  103
+records:  104
+records:  105
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  106
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  107
+records:  108
+records:  109
+records:  110
+records:  111
+records:  112
+records:  113
+records:  114
+records:  115
+records:  116
+records:  117
+records:  118
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  119
+records:  120
+records:  121
+records:  122
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  123
+records:  124
+records:  125
+records:  126
+records:  127
+records:  128
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  129
+records:  130
+records:  131
+records:  132
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  133
+records:  134
+records:  135
+records:  136
+records:  137
+records:  138
+records:  139
+records:  140
+records:  141
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  142
+records:  143
+records:  144
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  145
+records:  146
+records:  147
+records:  148
+records:  149
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  150
+records:  151
+records:  152
+records:  153
+records:  154
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  155
+records:  156
+records:  157
+records:  158
+records:  159
+records:  160
+records:  161
+records:  162
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  163
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  164
+records:  165
+records:  166
+records:  167
+records:  168
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  169
+records:  170
+records:  171
+records:  172
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  173
+records:  174
+records:  175
+records:  176
+records:  177
+records:  178
+records:  179
+records:  180
+records:  181
+records:  182
+records:  183
+records:  184
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  185
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  186
+records:  187
+records:  188
+records:  189
+records:  190
+records:  191
+records:  192
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  193
+records:  194
+records:  195
+records:  196
+records:  197
+records:  198
+records:  199
+records:  200
+records:  201
+records:  202
+records:  203
+records:  204
+records:  205
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  206
+records:  207
+records:  208
+records:  209
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  210
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  211
+records:  212
+records:  213
+records:  214
+records:  215
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  216
+records:  217
+records:  218
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  219
+records:  220
+records:  221
+records:  222
+records:  223
+records:  224
+records:  225
+records:  226
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  227
+records:  228
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  229
+records:  230
+records:  231
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  232
+records:  233
+records:  234
+records:  235
+records:  236
+records:  237
+records:  238
+records:  239
+records:  240
+records:  241
+records:  242
+records:  243
+records:  244
+records:  245
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  246
+records:  247
+records:  248
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  249
+records:  250
+records:  251
+records:  252
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  253
+records:  254
+records:  255
+records:  256
+records:  257
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  258
+records:  259
+records:  260
+records:  261
+records:  262
+records:  263
+records:  264
+records:  265
+records:  266
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  267
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  268
+records:  269
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  270
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  271
+records:  272
+records:  273
+records:  274
+records:  275
+records:  276
+records:  277
+records:  278
+records:  279
+records:  280
+records:  281
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  282
+records:  283
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  284
+records:  285
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  286
+records:  287
+records:  288
+records:  289
+records:  290
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  291
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  292
+records:  293
+records:  294
+records:  295
+records:  296
+records:  297
+records:  298
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  299
+records:  300
+records:  301
+records:  302
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  303
+records:  304
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  305
+records:  306
+records:  307
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  308
+records:  309
+records:  310
+records:  311
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  312
+records:  313
+records:  314
+records:  315
+records:  316
+records:  317
+records:  318
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  319
+records:  320
+records:  321
+records:  322
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  323
+records:  324
+records:  325
+records:  326
+records:  327
+records:  328
+records:  329
+records:  330
+records:  331
+records:  332
+records:  333
+records:  334
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  335
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  336
+records:  337
+records:  338
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  339
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  340
+records:  341
+records:  342
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  343
+records:  344
+records:  345
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  346
+records:  347
+records:  348
+records:  349
+records:  350
+records:  351
+records:  352
+records:  353
+records:  354
+records:  355
+records:  356
+records:  357
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  358
+records:  359
+records:  360
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  361
+records:  362
+records:  363
+records:  364
+records:  365
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  366
+records:  367
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  368
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  369
+records:  370
+records:  371
+records:  372
+records:  373
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  374
+records:  375
+records:  376
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  377
+records:  378
+records:  379
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  380
+records:  381
+records:  382
+records:  383
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  384
+records:  385
+records:  386
+records:  387
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  388
+records:  389
+records:  390
+records:  391
+records:  392
+records:  393
+records:  394
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  395
+records:  396
+records:  397
+records:  398
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  399
+records:  400
+records:  401
+records:  402
+records:  403
+records:  404
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  405
+records:  406
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  407
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  408
+records:  409
+records:  410
+records:  411
+records:  412
+records:  413
+records:  414
+records:  415
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  416
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  417
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  418
+records:  419
+records:  420
+records:  421
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  422
+records:  423
+records:  424
+records:  425
+records:  426
+records:  427
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  428
+records:  429
+records:  430
+records:  431
+records:  432
+records:  433
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  434
+records:  435
+records:  436
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  437
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  438
+records:  439
+records:  440
+records:  441
+records:  442
+records:  443
+records:  444
+records:  445
+records:  446
+records:  447
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  448
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  449
+records:  450
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  451
+records:  452
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  453
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  454
+records:  455
+records:  456
+records:  457
+records:  458
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  459
+records:  460
+records:  461
+records:  462
+records:  463
+records:  464
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  465
+records:  466
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  467
+records:  468
+records:  469
+records:  470
+records:  471
+records:  472
+records:  473
+records:  474
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  475
+records:  476
+records:  477
+records:  478
+records:  479
+records:  480
+records:  481
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  482
+records:  483
+done with r/todayilearned and csv saved
+in r/wallstreetbets
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  1
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  2
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  3
+records:  4
+records:  5
+records:  6
+records:  7
+records:  8
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  9
+records:  10
+records:  11
+records:  12
+records:  13
+records:  14
+records:  15
+records:  16
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  17
+records:  18
+records:  19
+records:  20
+records:  21
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  22
+records:  23
+records:  24
+records:  25
+records:  26
+records:  27
+records:  28
+records:  29
+records:  30
+records:  31
+records:  32
+records:  33
+records:  34
+records:  35
+records:  36
+records:  37
+records:  38
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  39
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  40
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  41
+records:  42
+records:  43
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  44
+records:  45
+records:  46
+records:  47
+records:  48
+records:  49
+records:  50
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  51
+records:  52
+records:  53
+records:  54
+records:  55
+records:  56
+records:  57
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  58
+records:  59
+records:  60
+records:  61
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  62
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  63
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  64
+records:  65
+records:  66
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  67
+records:  68
+records:  69
+records:  70
+records:  71
+records:  72
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  73
+records:  74
+records:  75
+records:  76
+records:  77
+records:  78
+records:  79
+records:  80
+records:  81
+records:  82
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  83
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  84
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  85
+records:  86
+records:  87
+records:  88
+records:  89
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  90
+records:  91
+records:  92
+records:  93
+records:  94
+records:  95
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  96
+records:  97
+records:  98
+records:  99
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  100
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  101
+records:  102
+records:  103
+records:  104
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  105
+records:  106
+records:  107
+records:  108
+records:  109
+records:  110
+records:  111
+records:  112
+records:  113
+records:  114
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  115
+records:  116
+records:  117
+records:  118
+records:  119
+records:  120
+records:  121
+records:  122
+records:  123
+records:  124
+records:  125
+records:  126
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  127
+records:  128
+records:  129
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  130
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  131
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  132
+records:  133
+records:  134
+records:  135
+records:  136
+records:  137
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  138
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  139
+records:  140
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  141
+records:  142
+records:  143
+records:  144
+records:  145
+records:  146
+records:  147
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  148
+records:  149
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  150
+records:  151
+records:  152
+records:  153
+records:  154
+records:  155
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  156
+records:  157
+records:  158
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  159
+records:  160
+records:  161
+records:  162
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  163
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  164
+records:  165
+records:  166
+records:  167
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  168
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  169
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  170
+records:  171
+records:  172
+records:  173
+records:  174
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  175
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  176
+records:  177
+records:  178
+records:  179
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  180
+records:  181
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  182
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  183
+records:  184
+records:  185
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  186
+records:  187
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  188
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  189
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  190
+records:  191
+records:  192
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  193
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  194
+records:  195
+records:  196
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  197
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  198
+records:  199
+records:  200
+records:  201
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  202
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  203
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  204
+records:  205
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  206
+records:  207
+records:  208
+records:  209
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  210
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  211
+records:  212
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  213
+records:  214
+records:  215
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  216
+records:  217
+records:  218
+records:  219
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  220
+records:  221
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  222
+records:  223
+records:  224
+records:  225
+records:  226
+records:  227
+records:  228
+records:  229
+records:  230
+records:  231
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  232
+records:  233
+records:  234
+records:  235
+records:  236
+records:  237
+records:  238
+records:  239
+records:  240
+records:  241
+records:  242
+records:  243
+records:  244
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  245
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  246
+records:  247
+records:  248
+records:  249
+records:  250
+records:  251
+records:  252
+records:  253
+records:  254
+records:  255
+records:  256
+records:  257
+records:  258
+records:  259
+records:  260
+records:  261
+records:  262
+records:  263
+records:  264
+records:  265
+records:  266
+records:  267
+records:  268
+records:  269
+records:  270
+records:  271
+records:  272
+records:  273
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  274
+records:  275
+records:  276
+records:  277
+records:  278
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  279
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  280
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  281
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  282
+records:  283
+records:  284
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  285
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  286
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  287
+records:  288
+records:  289
+records:  290
+records:  291
+records:  292
+records:  293
+records:  294
+records:  295
+records:  296
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  297
+records:  298
+records:  299
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  300
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  301
+records:  302
+records:  303
+records:  304
+records:  305
+records:  306
+records:  307
+records:  308
+records:  309
+records:  310
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  311
+done with r/wallstreetbets and csv saved
+in r/worldnews
+records:  1
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  2
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  3
+records:  4
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  5
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  6
+records:  7
+records:  8
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  9
+records:  10
+records:  11
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  12
+records:  13
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  14
+records:  15
+records:  16
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  17
+records:  18
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  19
+records:  20
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  21
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  22
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  23
+records:  24
+records:  25
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  26
+records:  27
+records:  28
+records:  29
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  30
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  31
+records:  32
+records:  33
+records:  34
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  35
+records:  36
+records:  37
+records:  38
+records:  39
+records:  40
+records:  41
+records:  42
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  43
+records:  44
+records:  45
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  46
+records:  47
+records:  48
+records:  49
+records:  50
+records:  51
+records:  52
+records:  53
+records:  54
+records:  55
+records:  56
+records:  57
+records:  58
+records:  59
+records:  60
+records:  61
+records:  62
+records:  63
+records:  64
+records:  65
+records:  66
+records:  67
+records:  68
+records:  69
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  70
+records:  71
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  72
+records:  73
+records:  74
+records:  75
+records:  76
+records:  77
+records:  78
+records:  79
+records:  80
+records:  81
+records:  82
+records:  83
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  84
+records:  85
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  86
+records:  87
+records:  88
+records:  89
+records:  90
+records:  91
+records:  92
+records:  93
+records:  94
+records:  95
+records:  96
+records:  97
+records:  98
+records:  99
+records:  100
+records:  101
+records:  102
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  103
+records:  104
+records:  105
+records:  106
+records:  107
+records:  108
+records:  109
+dupe
+records:  110
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  111
+records:  112
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  113
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  114
+records:  115
+records:  116
+records:  117
+records:  118
+records:  119
+records:  120
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  121
+records:  122
+records:  123
+records:  124
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  125
+records:  126
+records:  127
+dupe
+records:  128
+records:  129
+records:  130
+records:  131
+records:  132
+records:  133
+records:  134
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  135
+records:  136
+records:  137
+records:  138
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  139
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  140
+records:  141
+records:  142
+records:  143
+records:  144
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  145
+records:  146
+records:  147
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  148
+records:  149
+records:  150
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  151
+records:  152
+records:  153
+records:  154
+records:  155
+records:  156
+records:  157
+records:  158
+records:  159
+records:  160
+records:  161
+records:  162
+records:  163
+records:  164
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  165
+records:  166
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  167
+records:  168
+records:  169
+records:  170
+records:  171
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  172
+records:  173
+records:  174
+records:  175
+records:  176
+records:  177
+records:  178
+records:  179
+records:  180
+records:  181
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  182
+records:  183
+records:  184
+records:  185
+records:  186
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  187
+records:  188
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  189
+records:  190
+records:  191
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  192
+records:  193
+records:  194
+records:  195
+records:  196
+records:  197
+records:  198
+records:  199
+records:  200
+records:  201
+records:  202
+records:  203
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  204
+records:  205
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  206
+records:  207
+records:  208
+records:  209
+records:  210
+records:  211
+records:  212
+records:  213
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  214
+records:  215
+records:  216
+records:  217
+records:  218
+records:  219
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  220
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  221
+records:  222
+records:  223
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  224
+records:  225
+records:  226
+records:  227
+records:  228
+records:  229
+records:  230
+records:  231
+records:  232
+records:  233
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  234
+records:  235
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  236
+records:  237
+records:  238
+records:  239
+records:  240
+records:  241
+records:  242
+records:  243
+records:  244
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  245
+records:  246
+records:  247
+records:  248
+records:  249
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  250
+records:  251
+records:  252
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  253
+records:  254
+records:  255
+records:  256
+records:  257
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  258
+records:  259
+records:  260
+records:  261
+records:  262
+records:  263
+records:  264
+records:  265
+records:  266
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  267
+records:  268
+records:  269
+records:  270
+records:  271
+records:  272
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  273
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  274
+dupe
+records:  275
+records:  276
+records:  277
+records:  278
+records:  279
+records:  280
+records:  281
+records:  282
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  283
+records:  284
+records:  285
+records:  286
+records:  287
+records:  288
+records:  289
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  290
+records:  291
+records:  292
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  293
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  294
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  295
+records:  296
+records:  297
+records:  298
+records:  299
+records:  300
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  301
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  302
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  303
+records:  304
+records:  305
+records:  306
+records:  307
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  308
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  309
+records:  310
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  311
+records:  312
+records:  313
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  314
+records:  315
+records:  316
+records:  317
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  318
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  319
+records:  320
+records:  321
+records:  322
+records:  323
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  324
+records:  325
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  326
+records:  327
+records:  328
+records:  329
+records:  330
+records:  331
+records:  332
+records:  333
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  334
+records:  335
+records:  336
+records:  337
+records:  338
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  339
+records:  340
+records:  341
+records:  342
+records:  343
+records:  344
+records:  345
+records:  346
+records:  347
+records:  348
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  349
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  350
+records:  351
+records:  352
+records:  353
+records:  354
+records:  355
+records:  356
+records:  357
+records:  358
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  359
+records:  360
+records:  361
+records:  362
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  363
+records:  364
+records:  365
+records:  366
+records:  367
+records:  368
+records:  369
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  370
+records:  371
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  372
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  373
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  374
+records:  375
+records:  376
+records:  377
+records:  378
+records:  379
+records:  380
+records:  381
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  382
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  383
+records:  384
+records:  385
+records:  386
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  387
+records:  388
+records:  389
+records:  390
+records:  391
+records:  392
+records:  393
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  394
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  395
+records:  396
+records:  397
+records:  398
+records:  399
+records:  400
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  401
+dupe
+records:  402
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  403
+records:  404
+records:  405
+records:  406
+records:  407
+records:  408
+records:  409
+records:  410
+records:  411
+records:  412
+records:  413
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  414
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  415
+records:  416
+dupe
+records:  417
+records:  418
+records:  419
+records:  420
+records:  421
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  422
+records:  423
+records:  424
+records:  425
+records:  426
+records:  427
+records:  428
+records:  429
+records:  430
+records:  431
+records:  432
+records:  433
+records:  434
+records:  435
+records:  436
+records:  437
+records:  438
+records:  439
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  440
+records:  441
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  442
+records:  443
+records:  444
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  445
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  446
+records:  447
+records:  448
+records:  449
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  450
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  451
+records:  452
+records:  453
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  454
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  455
+records:  456
+records:  457
+records:  458
+records:  459
+records:  460
+records:  461
+records:  462
+records:  463
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  464
+records:  465
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  466
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  467
+records:  468
+records:  469
+records:  470
+records:  471
+records:  472
+records:  473
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  474
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  475
+dupe
+records:  476
+records:  477
+records:  478
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  479
+records:  480
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  481
+records:  482
+records:  483
+records:  484
+records:  485
+records:  486
+records:  487
+records:  488
+records:  489
+records:  490
+records:  491
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  492
+records:  493
+records:  494
+records:  495
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  496
+records:  497
+records:  498
+records:  499
+records:  500
+records:  501
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  502
+records:  503
+records:  504
+records:  505
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  506
+records:  507
+records:  508
+records:  509
+records:  510
+records:  511
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  512
+records:  513
+records:  514
+records:  515
+records:  516
+records:  517
+records:  518
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  519
+records:  520
+records:  521
+records:  522
+records:  523
+records:  524
+records:  525
+records:  526
+records:  527
+records:  528
+records:  529
+records:  530
+records:  531
+records:  532
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  533
+records:  534
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  535
+records:  536
+records:  537
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  538
+records:  539
+records:  540
+records:  541
+records:  542
+records:  543
+records:  544
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  545
+records:  546
+records:  547
+records:  548
+records:  549
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  550
+records:  551
+records:  552
+records:  553
+records:  554
+records:  555
+records:  556
+records:  557
+records:  558
+records:  559
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  560
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  561
+records:  562
+records:  563
+records:  564
+records:  565
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  566
+records:  567
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  568
+records:  569
+records:  570
+records:  571
+records:  572
+records:  573
+records:  574
+records:  575
+records:  576
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  577
+records:  578
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  579
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  580
+records:  581
+records:  582
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  583
+records:  584
+records:  585
+records:  586
+records:  587
+records:  588
+records:  589
+records:  590
+records:  591
+records:  592
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  593
+records:  594
+records:  595
+records:  596
+records:  597
+records:  598
+records:  599
+records:  600
+records:  601
+records:  602
+records:  603
+records:  604
+records:  605
+records:  606
+records:  607
+records:  608
+records:  609
+records:  610
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  611
+records:  612
+records:  613
+records:  614
+records:  615
+records:  616
+records:  617
+records:  618
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  619
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  620
+records:  621
+records:  622
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  623
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  624
+records:  625
+records:  626
+records:  627
+records:  628
+records:  629
+records:  630
+records:  631
+records:  632
+records:  633
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  634
+records:  635
+done with r/worldnews and csv saved
+in r/StockMarket
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+records:  1
+records:  2
+records:  3
+records:  4
+records:  5
+records:  6
+records:  7
+records:  8
+records:  9
+records:  10
+records:  11
+records:  12
+records:  13
+records:  14
+records:  15
+records:  16
+records:  17
+records:  18
+records:  19
+records:  20
+records:  21
+records:  22
+records:  23
+records:  24
+records:  25
+records:  26
+records:  27
+records:  28
+records:  29
+records:  30
+records:  31
+records:  32
+records:  33
+records:  34
+records:  35
+records:  36
+records:  37
+records:  38
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  39
+records:  40
+records:  41
+records:  42
+records:  43
+records:  44
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  45
+records:  46
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  47
+records:  48
+records:  49
+records:  50
+records:  51
+records:  52
+records:  53
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  54
+records:  55
+records:  56
+records:  57
+records:  58
+records:  59
+records:  60
+records:  61
+records:  62
+records:  63
+records:  64
+records:  65
+records:  66
+records:  67
+records:  68
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  69
+records:  70
+records:  71
+records:  72
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  73
+records:  74
+records:  75
+records:  76
+records:  77
+records:  78
+records:  79
+records:  80
+records:  81
+records:  82
+records:  83
+records:  84
+records:  85
+records:  86
+records:  87
+records:  88
+records:  89
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  90
+records:  91
+records:  92
+records:  93
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  94
+records:  95
+records:  96
+records:  97
+records:  98
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  99
+records:  100
+records:  101
+records:  102
+records:  103
+records:  104
+records:  105
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  106
+records:  107
+records:  108
+records:  109
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  110
+records:  111
+records:  112
+records:  113
+records:  114
+records:  115
+records:  116
+records:  117
+records:  118
+records:  119
+records:  120
+records:  121
+records:  122
+records:  123
+records:  124
+records:  125
+records:  126
+records:  127
+records:  128
+records:  129
+records:  130
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  131
+records:  132
+records:  133
+records:  134
+records:  135
+records:  136
+records:  137
+records:  138
+records:  139
+records:  140
+records:  141
+records:  142
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  143
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  144
+records:  145
+records:  146
+records:  147
+records:  148
+records:  149
+records:  150
+records:  151
+records:  152
+records:  153
+records:  154
+records:  155
+records:  156
+records:  157
+records:  158
+records:  159
+records:  160
+records:  161
+records:  162
+records:  163
+records:  164
+records:  165
+records:  166
+records:  167
+records:  168
+records:  169
+records:  170
+records:  171
+records:  172
+records:  173
+records:  174
+records:  175
+records:  176
+records:  177
+records:  178
+records:  179
+records:  180
+records:  181
+records:  182
+records:  183
+records:  184
+records:  185
+records:  186
+records:  187
+records:  188
+records:  189
+records:  190
+records:  191
+records:  192
+records:  193
+records:  194
+records:  195
+records:  196
+records:  197
+records:  198
+records:  199
+records:  200
+records:  201
+records:  202
+records:  203
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  204
+records:  205
+records:  206
+records:  207
+records:  208
+records:  209
+records:  210
+records:  211
+records:  212
+records:  213
+records:  214
+records:  215
+records:  216
+records:  217
+records:  218
+records:  219
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  220
+records:  221
+records:  222
+records:  223
+records:  224
+records:  225
+records:  226
+records:  227
+records:  228
+records:  229
+records:  230
+records:  231
+records:  232
+records:  233
+records:  234
+records:  235
+records:  236
+records:  237
+records:  238
+records:  239
+records:  240
+records:  241
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  242
+records:  243
+records:  244
+records:  245
+records:  246
+records:  247
+records:  248
+records:  249
+records:  250
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  251
+records:  252
+records:  253
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  254
+records:  255
+records:  256
+records:  257
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  258
+records:  259
+records:  260
+records:  261
+records:  262
+records:  263
+records:  264
+records:  265
+records:  266
+records:  267
+records:  268
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  269
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  270
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  271
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  272
+done with r/StockMarket and csv saved
+in r/travel
+records:  1
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+records:  2
+records:  3
+records:  4
+records:  5
+records:  6
+records:  7
+records:  8
+records:  9
+records:  10
+records:  11
+records:  12
+records:  13
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  14
+records:  15
+records:  16
+records:  17
+records:  18
+records:  19
+records:  20
+records:  21
+records:  22
+records:  23
+records:  24
+records:  25
+records:  26
+records:  27
+records:  28
+records:  29
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  30
+records:  31
+records:  32
+records:  33
+records:  34
+records:  35
+records:  36
+records:  37
+records:  38
+records:  39
+records:  40
+records:  41
+records:  42
+records:  43
+records:  44
+records:  45
+records:  46
+records:  47
+records:  48
+records:  49
+records:  50
+records:  51
+records:  52
+records:  53
+records:  54
+records:  55
+records:  56
+records:  57
+records:  58
+records:  59
+records:  60
+records:  61
+records:  62
+records:  63
+records:  64
+records:  65
+records:  66
+records:  67
+records:  68
+records:  69
+records:  70
+records:  71
+records:  72
+records:  73
+records:  74
+records:  75
+records:  76
+records:  77
+records:  78
+records:  79
+records:  80
+records:  81
+records:  82
+records:  83
+records:  84
+records:  85
+records:  86
+records:  87
+records:  88
+records:  89
+records:  90
+records:  91
+records:  92
+records:  93
+records:  94
+records:  95
+records:  96
+records:  97
+records:  98
+records:  99
+records:  100
+records:  101
+records:  102
+records:  103
+records:  104
+records:  105
+records:  106
+records:  107
+records:  108
+records:  109
+records:  110
+records:  111
+records:  112
+records:  113
+records:  114
+records:  115
+records:  116
+records:  117
+records:  118
+records:  119
+records:  120
+records:  121
+records:  122
+records:  123
+records:  124
+records:  125
+records:  126
+records:  127
+records:  128
+records:  129
+records:  130
+records:  131
+records:  132
+records:  133
+records:  134
+records:  135
+records:  136
+records:  137
+records:  138
+records:  139
+records:  140
+records:  141
+records:  142
+records:  143
+records:  144
+records:  145
+records:  146
+records:  147
+records:  148
+records:  149
+records:  150
+records:  151
+records:  152
+records:  153
+records:  154
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  155
+records:  156
+records:  157
+records:  158
+records:  159
+records:  160
+records:  161
+records:  162
+records:  163
+records:  164
+records:  165
+records:  166
+records:  167
+records:  168
+records:  169
+records:  170
+records:  171
+records:  172
+records:  173
+records:  174
+records:  175
+records:  176
+records:  177
+records:  178
+records:  179
+records:  180
+records:  181
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  182
+records:  183
+records:  184
+records:  185
+records:  186
+records:  187
+records:  188
+records:  189
+records:  190
+records:  191
+records:  192
+records:  193
+records:  194
+records:  195
+records:  196
+records:  197
+records:  198
+records:  199
+records:  200
+records:  201
+records:  202
+records:  203
+records:  204
+records:  205
+records:  206
+records:  207
+records:  208
+records:  209
+records:  210
+records:  211
+records:  212
+records:  213
+records:  214
+records:  215
+records:  216
+records:  217
+records:  218
+records:  219
+records:  220
+records:  221
+records:  222
+records:  223
+records:  224
+records:  225
+records:  226
+records:  227
+records:  228
+records:  229
+records:  230
+records:  231
+records:  232
+records:  233
+records:  234
+records:  235
+records:  236
+records:  237
+records:  238
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  239
+records:  240
+records:  241
+records:  242
+records:  243
+records:  244
+records:  245
+records:  246
+records:  247
+records:  248
+records:  249
+records:  250
+records:  251
+records:  252
+records:  253
+records:  254
+records:  255
+records:  256
+records:  257
+records:  258
+records:  259
+records:  260
+records:  261
+records:  262
+records:  263
+records:  264
+records:  265
+records:  266
+records:  267
+records:  268
+records:  269
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  270
+records:  271
+records:  272
+records:  273
+records:  274
+records:  275
+records:  276
+records:  277
+records:  278
+records:  279
+records:  280
+records:  281
+records:  282
+records:  283
+records:  284
+records:  285
+records:  286
+records:  287
+records:  288
+records:  289
+records:  290
+records:  291
+records:  292
+records:  293
+records:  294
+records:  295
+records:  296
+records:  297
+records:  298
+records:  299
+records:  300
+records:  301
+records:  302
+records:  303
+records:  304
+records:  305
+records:  306
+records:  307
+records:  308
+records:  309
+records:  310
+records:  311
+records:  312
+records:  313
+records:  314
+records:  315
+records:  316
+records:  317
+records:  318
+records:  319
+records:  320
+records:  321
+records:  322
+records:  323
+records:  324
+records:  325
+records:  326
+records:  327
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  328
+records:  329
+records:  330
+records:  331
+records:  332
+records:  333
+records:  334
+records:  335
+records:  336
+records:  337
+records:  338
+records:  339
+records:  340
+records:  341
+records:  342
+records:  343
+records:  344
+records:  345
+records:  346
+records:  347
+records:  348
+records:  349
+records:  350
+records:  351
+records:  352
+records:  353
+records:  354
+records:  355
+records:  356
+records:  357
+records:  358
+records:  359
+records:  360
+records:  361
+records:  362
+records:  363
+records:  364
+records:  365
+records:  366
+records:  367
+records:  368
+records:  369
+records:  370
+records:  371
+records:  372
+records:  373
+records:  374
+records:  375
+records:  376
+records:  377
+records:  378
+records:  379
+records:  380
+records:  381
+records:  382
+records:  383
+records:  384
+records:  385
+records:  386
+records:  387
+records:  388
+records:  389
+records:  390
+records:  391
+records:  392
+records:  393
+records:  394
+records:  395
+records:  396
+records:  397
+records:  398
+records:  399
+records:  400
+records:  401
+records:  402
+records:  403
+records:  404
+records:  405
+records:  406
+records:  407
+records:  408
+records:  409
+records:  410
+records:  411
+records:  412
+records:  413
+records:  414
+records:  415
+records:  416
+records:  417
+records:  418
+records:  419
+records:  420
+records:  421
+records:  422
+records:  423
+records:  424
+records:  425
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  426
+records:  427
+records:  428
+records:  429
+records:  430
+records:  431
+records:  432
+records:  433
+records:  434
+records:  435
+records:  436
+records:  437
+records:  438
+records:  439
+records:  440
+records:  441
+records:  442
+records:  443
+records:  444
+records:  445
+records:  446
+records:  447
+records:  448
+records:  449
+records:  450
+records:  451
+records:  452
+records:  453
+records:  454
+records:  455
+records:  456
+records:  457
+records:  458
+records:  459
+records:  460
+records:  461
+records:  462
+records:  463
+records:  464
+records:  465
+records:  466
+records:  467
+records:  468
+records:  469
+records:  470
+records:  471
+records:  472
+records:  473
+records:  474
+records:  475
+records:  476
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  477
+records:  478
+records:  479
+records:  480
+records:  481
+records:  482
+records:  483
+records:  484
+records:  485
+records:  486
+records:  487
+records:  488
+records:  489
+records:  490
+records:  491
+records:  492
+records:  493
+records:  494
+records:  495
+records:  496
+records:  497
+records:  498
+records:  499
+records:  500
+records:  501
+records:  502
+records:  503
+records:  504
+records:  505
+records:  506
+records:  507
+records:  508
+records:  509
+records:  510
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  511
+records:  512
+records:  513
+records:  514
+records:  515
+records:  516
+records:  517
+records:  518
+records:  519
+records:  520
+records:  521
+records:  522
+records:  523
+records:  524
+records:  525
+records:  526
+records:  527
+records:  528
+records:  529
+records:  530
+records:  531
+records:  532
+records:  533
+records:  534
+records:  535
+records:  536
+records:  537
+records:  538
+records:  539
+records:  540
+records:  541
+records:  542
+records:  543
+records:  544
+records:  545
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  546
+records:  547
+records:  548
+records:  549
+records:  550
+records:  551
+records:  552
+records:  553
+records:  554
+records:  555
+records:  556
+records:  557
+records:  558
+records:  559
+records:  560
+records:  561
+records:  562
+records:  563
+records:  564
+records:  565
+records:  566
+records:  567
+records:  568
+records:  569
+records:  570
+records:  571
+records:  572
+records:  573
+records:  574
+records:  575
+records:  576
+records:  577
+records:  578
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  579
+records:  580
+records:  581
+records:  582
+records:  583
+records:  584
+records:  585
+records:  586
+records:  587
+records:  588
+records:  589
+records:  590
+records:  591
+records:  592
+records:  593
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  594
+records:  595
+records:  596
+records:  597
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  598
+records:  599
+records:  600
+records:  601
+records:  602
+records:  603
+records:  604
+records:  605
+records:  606
+records:  607
+records:  608
+records:  609
+records:  610
+records:  611
+records:  612
+records:  613
+records:  614
+records:  615
+records:  616
+records:  617
+records:  618
+records:  619
+records:  620
+records:  621
+records:  622
+records:  623
+records:  624
+records:  625
+records:  626
+records:  627
+records:  628
+records:  629
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  630
+records:  631
+records:  632
+records:  633
+records:  634
+records:  635
+records:  636
+records:  637
+records:  638
+records:  639
+records:  640
+records:  641
+records:  642
+records:  643
+records:  644
+records:  645
+records:  646
+records:  647
+records:  648
+records:  649
+records:  650
+records:  651
+records:  652
+records:  653
+records:  654
+records:  655
+records:  656
+records:  657
+records:  658
+records:  659
+records:  660
+records:  661
+records:  662
+records:  663
+records:  664
+records:  665
+records:  666
+records:  667
+records:  668
+records:  669
+records:  670
+records:  671
+records:  672
+records:  673
+records:  674
+records:  675
+records:  676
+records:  677
+records:  678
+records:  679
+records:  680
+records:  681
+records:  682
+records:  683
+records:  684
+records:  685
+records:  686
+records:  687
+records:  688
+records:  689
+records:  690
+records:  691
+records:  692
+records:  693
+records:  694
+records:  695
+records:  696
+records:  697
+records:  698
+records:  699
+records:  700
+records:  701
+records:  702
+records:  703
+records:  704
+records:  705
+records:  706
+records:  707
+records:  708
+records:  709
+records:  710
+records:  711
+records:  712
+records:  713
+records:  714
+records:  715
+records:  716
+records:  717
+records:  718
+records:  719
+records:  720
+records:  721
+records:  722
+records:  723
+records:  724
+records:  725
+records:  726
+records:  727
+records:  728
+records:  729
+records:  730
+records:  731
+records:  732
+records:  733
+records:  734
+records:  735
+records:  736
+records:  737
+records:  738
+records:  739
+records:  740
+records:  741
+records:  742
+records:  743
+records:  744
+records:  745
+records:  746
+records:  747
+records:  748
+records:  749
+records:  750
+records:  751
+records:  752
+records:  753
+records:  754
+records:  755
+records:  756
+records:  757
+records:  758
+records:  759
+records:  760
+records:  761
+records:  762
+records:  763
+records:  764
+records:  765
+records:  766
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  767
+done with r/travel and csv saved
+in r/TravelHacks
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+records:  1
+records:  2
+records:  3
+records:  4
+records:  5
+records:  6
+records:  7
+records:  8
+records:  9
+records:  10
+records:  11
+records:  12
+records:  13
+records:  14
+records:  15
+records:  16
+records:  17
+records:  18
+records:  19
+records:  20
+records:  21
+records:  22
+records:  23
+records:  24
+records:  25
+records:  26
+records:  27
+records:  28
+records:  29
+records:  30
+records:  31
+records:  32
+records:  33
+records:  34
+records:  35
+records:  36
+records:  37
+records:  38
+records:  39
+records:  40
+records:  41
+records:  42
+records:  43
+records:  44
+records:  45
+records:  46
+records:  47
+records:  48
+records:  49
+records:  50
+records:  51
+records:  52
+records:  53
+records:  54
+records:  55
+records:  56
+records:  57
+records:  58
+records:  59
+records:  60
+records:  61
+records:  62
+records:  63
+records:  64
+records:  65
+records:  66
+records:  67
+records:  68
+records:  69
+records:  70
+records:  71
+records:  72
+records:  73
+records:  74
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  75
+records:  76
+records:  77
+records:  78
+records:  79
+records:  80
+records:  81
+records:  82
+records:  83
+records:  84
+records:  85
+records:  86
+records:  87
+records:  88
+records:  89
+records:  90
+records:  91
+records:  92
+records:  93
+records:  94
+records:  95
+records:  96
+records:  97
+records:  98
+records:  99
+records:  100
+records:  101
+records:  102
+records:  103
+records:  104
+records:  105
+records:  106
+records:  107
+records:  108
+records:  109
+records:  110
+records:  111
+records:  112
+records:  113
+records:  114
+records:  115
+records:  116
+records:  117
+records:  118
+records:  119
+records:  120
+records:  121
+records:  122
+records:  123
+records:  124
+records:  125
+records:  126
+records:  127
+records:  128
+records:  129
+records:  130
+records:  131
+records:  132
+records:  133
+records:  134
+records:  135
+records:  136
+records:  137
+records:  138
+records:  139
+records:  140
+records:  141
+records:  142
+records:  143
+records:  144
+records:  145
+records:  146
+records:  147
+records:  148
+records:  149
+records:  150
+records:  151
+records:  152
+records:  153
+records:  154
+records:  155
+records:  156
+records:  157
+records:  158
+records:  159
+records:  160
+records:  161
+records:  162
+records:  163
+records:  164
+records:  165
+records:  166
+records:  167
+records:  168
+records:  169
+records:  170
+records:  171
+records:  172
+records:  173
+records:  174
+records:  175
+records:  176
+records:  177
+records:  178
+dupe
+records:  179
+records:  180
+records:  181
+records:  182
+records:  183
+records:  184
+records:  185
+records:  186
+records:  187
+records:  188
+records:  189
+records:  190
+records:  191
+records:  192
+records:  193
+records:  194
+records:  195
+records:  196
+records:  197
+records:  198
+records:  199
+records:  200
+records:  201
+records:  202
+records:  203
+records:  204
+records:  205
+records:  206
+records:  207
+records:  208
+records:  209
+records:  210
+records:  211
+records:  212
+records:  213
+records:  214
+records:  215
+records:  216
+records:  217
+records:  218
+records:  219
+records:  220
+records:  221
+records:  222
+records:  223
+records:  224
+records:  225
+records:  226
+records:  227
+records:  228
+records:  229
+records:  230
+records:  231
+records:  232
+records:  233
+records:  234
+records:  235
+records:  236
+records:  237
+records:  238
+records:  239
+records:  240
+records:  241
+records:  242
+records:  243
+records:  244
+records:  245
+records:  246
+records:  247
+records:  248
+records:  249
+records:  250
+records:  251
+records:  252
+records:  253
+records:  254
+records:  255
+records:  256
+records:  257
+records:  258
+records:  259
+records:  260
+records:  261
+records:  262
+records:  263
+records:  264
+records:  265
+records:  266
+records:  267
+records:  268
+records:  269
+records:  270
+records:  271
+records:  272
+records:  273
+records:  274
+records:  275
+records:  276
+records:  277
+records:  278
+records:  279
+records:  280
+records:  281
+records:  282
+records:  283
+records:  284
+records:  285
+records:  286
+records:  287
+records:  288
+records:  289
+records:  290
+records:  291
+records:  292
+records:  293
+records:  294
+records:  295
+records:  296
+records:  297
+records:  298
+records:  299
+records:  300
+records:  301
+records:  302
+records:  303
+records:  304
+records:  305
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  306
+records:  307
+records:  308
+records:  309
+records:  310
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  311
+records:  312
+records:  313
+records:  314
+records:  315
+records:  316
+records:  317
+records:  318
+records:  319
+records:  320
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  321
+records:  322
+records:  323
+records:  324
+records:  325
+records:  326
+records:  327
+records:  328
+records:  329
+records:  330
+records:  331
+records:  332
+records:  333
+records:  334
+records:  335
+records:  336
+records:  337
+records:  338
+records:  339
+records:  340
+records:  341
+records:  342
+records:  343
+records:  344
+records:  345
+records:  346
+records:  347
+records:  348
+records:  349
+records:  350
+records:  351
+records:  352
+records:  353
+records:  354
+records:  355
+records:  356
+records:  357
+records:  358
+records:  359
+records:  360
+records:  361
+records:  362
+records:  363
+records:  364
+records:  365
+records:  366
+records:  367
+records:  368
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  369
+records:  370
+records:  371
+records:  372
+records:  373
+records:  374
+records:  375
+records:  376
+records:  377
+records:  378
+records:  379
+records:  380
+records:  381
+records:  382
+records:  383
+records:  384
+records:  385
+records:  386
+records:  387
+records:  388
+records:  389
+records:  390
+records:  391
+records:  392
+records:  393
+records:  394
+records:  395
+records:  396
+records:  397
+records:  398
+records:  399
+records:  400
+records:  401
+records:  402
+records:  403
+records:  404
+records:  405
+records:  406
+records:  407
+records:  408
+records:  409
+records:  410
+records:  411
+records:  412
+records:  413
+records:  414
+records:  415
+records:  416
+records:  417
+records:  418
+records:  419
+records:  420
+records:  421
+records:  422
+records:  423
+records:  424
+records:  425
+records:  426
+records:  427
+records:  428
+records:  429
+records:  430
+records:  431
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  432
+records:  433
+records:  434
+records:  435
+records:  436
+records:  437
+records:  438
+records:  439
+records:  440
+records:  441
+records:  442
+records:  443
+records:  444
+records:  445
+records:  446
+records:  447
+records:  448
+records:  449
+records:  450
+records:  451
+records:  452
+records:  453
+records:  454
+records:  455
+records:  456
+records:  457
+records:  458
+records:  459
+records:  460
+records:  461
+records:  462
+records:  463
+records:  464
+records:  465
+records:  466
+dupe
+records:  467
+records:  468
+records:  469
+records:  470
+records:  471
+records:  472
+records:  473
+records:  474
+records:  475
+records:  476
+records:  477
+records:  478
+records:  479
+records:  480
+records:  481
+records:  482
+records:  483
+records:  484
+records:  485
+records:  486
+records:  487
+records:  488
+records:  489
+records:  490
+records:  491
+records:  492
+records:  493
+records:  494
+records:  495
+records:  496
+records:  497
+records:  498
+records:  499
+records:  500
+records:  501
+records:  502
+records:  503
+records:  504
+records:  505
+records:  506
+records:  507
+records:  508
+records:  509
+records:  510
+records:  511
+records:  512
+records:  513
+records:  514
+records:  515
+records:  516
+records:  517
+records:  518
+records:  519
+records:  520
+records:  521
+records:  522
+records:  523
+records:  524
+records:  525
+records:  526
+records:  527
+records:  528
+records:  529
+records:  530
+records:  531
+records:  532
+records:  533
+records:  534
+records:  535
+records:  536
+records:  537
+records:  538
+records:  539
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  540
+records:  541
+records:  542
+records:  543
+records:  544
+records:  545
+records:  546
+records:  547
+records:  548
+records:  549
+records:  550
+records:  551
+records:  552
+records:  553
+records:  554
+records:  555
+records:  556
+records:  557
+records:  558
+records:  559
+records:  560
+records:  561
+records:  562
+records:  563
+records:  564
+records:  565
+records:  566
+done with r/TravelHacks and csv saved
+in r/CryptoCurrency
+records:  1
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+records:  2
+records:  3
+records:  4
+records:  5
+records:  6
+records:  7
+records:  8
+records:  9
+records:  10
+records:  11
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  12
+records:  13
+records:  14
+records:  15
+records:  16
+records:  17
+records:  18
+records:  19
+records:  20
+records:  21
+records:  22
+records:  23
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  24
+records:  25
+records:  26
+records:  27
+records:  28
+records:  29
+records:  30
+records:  31
+records:  32
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  33
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  34
+records:  35
+records:  36
+records:  37
+records:  38
+records:  39
+records:  40
+records:  41
+records:  42
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  43
+records:  44
+records:  45
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  46
+records:  47
+records:  48
+records:  49
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  50
+records:  51
+records:  52
+records:  53
+records:  54
+records:  55
+records:  56
+records:  57
+records:  58
+records:  59
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  60
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  61
+records:  62
+records:  63
+records:  64
+records:  65
+records:  66
+records:  67
+records:  68
+records:  69
+records:  70
+records:  71
+records:  72
+records:  73
+records:  74
+records:  75
+records:  76
+records:  77
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  78
+records:  79
+records:  80
+records:  81
+records:  82
+records:  83
+records:  84
+records:  85
+records:  86
+records:  87
+records:  88
+records:  89
+records:  90
+records:  91
+records:  92
+records:  93
+records:  94
+records:  95
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  96
+records:  97
+records:  98
+records:  99
+records:  100
+records:  101
+records:  102
+records:  103
+records:  104
+records:  105
+records:  106
+records:  107
+records:  108
+records:  109
+records:  110
+records:  111
+records:  112
+records:  113
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  114
+records:  115
+records:  116
+records:  117
+records:  118
+records:  119
+records:  120
+records:  121
+records:  122
+records:  123
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  124
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  125
+records:  126
+records:  127
+records:  128
+records:  129
+records:  130
+records:  131
+records:  132
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  133
+records:  134
+records:  135
+records:  136
+records:  137
+records:  138
+records:  139
+records:  140
+records:  141
+records:  142
+records:  143
+records:  144
+records:  145
+records:  146
+records:  147
+records:  148
+records:  149
+records:  150
+records:  151
+records:  152
+records:  153
+records:  154
+records:  155
+records:  156
+records:  157
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  158
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  159
+records:  160
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  161
+records:  162
+records:  163
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  164
+records:  165
+records:  166
+records:  167
+records:  168
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  169
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  170
+records:  171
+records:  172
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  173
+records:  174
+records:  175
+records:  176
+records:  177
+records:  178
+records:  179
+records:  180
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  181
+records:  182
+records:  183
+records:  184
+records:  185
+records:  186
+records:  187
+records:  188
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  189
+records:  190
+records:  191
+records:  192
+records:  193
+records:  194
+records:  195
+records:  196
+records:  197
+records:  198
+records:  199
+records:  200
+records:  201
+records:  202
+records:  203
+records:  204
+records:  205
+records:  206
+records:  207
+records:  208
+records:  209
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  210
+done with r/CryptoCurrency and csv saved
+in r/YouShouldKnow
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+records:  1
+records:  2
+records:  3
+records:  4
+records:  5
+records:  6
+records:  7
+records:  8
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  9
+records:  10
+records:  11
+records:  12
+records:  13
+records:  14
+records:  15
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  16
+records:  17
+records:  18
+records:  19
+records:  20
+records:  21
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  22
+records:  23
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  24
+records:  25
+records:  26
+records:  27
+records:  28
+records:  29
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  30
+records:  31
+records:  32
+records:  33
+records:  34
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  35
+records:  36
+records:  37
+records:  38
+records:  39
+records:  40
+records:  41
+records:  42
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  43
+records:  44
+records:  45
+records:  46
+records:  47
+records:  48
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  49
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  50
+records:  51
+records:  52
+records:  53
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  54
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  55
+records:  56
+records:  57
+records:  58
+records:  59
+records:  60
+records:  61
+records:  62
+records:  63
+records:  64
+records:  65
+records:  66
+records:  67
+records:  68
+records:  69
+records:  70
+records:  71
+records:  72
+records:  73
+records:  74
+records:  75
+records:  76
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  77
+records:  78
+records:  79
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  80
+records:  81
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  82
+records:  83
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  84
+records:  85
+records:  86
+records:  87
+records:  88
+records:  89
+records:  90
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  91
+records:  92
+records:  93
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  94
+records:  95
+records:  96
+records:  97
+records:  98
+records:  99
+records:  100
+records:  101
+records:  102
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  103
+records:  104
+records:  105
+records:  106
+records:  107
+records:  108
+records:  109
+records:  110
+records:  111
+records:  112
+records:  113
+records:  114
+records:  115
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  116
+records:  117
+records:  118
+records:  119
+records:  120
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  121
+records:  122
+records:  123
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  124
+records:  125
+records:  126
+records:  127
+records:  128
+records:  129
+records:  130
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  131
+records:  132
+records:  133
+records:  134
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  135
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  136
+records:  137
+records:  138
+records:  139
+records:  140
+records:  141
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  142
+records:  143
+records:  144
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  145
+records:  146
+records:  147
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  148
+records:  149
+records:  150
+records:  151
+records:  152
+records:  153
+records:  154
+records:  155
+records:  156
+records:  157
+records:  158
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  159
+records:  160
+records:  161
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  162
+records:  163
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  164
+records:  165
+records:  166
+records:  167
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  168
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  169
+records:  170
+records:  171
+records:  172
+records:  173
+records:  174
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  175
+records:  176
+records:  177
+records:  178
+records:  179
+records:  180
+done with r/YouShouldKnow and csv saved
+in r/LifeProTips
+records:  1
+/Users/fasihrem/Downloads/University/Final Year Project/data-tails/Backend/hot.py:96: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df2 = pd.concat([df2, hot_posts_df], ignore_index=True)
+records:  2
+records:  3
+records:  4
+records:  5
+records:  6
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  7
+records:  8
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  9
+records:  10
+records:  11
+records:  12
+records:  13
+records:  14
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  15
+records:  16
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  17
+records:  18
+records:  19
+records:  20
+records:  21
+records:  22
+records:  23
+records:  24
+records:  25
+records:  26
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  27
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  28
+records:  29
+records:  30
+records:  31
+records:  32
+records:  33
+records:  34
+records:  35
+records:  36
+records:  37
+records:  38
+records:  39
+records:  40
+records:  41
+records:  42
+records:  43
+records:  44
+records:  45
+records:  46
+records:  47
+records:  48
+records:  49
+records:  50
+records:  51
+records:  52
+records:  53
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  54
+records:  55
+records:  56
+records:  57
+records:  58
+records:  59
+records:  60
+records:  61
+records:  62
+records:  63
+records:  64
+records:  65
+records:  66
+records:  67
+records:  68
+records:  69
+records:  70
+records:  71
+records:  72
+records:  73
+records:  74
+records:  75
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  76
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  77
+records:  78
+records:  79
+records:  80
+records:  81
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  82
+records:  83
+records:  84
+records:  85
+records:  86
+records:  87
+records:  88
+records:  89
+records:  90
+records:  91
+records:  92
+records:  93
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  94
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  95
+records:  96
+records:  97
+records:  98
+records:  99
+records:  100
+records:  101
+records:  102
+records:  103
+records:  104
+records:  105
+records:  106
+records:  107
+records:  108
+records:  109
+records:  110
+records:  111
+records:  112
+records:  113
+records:  114
+records:  115
+records:  116
+records:  117
+records:  118
+records:  119
+records:  120
+records:  121
+records:  122
+records:  123
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  124
+records:  125
+records:  126
+records:  127
+records:  128
+records:  129
+records:  130
+records:  131
+records:  132
+records:  133
+records:  134
+records:  135
+records:  136
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  137
+records:  138
+records:  139
+records:  140
+records:  141
+records:  142
+records:  143
+records:  144
+records:  145
+records:  146
+records:  147
+records:  148
+records:  149
+records:  150
+records:  151
+records:  152
+records:  153
+records:  154
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  155
+records:  156
+records:  157
+records:  158
+records:  159
+records:  160
+records:  161
+records:  162
+records:  163
+records:  164
+records:  165
+records:  166
+records:  167
+records:  168
+records:  169
+records:  170
+records:  171
+records:  172
+records:  173
+records:  174
+records:  175
+records:  176
+records:  177
+records:  178
+records:  179
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  180
+records:  181
+records:  182
+records:  183
+records:  184
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  185
+records:  186
+records:  187
+records:  188
+records:  189
+records:  190
+records:  191
+records:  192
+records:  193
+records:  194
+records:  195
+records:  196
+records:  197
+records:  198
+records:  199
+records:  200
+records:  201
+records:  202
+records:  203
+records:  204
+records:  205
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  206
+records:  207
+records:  208
+records:  209
+records:  210
+records:  211
+records:  212
+records:  213
+records:  214
+records:  215
+records:  216
+records:  217
+records:  218
+records:  219
+records:  220
+records:  221
+records:  222
+records:  223
+records:  224
+records:  225
+records:  226
+records:  227
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  228
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  229
+records:  230
+records:  231
+records:  232
+records:  233
+records:  234
+records:  235
+records:  236
+records:  237
+records:  238
+records:  239
+records:  240
+records:  241
+records:  242
+records:  243
+records:  244
+records:  245
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  246
+records:  247
+records:  248
+records:  249
+records:  250
+records:  251
+records:  252
+records:  253
+records:  254
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  255
+records:  256
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  257
+records:  258
+records:  259
+records:  260
+records:  261
+records:  262
+records:  263
+records:  264
+records:  265
+records:  266
+records:  267
+records:  268
+records:  269
+records:  270
+records:  271
+records:  272
+records:  273
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  274
+records:  275
+records:  276
+records:  277
+records:  278
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  279
+records:  280
+records:  281
+records:  282
+records:  283
+records:  284
+records:  285
+records:  286
+records:  287
+records:  288
+records:  289
+records:  290
+records:  291
+records:  292
+records:  293
+records:  294
+records:  295
+records:  296
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  297
+records:  298
+records:  299
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  300
+records:  301
+records:  302
+records:  303
+records:  304
+records:  305
+records:  306
+records:  307
+records:  308
+records:  309
+records:  310
+records:  311
+records:  312
+records:  313
+records:  314
+records:  315
+records:  316
+records:  317
+records:  318
+records:  319
+records:  320
+records:  321
+records:  322
+records:  323
+records:  324
+records:  325
+records:  326
+records:  327
+records:  328
+records:  329
+records:  330
+records:  331
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  332
+records:  333
+records:  334
+records:  335
+records:  336
+records:  337
+records:  338
+records:  339
+records:  340
+records:  341
+records:  342
+records:  343
+records:  344
+records:  345
+records:  346
+records:  347
+records:  348
+records:  349
+records:  350
+records:  351
+records:  352
+records:  353
+records:  354
+records:  355
+records:  356
+records:  357
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  358
+records:  359
+records:  360
+records:  361
+records:  362
+records:  363
+records:  364
+records:  365
+records:  366
+records:  367
+records:  368
+records:  369
+records:  370
+records:  371
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  372
+records:  373
+records:  374
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  375
+records:  376
+records:  377
+records:  378
+records:  379
+records:  380
+records:  381
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  382
+records:  383
+records:  384
+records:  385
+records:  386
+records:  387
+records:  388
+records:  389
+records:  390
+records:  391
+records:  392
+records:  393
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  394
+Error accessing comments: 'MoreComments' object has no attribute 'body'
+records:  395
+records:  396
+records:  397
+records:  398
+done with r/LifeProTips and csv saved
+
+Process finished with exit code 0
