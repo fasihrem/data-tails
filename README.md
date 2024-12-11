@@ -35,7 +35,7 @@ DataTails is a data analytics and visualization platform that uses advanced know
 ---
 
 ## Project Structure
-```plaintext
+
 DataTails/
 ├── src/
 │   ├── ontology/              # Ontology logic and knowledge graph generation
@@ -49,6 +49,19 @@ DataTails/
 
 ---
 
+## Core Components
+- **Ontology Logic:** Handles the transformation of unstructured data into a structured format using predefined ontologies.
+- **Knowledge Graph:** Builds an interactive graph that connects entities and relationships for deeper insights.
+- **Dynamic Querying:** Integrates with LLMs to provide intelligent responses to user queries based on the knowledge graph.
+- **Visualization:** Offers dynamic, real-time visualizations of data and relationships using D3.js.
+- **API Integration:** Facilitates seamless communication between the frontend, backend, and the underlying models.
+
+---
+
 ## Ontology Logic and Knowledge Graph
+- **Ontology Creation:** Based on the principles of RDF (Resource Description Framework), data is structured into triples (subject-predicate-object) to represent relationships.
+- **Knowledge Graph Generation:** The graph is dynamically built using user data and predefined schemas, represented in JSON (D3KG.json) for visualization.
+- **Semantic Search:** Enables users to perform context-aware searches within the graph using natural language.
+- **Customization:** Ontologies and graph schemas can be extended for domain-specific applications.
 
 ---
