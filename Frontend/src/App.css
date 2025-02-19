@@ -3,11 +3,11 @@
     color: white; /* Optional: Change the text color for better contrast */
 }
 
-input[type=text]{
-  font-family: "Inter";
-  font-weight: bold;
-  color: #d9d9d9;
-}
+/*input[type=text]{*/
+/*  font-family: "Inter";*/
+/*  font-weight: bold;*/
+/*  color: #d9d9d9;*/
+/*}*/
 
 .app-body{
   background: linear-gradient(#BE285E 40%, #28BE88 51%);

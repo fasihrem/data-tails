@@ -1,19 +1,26 @@
 import './home.css';
 import Navbar from "./navbar";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import Filter from './filter.png';
 import Settings from './setting.png';
 import Graph from './chart.png';
+import {useNavigate} from "react-router-dom";
+import { checkAuth } from "./utils/auth";
+
 
 function MyHome() {
     const [input, setInput] = useState('');
-    const [response, setResponse] = useState('');
+    const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
     const [isChatStarted, setIsChatStarted] = useState(false); // Track chat start
+    const [isVisible, setIsVisible] = useState(false);
+    const navigate = useNavigate();
+
 
     const filterSubmit = async (e) => {
         e.preventDefault();
+        setIsVisible(true);
 
         console.log("filter pressed")
     }
@@ -26,6 +33,7 @@ function MyHome() {
 
     const graphSubmit = async (e) => {
         e.preventDefault();
+        navigate('/viz');
 
         console.log("viz pressed")
     }
@@ -63,10 +71,10 @@ function MyHome() {
                             <div className="filter-button" onClick={filterSubmit}>
                                 <img src={Filter} alt="filter logo"/>
                             </div>
-                            <div className="filter-button" onClick={graphSubmit}>
+                            <div className="viz-button" onClick={graphSubmit}>
                                 <img src={Graph} alt="filter logo"/>
                             </div>
-                            <div className="filter-button" onClick={cronSubmit}>
+                            <div className="cron-button" onClick={cronSubmit}>
                                 <img src={Settings} alt="filter logo"/>
                             </div>
                         </div>
