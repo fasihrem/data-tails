@@ -3,7 +3,15 @@
   <component name="JupyterPersistentConnectionParameters">
     <option name="moduleParameters">
       <map>
-        <entry key="$PROJECT_DIR$/../../../Assignments/FSE/A2/.idea/A2.iml">
+        <entry key="$USER_HOME$/Assignments/FSE/A2/.idea/A2.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="$USER_HOME$/PycharmProjects/testing/venv/bin/python" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../Assignments/FSE/A2/.idea/A2.iml">
           <value>
             <JupyterConnectionParameters>
               <option name="managed" value="true" />

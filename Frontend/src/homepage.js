@@ -6,64 +6,82 @@ import Filter from './filter.png';
 import Settings from './setting.png';
 import Graph from './chart.png';
 import {useNavigate} from "react-router-dom";
-import { checkAuth } from "./utils/auth";
-
+import { useAuth } from "./AuthContext";
 
 function MyHome() {
     const [input, setInput] = useState('');
-    const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
-    const [isChatStarted, setIsChatStarted] = useState(false); // Track chat start
+    const [isChatStarted, setIsChatStarted] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
+    const [showHint, setShowHint] = useState(true); // State for the hint box
     const navigate = useNavigate();
+    const { user } = useAuth();
 
+    const handleCloseHint = () => {
+        setShowHint(false); // Hide hint box when user clicks close
+    };
 
     const filterSubmit = async (e) => {
         e.preventDefault();
         setIsVisible(true);
-
-        console.log("filter pressed")
-    }
+        console.log("Filter pressed");
+    };
 
     const cronSubmit = async (e) => {
         e.preventDefault();
-
-        console.log("cronjob pressed")
-    }
+        console.log("Cronjob pressed");
+    };
 
     const graphSubmit = async (e) => {
         e.preventDefault();
         navigate('/viz');
-
-        console.log("viz pressed")
-    }
+        console.log("Viz pressed");
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (input.trim() === "") return; // Prevent empty submissions
-        setIsChatStarted(true); // Trigger input box to move down
+        if (input.trim() === "") return;
+        setIsChatStarted(true);
 
         const userMessage = { text: input, type: "user" };
-        setMessages((prev) => [...prev, userMessage]); // Add user message
+        setMessages((prev) => [...prev, userMessage]);
 
         try {
             const res = await axios.post('http://localhost:5000/api/chatInput', {
                 message: input,
             });
             const botMessage = { text: res.data.response, type: "bot" };
-            setMessages((prev) => [...prev, botMessage]); // Add bot response
+            setMessages((prev) => [...prev, botMessage]);
         } catch (error) {
             console.error("Error sending to Flask,", error);
             const errorMessage = { text: "Error: Could not fetch response.", type: "bot" };
-            setMessages((prev) => [...prev, errorMessage]); // Add error response
+            setMessages((prev) => [...prev, errorMessage]);
         } finally {
-            setInput(""); // Clear input
+            setInput("");
         }
     };
 
     return (
         <div className="ai-page">
             <Navbar />
+
+            {/* Hint Box (Appears when page loads, disappears on click) */}
+            {showHint && (
+                <div className="hint-box">
+                    <p> 💡<b>How to use the chatbot</b></p>
+                    <ul>
+                        <li>
+                            Click on the Filter option.
+                            <img src={Filter} className="hint-button" alt="filter logo"/>
+                        </li>
+
+                        <li>Choose your desired SubReddit and containing topic.</li>
+                        <li>Now you can continue with your Query!</li>
+                    </ul>
+                    <button className="close-hint" onClick={handleCloseHint}>Got it!</button>
+                </div>
+            )}
+
             <div className={`chat-container ${isChatStarted ? "chat-started" : ""}`}>
                 {!isChatStarted && (
                     <div className="start-text">
@@ -72,10 +90,10 @@ function MyHome() {
                                 <img src={Filter} alt="filter logo"/>
                             </div>
                             <div className="viz-button" onClick={graphSubmit}>
-                                <img src={Graph} alt="filter logo"/>
+                                <img src={Graph} alt="graph logo"/>
                             </div>
                             <div className="cron-button" onClick={cronSubmit}>
-                                <img src={Settings} alt="filter logo"/>
+                                <img src={Settings} alt="settings logo"/>
                             </div>
                         </div>
                         <h1 className="home-start-text">
@@ -83,7 +101,7 @@ function MyHome() {
                             <br/>
                             <span className="green">
                                 How can I be of
-                                <span className="highlight">service today?</span>
+                                <span className="highlight"> service today?</span>
                             </span>
                         </h1>
                     </div>

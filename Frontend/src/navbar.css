@@ -56,6 +56,18 @@
   align-items: center;
   position: absolute;
   right: 4%;
+  top: 2%;
+}
+
+.user-name{
+  margin-bottom: 10px; /* Add spacing between buttons */
+  width: 80px;
+  height: 34px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 12px;
+  transition: background-color 0.3s;
 }
 
 .nav-login{

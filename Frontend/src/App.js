@@ -4,8 +4,8 @@ import React, {useState} from "react";
 import ScrollToTopButton from "./scroll";
 import axios from "axios";
 import NavPill from "./navpill";
-import D3 from "./d3";
-import MyThree from "./three";
+// import D3 from "./d3";
+// import MyThree from "./three";
 
 
 function App() {

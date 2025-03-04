@@ -14,6 +14,8 @@ import Login from "./login";
 import Signup from "./signup";
 import Viz from "./viz";
 import store from "./store/store";
+import { AuthProvider } from "./AuthContext";
+import Pricing from "./pricing";
 
 
 
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
     {
         path: '/viz',
         element: <Viz/>
+    },
+    {
+        path: '/price',
+        element: <Pricing/>
     }
     ]);
 
@@ -49,9 +55,12 @@ root.render(
   // <React.StrictMode>
   //     <RouterProvider router = {router} />
   // </React.StrictMode>
-    <Provider store={store}>
-         <RouterProvider router = {router} />
-    </Provider>
+
+    <AuthProvider>
+        <Provider store={store}>
+             <RouterProvider router = {router} />
+        </Provider>
+    </AuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
