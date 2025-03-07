@@ -16,6 +16,7 @@ import Viz from "./viz";
 import store from "./store/store";
 import { AuthProvider } from "./AuthContext";
 import Pricing from "./pricing";
+import Settings from "./settings";
 
 
 
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
     {
         path: '/price',
         element: <Pricing/>
+    },
+    {
+        path: '/setting',
+        element: <Settings/>
     }
     ]);
 

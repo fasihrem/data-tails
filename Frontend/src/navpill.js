@@ -31,12 +31,12 @@ function NavPill() {
 
   return (
       <div className={`navpill ${showNavbar ? "show" : ""}`}>
-          <span className="logo">DataTails™</span>
+          <span className="logo"><a href="/">DataTails</a></span>
           <div className="navpill-logo">
               <ul className="navpill-menu">
-                  <li><a href="/">Home</a></li>
+                  {/*<li><a href="/">Home</a></li>*/}
                   <li><a href="/homepage">Chat</a></li>
-                  <li><a href="/about">Pricing</a></li>
+                  <li><a href="/price">Pricing</a></li>
               </ul>
           </div>
       </div>

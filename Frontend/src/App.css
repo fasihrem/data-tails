@@ -174,3 +174,19 @@ p{
     transform: rotate(360deg);
   }
 }
+
+.logged-in{
+  background-color: #28BE88;
+  color: black;
+  height: 10%;
+  width: 40%;
+  border-radius: 30px;
+
+  border: 2px solid #333; /* Adjust color and thickness */
+  /*padding: 20px; !* Space in*/
+
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center;
+}

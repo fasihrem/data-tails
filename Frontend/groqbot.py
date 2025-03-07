@@ -1,5 +1,5 @@
 import csv
-from groq import Groq
+from kg_chat import Groq
 
 # Initialize the Groq client
 client = Groq(api_key="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")

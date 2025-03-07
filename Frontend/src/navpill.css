@@ -14,7 +14,7 @@
   }
 
   .navpill-logo {
-    width: 390px;
+    width: 290px;
     height: 65px;
     background-color: #BE285E;
     border: 3px solid black;
@@ -25,7 +25,7 @@
     font-size: 25px;
     transition: font-size 0.3s;
     position: fixed;
-    left: 35%;
+    left: 38%;
   }
 
 .navpill-menu a:hover {
@@ -55,6 +55,15 @@
     text-decoration: none;
     font-weight: bold;
     transition: font-size 0.3s;
+  }
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover{
+    cursor: pointer;
   }
 
 

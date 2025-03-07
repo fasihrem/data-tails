@@ -7,7 +7,7 @@
 }
 
 .navbar-logo {
-  width: 390px;
+  width: 290px;
   height: 65px;
   background-color: #BE285E;
   border: 3px solid black;
@@ -59,6 +59,15 @@
   top: 2%;
 }
 
+.logout-settings-button{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: absolute;
+  right: 4%;
+  top: 2%;
+}
+
 .user-name{
   margin-bottom: 10px; /* Add spacing between buttons */
   width: 80px;
@@ -102,4 +111,36 @@
 
 .nav-signup:hover{
   background-color: #37dca1;
+}
+
+.nav-logout{
+    width: 35px;
+    height: 35px;
+    background-color: #28BE88;
+    border: none;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;  /* Center text inside */
+    align-items: center;  /* Center text inside */
+}
+
+.nav-logout:hover{
+    background-color: #37dca1;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+img {
+  width: 20px;
+  height: 20px;
 }
