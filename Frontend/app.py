@@ -8,17 +8,137 @@ from kg_chat import chat_with_kg
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}}, supports_credentials=True)
-users = {"fasihrem": "123456"}
+
+subreddit_topics = {
+    "AskReddit": [
+        "Life experiences",
+        "Personal opinions",
+        "Funny stories",
+        "Would you rather questions",
+        "Advice requests"
+    ],
+    "Damnthatsinteresting": [
+        "Scientific discoveries",
+        "Historical facts",
+        "Unusual phenomena",
+        "Bizarre events",
+        "Mind-blowing facts"
+    ],
+    "Music": [
+        "New album releases",
+        "Music recommendations",
+        "Underrated artists",
+        "Music production tips",
+        "Concert experiences"
+    ],
+    "mildlyinteresting": [
+        "Everyday oddities",
+        "Unexpected coincidences",
+        "Strange objects",
+        "Weirdly satisfying images",
+        "Slightly amusing observations"
+    ],
+    "news": [
+        "Current events",
+        "Politics",
+        "Technology advancements",
+        "Health and science",
+        "Breaking news"
+    ],
+    "showerthoughts": [
+        "Deep philosophical ideas",
+        "Random realizations",
+        "Funny but insightful thoughts",
+        "Observations about life",
+        "Unique perspectives"
+    ],
+    "todayilearned": [
+        "Interesting historical facts",
+        "Scientific discoveries",
+        "Unusual laws",
+        "Cultural traditions",
+        "Lesser-known people in history"
+    ],
+    "wallstreetbets": [
+        "Stock market speculation",
+        "Meme stocks",
+        "Options trading",
+        "YOLO investing strategies",
+        "Crypto discussions"
+    ],
+    "worldnews": [
+        "International politics",
+        "Global conflicts",
+        "Climate change news",
+        "Human rights issues",
+        "Global economy"
+    ],
+    "StockMarket": [
+        "Investment strategies",
+        "Stock market analysis",
+        "Market trends",
+        "Earnings reports",
+        "Risk management"
+    ],
+    "travel": [
+        "Best travel destinations",
+        "Travel tips",
+        "Budget-friendly travel",
+        "Hidden gems",
+        "Solo travel experiences"
+    ],
+    "TravelHacks": [
+        "Packing tips",
+        "Finding cheap flights",
+        "Hotel booking tricks",
+        "Travel safety tips",
+        "Airport hacks"
+    ],
+    "CryptoCurrency": [
+        "Bitcoin & Ethereum discussions",
+        "Altcoin analysis",
+        "Crypto regulations",
+        "Blockchain technology",
+        "Crypto investing strategies"
+    ],
+    "YouShouldKnow": [
+        "Life hacks",
+        "Helpful tips",
+        "Uncommon knowledge",
+        "Everyday safety tips",
+        "Consumer awareness"
+    ],
+    "LifeProTips": [
+        "Self-improvement",
+        "Productivity hacks",
+        "Career advice",
+        "Health & fitness tips",
+        "Money management"
+    ]
+}
 
 @app.route('/api/setFilter', methods=['POST'])
 def getFilters():
+    data = request.json
+    selected_option = data.get('selectedOption')
 
-    return jsonify("got filters")
+    if not selected_option:
+        return jsonify({"error": "No option selected"}), 400
+
+    print(f"Received: {selected_option}")
+    return jsonify({"message": f"Received {selected_option} successfully!"})
 
 @app.route('/api/setCronjob', methods=['POST'])
 def getCronjob():
+    data = request.json
+    cronInterval = data.get('cronInterval')
+    cronStart = data.get('cronTime')
 
-    return jsonify("got cronjob deets")
+    if not cronStart and not cronInterval:
+        return jsonify({"error": "Nothing selected"}), 400
+
+    print(f"Received: {cronStart, cronInterval}")
+    return jsonify({"message": f"Received start time: {cronStart} and interval time: {cronInterval} successfully!"})
 
 @app.route('/api/chatInput', methods=['POST'])
 def chat_page():

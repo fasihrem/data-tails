@@ -1,42 +1,99 @@
 import './home.css';
 import Navbar from "./navbar";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import axios from "axios";
 import Filter from './filter.png';
 import Settings from './setting.png';
 import Graph from './chart.png';
 import {useNavigate} from "react-router-dom";
-import { useAuth } from "./AuthContext";
+// import { useAuth } from "./AuthContext";
 
 function MyHome() {
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
     const [isChatStarted, setIsChatStarted] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
+    // const [isVisible, setIsVisible] = useState(false);
     const [showHint, setShowHint] = useState(true); // State for the hint box
-    const navigate = useNavigate();
-    const { user } = useAuth();
+    const [openFilters, setOpenFilters] = useState(false);
+    const [openCronjob, setOpenCronjob] = useState(false);
+    // const navigate = useNavigate();
+    // const { user } = useAuth();
+
+    const options = ["Option 1", "Option 2", "Option 3", "Option 4"];
+    const [selectedOption, setSelectedOption] = useState("");
+
+    const [cronTime, setCronTime] = useState('');
+    const [cronInterval, setCronInterval] = useState('');
 
     const handleCloseHint = () => {
         setShowHint(false); // Hide hint box when user clicks close
     };
 
+    const showFilters = () => {
+        setOpenFilters(true);
+    }
+
+    const showCron = () => {
+        setOpenCronjob(true);
+    }
+
+    const handleChange = (event) => {
+        setSelectedOption(event.target.value);
+    };
+
     const filterSubmit = async (e) => {
         e.preventDefault();
-        setIsVisible(true);
+
+        if (!selectedOption) {
+            alert("Please select an option before submitting.");
+            return;
+        }
+        else {
+            alert(`You selected: ${selectedOption}`);
+        }
+
+        try {
+            const response = await axios.post("http://localhost:5000/api/setFilter", {
+                selectedOption: selectedOption,
+            });
+
+            console.log("Response from server:", response.data);
+            alert(`Server Response: ${response.data.message}`);
+        }
+        catch (error) {
+            console.error("Error sending data to server:", error);
+            alert("Failed to submit data. Please try again.");
+        }
+
+        setOpenFilters(false);
         console.log("Filter pressed");
     };
 
     const cronSubmit = async (e) => {
         e.preventDefault();
-        console.log("Cronjob pressed");
+        try {
+            const response = await axios.post("http://localhost:5000/api/setCronjob", {
+                cronInterval: cronInterval,
+                cronTime: cronTime,
+            });
+
+            console.log("Response from server:", response.data);
+            alert(`Server Response: ${response.data.message}`);
+        }
+        catch (error) {
+            console.error("Error sending data to server:", error);
+            alert("Failed to submit data. Please try again.");
+        }
+
+        setOpenCronjob(false);
+        console.log("cron pressed");
     };
 
-    const graphSubmit = async (e) => {
-        e.preventDefault();
-        navigate('/viz');
-        console.log("Viz pressed");
-    };
+    // const graphSubmit = async (e) => {
+    //     e.preventDefault();
+    //     navigate('/viz');
+    //     console.log("Viz pressed");
+    // };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -82,17 +139,54 @@ function MyHome() {
                 </div>
             )}
 
+            {openFilters && (
+                <div className="hint-box">
+                    <form style={{padding: "20px", maxWidth: "300px"}} onSubmit={filterSubmit}>
+                        <label htmlFor="dropdown">Choose an option:</label>
+                        <select id="dropdown" value={selectedOption} onChange={handleChange} required>
+                            <option value="" disabled>Select an option</option>
+                            {options.map((option, index) => (
+                                <option key={index} value={option}>{option}</option>
+                            ))}
+                        </select>
+                        <br/><br/>
+                        <button onClick={filterSubmit}>Submit</button>
+                    </form>
+                </div>
+            )}
+
+            {openCronjob && (
+                <div className="hint-box">
+                    <form style={{padding: "20px", maxWidth: "300px"}} onSubmit={cronSubmit}>
+                        <input
+                            type="number"
+                            placeholder="Start Time"
+                            value={cronTime}
+                            onChange={(e) => setCronTime(e.target.value)}
+                        />
+
+                        <input
+                            type="number"
+                            placeholder="Interval duration"
+                            value={cronInterval}
+                            onChange={(e) => setCronInterval(e.target.value)}
+                        />
+                        <button onClick={cronSubmit}>Submit</button>
+                    </form>
+                </div>
+            )}
+
             <div className={`chat-container ${isChatStarted ? "chat-started" : ""}`}>
                 {!isChatStarted && (
                     <div className="start-text">
                         <div className="extra-buttons">
-                            <div className="filter-button" onClick={filterSubmit}>
+                            <div className="filter-button" onClick={showFilters}>
                                 <img src={Filter} alt="filter logo"/>
                             </div>
-                            <div className="viz-button" onClick={graphSubmit}>
-                                <img src={Graph} alt="graph logo"/>
-                            </div>
-                            <div className="cron-button" onClick={cronSubmit}>
+                            {/*<div className="viz-button" onClick={graphSubmit}>*/}
+                            {/*    <img src={Graph} alt="graph logo"/>*/}
+                            {/*</div>*/}
+                            <div className="cron-button" onClick={showCron}>
                                 <img src={Settings} alt="settings logo"/>
                             </div>
                         </div>
