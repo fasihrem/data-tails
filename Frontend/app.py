@@ -1,9 +1,9 @@
-from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, JWTManager, verify_jwt_in_request
 from flask import Flask, jsonify, request, abort, g, make_response
 # from groqbot import chat_with_groq
-from flask_cors import CORS
-import datetime
 from kg_chat import chat_with_kg
+from flask_cors import CORS
+from crontab import CronTab
+import datetime
 
 
 app = Flask(__name__)
@@ -113,9 +113,11 @@ subreddit_topics = {
         "Productivity hacks",
         "Career advice",
         "Health & fitness tips",
-        "Money management"
+               "Money management"
     ]
 }
+
+CRON_COMMAND = "/Users/fasihrem/Downloads/University/data-tails/venv/bin/python3 /Users/fasihrem/Downloads/University/data-tails/Backend/hot.py"
 
 @app.route('/api/setFilter', methods=['POST'])
 def getFilters():
@@ -131,14 +133,49 @@ def getFilters():
 @app.route('/api/setCronjob', methods=['POST'])
 def getCronjob():
     data = request.json
-    cronInterval = data.get('cronInterval')
-    cronStart = data.get('cronTime')
+    cronInterval = int(data.get('cronInterval'))
+    cronStart = int(data.get('cronTime'))
 
-    if not cronStart and not cronInterval:
-        return jsonify({"error": "Nothing selected"}), 400
+    print(f"cron start: {cronStart}")
+    print(f"cronInterval: {cronInterval}")
 
-    print(f"Received: {cronStart, cronInterval}")
-    return jsonify({"message": f"Received start time: {cronStart} and interval time: {cronInterval} successfully!"})
+
+    try:
+        if not cronStart and not cronInterval:
+            return jsonify({"error": "Nothing selected"}), 400
+            print("empty")
+
+        if cronStart < 1 or cronStart > 23:
+            return jsonify({"error": "invalid start time"})
+            print("start time not in range")
+
+        # if cronInterval < 30:
+        #     return jsonify({"error": "interval too short, must be more than 30m"})
+        #     print("interval too little")
+
+        cron = CronTab(user=True)
+
+        for job in cron:
+            if job.command == CRON_COMMAND:
+                print("cron exists")
+                cron.remove(job)
+                print("cron removed")
+
+        new_job = cron.new(command=CRON_COMMAND)
+        print(new_job, "\n")
+
+        new_job.setall(f"{cronStart} */{cronInterval} * * *")
+        print("cron set")
+        cron.write()
+
+        print("cron applied")
+        return jsonify({"message": f"cronjob successfully applied at {cronStart} every {cronInterval} minutes"}), 200
+
+    except:
+        return jsonify({"error": "what da fuck"})
+
+
+
 
 @app.route('/api/chatInput', methods=['POST'])
 def chat_page():
