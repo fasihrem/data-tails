@@ -7,7 +7,7 @@ import {
      createBrowserRouter,
      RouterProvider,
  } from "react-router-dom";
-import {Provider, provider} from "react-redux";
+import {Provider} from "react-redux";
 import D3 from "./d3";
 import Home from "./homepage";
 import Login from "./login";
@@ -17,6 +17,8 @@ import store from "./store/store";
 import { AuthProvider } from "./AuthContext";
 import Pricing from "./pricing";
 import Settings from "./settings";
+import Bar from ".//components/BarChart";
+import Dual from "./dual";
 
 
 
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
     {
          path: '/homepage',
          element: <Home/>
+    },
+    {
+         path: '/dual',
+         element: <Dual/>
     },
     {
         path: '/login',
@@ -52,6 +58,10 @@ const router = createBrowserRouter([
     {
         path: '/setting',
         element: <Settings/>
+    },
+    {
+        path: '/bar',
+        element: <Bar/>
     }
     ]);
 

@@ -49,7 +49,7 @@ function App() {
                     Sign Up
                   </button>
 
-                  <a className="guest" onClick={() => navigate('/homepage')}>
+                  <a className="guest" onClick={() => navigate('/dual')}>
                     Continue as guest?
                   </a>
                 </div>

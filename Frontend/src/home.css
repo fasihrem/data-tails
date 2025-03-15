@@ -149,8 +149,8 @@
     left: 20px;
     color: #BCBCBC;
 }
-/* Submit button */
-.chat-submit {
+
+.chat-button {
     font-family: "Inter";
     font-weight: bold;
     background-color: #BE285E;
@@ -162,8 +162,8 @@
     cursor: pointer;
 }
 
-.chat-submit:hover {
-    background-color: #e14a81;
+.chat-button:hover {
+  background-color: #e14a81;
 }
 
 .filter-button{
@@ -304,4 +304,63 @@ input.chat-text{
 
 .close-hint:hover {
     background: #0056b3;
+}
+
+/* Split-screen layout */
+.container.split-screen {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.chat-pane {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #F5F5F5;
+}
+
+
+/* Right pane: Reserved for future visualizations */
+.visual-pane {
+    font-family: "Inter";
+    font-weight: bold;
+    width: 50%;
+    background-color: #e9ecef;
+    /*border-left: 2px solid #ddd;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Chat messages section */
+.messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* Input box and send button */
+.chat-form {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  padding: 10px;
+}
+
+/* Move input box and button left */
+.split-screen .chat-form {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
 }

@@ -11,8 +11,8 @@ function Pricing() {
         <div>
             <Navbar />
 
-            <h1>This shit expensive</h1>
-            <h2>dont buy</h2>
+            {/*<h1>This shit expensive</h1>*/}
+            {/*<h2>dont buy</h2>*/}
 
         </div>
     );
