@@ -1,380 +1,214 @@
-import React, { useEffect, useRef } from 'react';
-import * as d3 from 'd3';
+import React, { useRef, useEffect, useState } from "react";
+import * as d3 from "d3";
 
 const CirclePacking = ({ queryResponse }) => {
-    const svgRef = useRef(null);
-
-    const parseResponseToHierarchy = (response) => {
-        console.log("Starting to parse response:", response);
-
-        try {
-            if (!response) {
-                console.warn("Empty response received");
-                return null;
-            }
-
-            // Convert response to string if it's not already
-            const text = typeof response === 'string' ? response : JSON.stringify(response);
-
-            // Look at the actual categories/children in the data to determine the domain
-            const mainCategories = [];
-            const categoryMatches = text.match(/\*\*(.*?)\*\*|^\d+\.\s*([^:]+):|"([^"]+)"/g);
-            
-            if (categoryMatches) {
-                categoryMatches.forEach(match => {
-                    const category = match.replace(/\*\*|\d+\.|"|:/g, '').trim();
-                    if (category) mainCategories.push(category);
-                });
-            }
-
-            // Determine root name based on the common theme of categories
-            let rootName = "";
-            if (mainCategories.length > 0) {
-                if (mainCategories.some(cat => /football|cricket|hockey|tennis|sport/i.test(cat))) {
-                    rootName = "";
-                } else if (mainCategories.some(cat => /data|machine learning|AI/i.test(cat))) {
-                    rootName = "";
-                } else {
-                    // Use the domain that best describes the categories
-                    rootName = "";
-                }
-            }
-
-            const root = {
-                name: rootName,
-                children: []
-            };
-
-            // Split into main sections (looking for patterns like ** Title ** or numbered sections)
-            const mainSections = text.split(/(?=\*\*[^*]+\*\*|\d+\.)/g)
-                .map(section => section.trim())
-                .filter(Boolean);
-
-            // Process remaining sections as children
-            mainSections.forEach(section => {
-                // Try to extract category name and content
-                let categoryName, content;
-
-                // Check for **Title** pattern
-                const titleMatch = section.match(/\*\*([^*]+)\*\*/);
-                if (titleMatch) {
-                    categoryName = titleMatch[1].trim();
-                    content = section.replace(/\*\*[^*]+\*\*/, '').trim();
-                } else {
-                    // Check for numbered pattern (e.g., "1. Title:")
-                    const numberedMatch = section.match(/^\d+\.\s*([^:]+):/);
-                    if (numberedMatch) {
-                        categoryName = numberedMatch[1].trim();
-                        content = section.replace(/^\d+\.\s*[^:]+:/, '').trim();
-                    } else {
-                        // Use the whole section as content if no clear title
-                        content = section.trim();
-                    }
-                }
-
-                if (categoryName) {
-                    const category = {
-                        name: categoryName,
-                        children: []
-                    };
-
-                    // Look for items in parentheses or after "such as" or "including"
-                    const itemMatches = content.match(/\((.*?)\)|\b(?:such as|including|like)\s+([^.]+)/g);
-                    
-                    if (itemMatches) {
-                        itemMatches.forEach(match => {
-                            const items = match
-                                .replace(/^\(|\)$|\b(?:such as|including|like)\s+/g, '')
-                                .split(/,\s*|\sand\s/)
-                                .map(item => item.trim())
-                                .filter(Boolean);
-
-                            items.forEach(item => {
-                                category.children.push({
-                                    name: item,
-                                    value: 1
-                                });
-                            });
-                        });
-                    }
-
-                    // If no items found but we have content, add it as a single item
-                    if (category.children.length === 0 && content) {
-                        category.value = 1;
-                    }
-
-                    // Only add categories that have content
-                    if (category.children.length > 0 || category.value) {
-                        root.children.push(category);
-                    }
-                }
-            });
-
-            // If no categories were created, try to parse the whole text as one category
-            if (root.children.length === 0) {
-                root.children.push({
-                    name: text.substring(0, 50) + (text.length > 50 ? "..." : ""),
-                    value: 1
-                });
-            }
-
-            console.log("Parsed data with root:", root);
-            return root;
-
-        } catch (error) {
-            console.error("Error parsing response:", error);
-            return {
-                name: "Overview",
-                children: [{
-                    name: String(response).substring(0, 100),
-                    value: 1
-                }]
-            };
-        }
-    };
+    const containerRef = useRef(null);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Debug log to check incoming data
-        console.log("Raw query response:", queryResponse);
+        if (!queryResponse || !containerRef.current) {
+            console.error("Missing queryResponse or container for CirclePacking");
+            setError("Missing data or container reference");
+            return;
+        }
 
-        // Remove any existing tooltips
-        d3.select('body').selectAll('.tooltip').remove();
-        
-        const tooltip = d3.select('body')
-            .append('div')
-            .attr('class', 'tooltip')
-            .style('position', 'absolute')
-            .style('padding', '8px')
-            .style('background', 'white')
-            .style('border', '1px solid #ddd')
-            .style('border-radius', '4px')
-            .style('pointer-events', 'none')
-            .style('font-size', '12px')
-            .style('opacity', 0)
-            .style('z-index', 1000);
+        const container = d3.select(containerRef.current);
+        container.selectAll("svg").remove();
+        container.selectAll(".tooltip").remove();
+        setError(null);
 
-        const createCirclePacking = (data) => {
-            const width = 800;
-            const height = 800;
+        try {
+            const hierarchicalData = parseQueryResponseToHierarchy(queryResponse);
 
-            // Clear previous visualization
-            d3.select(svgRef.current).selectAll("*").remove();
+            const width = containerRef.current.clientWidth;
+            const height = 600;
+            const margin = { top: 10, right: 10, bottom: 10, left: 10 };
 
-            // Create SVG
-            const svg = d3.select(svgRef.current)
+            const svg = container.append("svg")
+                .attr("width", width)
+                .attr("height", height)
                 .attr("viewBox", [0, 0, width, height])
-                .attr("font-family", "Arial, sans-serif")
-                .style("background", "#fff")
-                .style("margin", "auto")
-                .style("display", "block");
+                .style("background", "#f5f7fa")  
+                .style("border-radius", "12px");
 
-            // Create hierarchical layout with increased padding for parent circles
-            const hierarchy = d3.hierarchy(data)
-                .sum(d => d.value || 0)
+            const tooltip = container.append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0)
+                .style("position", "absolute")
+                .style("background", "rgba(0, 0, 0, 0.8)")
+                .style("color", "white")
+                .style("border-radius", "6px")
+                .style("padding", "6px")
+                .style("pointer-events", "none")
+                .style("font-size", "10px")
+                .style("box-shadow", "0 2px 4px rgba(0,0,0,0.2)");
+
+            const root = d3.hierarchy(hierarchicalData)
+                .sum(d => d.value || 1)
                 .sort((a, b) => b.value - a.value);
 
             const pack = d3.pack()
-                .size([width - 40, height - 40])
-                .padding(d => d.depth === 1 ? 20 : 3); // More padding for main categories
+                .size([width - margin.left - margin.right, height - margin.top - margin.bottom])
+                .padding(3);
 
-            const root = pack(hierarchy);
+            const packedData = pack(root);
 
-            // Create color scale for different categories
-            const colorScale = d3.scaleOrdinal()
-                .domain(root.children.map(d => d.data.name))
-                .range([
-                    '#FF6B6B',  // Coral Red
-                    '#4ECDC4',  // Turquoise
-                    '#45B7D1',  // Sky Blue
-                    '#96CEB4',  // Sage Green
-                    '#FFEEAD',  // Soft Yellow
-                    '#D4A5A5',  // Dusty Rose
-                    '#9B5DE5',  // Purple
-                    '#00BBF9',  // Bright Blue
-                    '#00F5D4',  // Mint
-                    '#FEE440',  // Yellow
-                    '#F15BB5',  // Pink
-                    '#FB5607',  // Orange
-                ]);
+            const color = d3.scaleOrdinal(d3.schemeSet2);  
 
-            // Create container with padding
-            const container = svg.append("g")
-                .attr("transform", `translate(20, 20)`);
+            const g = svg.append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
 
-            // Add circles
-            const node = container.selectAll("g")
-                .data(root.descendants())
+            const node = g.selectAll("g")
+                .data(packedData.descendants().filter(d => !isNaN(d.r) && d.r > 0))
                 .join("g")
                 .attr("transform", d => `translate(${d.x},${d.y})`);
 
-            // Define a more colorful gradient for the root circle
-            const gradient = svg.append("defs")
-                .append("radialGradient")
-                .attr("id", "rootGradient");
-
-            gradient.append("stop")
-                .attr("offset", "0%")
-                .attr("stop-color", "#E8F3FF") // Light blue tint
-                .attr("stop-opacity", 0.9);
-
-            gradient.append("stop")
-                .attr("offset", "50%")
-                .attr("stop-color", "#F0F7FF") // Slightly different blue tint
-                .attr("stop-opacity", 0.7);
-
-            gradient.append("stop")
-                .attr("offset", "100%")
-                .attr("stop-color", "#F8FBFF") // Very light blue
-                .attr("stop-opacity", 0.5);
-
-            // Update the circle elements
             node.append("circle")
                 .attr("r", d => d.r)
-                .attr("fill", d => {
-                    if (d.depth === 0) return "url(#rootGradient)"; // Use new gradient for root
-                    if (d.depth === 1) return colorScale(d.data.name);
-                    return d3.color(colorScale(d.parent.data.name)).brighter(0.2);
+                .attr("fill", d => color(d.depth))
+                .attr("fill-opacity", 0.85)
+                .attr("stroke", "white")
+                .attr("stroke-width", 2)
+                .style("cursor", "pointer")
+                .on("mouseover", function (event, d) {
+                    d3.select(this).attr("stroke-width", 3);
+                    tooltip.transition().duration(200).style("opacity", 1);
+                    tooltip.html(`<strong>${d.data.name}</strong><br/>${d.value ? `Count: ${d.value}` : ""}`)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 28) + "px");
                 })
-                .attr("stroke", d => d.depth === 0 ? "#B8D8FF" : "#fff") // Light blue stroke for root
-                .attr("stroke-width", d => d.depth === 0 ? 2 : d.depth === 1 ? 2 : 1)
-                .style("opacity", d => {
-                    if (d.depth === 0) return 1;
-                    if (d.depth === 1) return 0.85;
-                    return 0.75;
-                })
-                .style("filter", d => d.depth === 0 ? "drop-shadow(0 0 15px rgba(184, 216, 255, 0.3))" : "none") // Blue-tinted shadow
-                .style("transition", "all 0.3s ease");
+                .on("mouseout", function () {
+                    d3.select(this).attr("stroke-width", 2);
+                    tooltip.transition().duration(500).style("opacity", 0);
+                });
 
-            // Update root category label style
-            node.filter(d => d.depth === 0)
-                .append("text")
-                .attr("class", "root-category-label")
-                .attr("text-anchor", "middle")
-                .attr("y", d => -d.r + 30)
+            node.append("text")
+                .attr("dy", ".3em")
+                .style("text-anchor", "middle")
                 .style("font-family", "Arial, sans-serif")
-                .style("font-size", "24px")
-                .style("fill", "#2B4C7E")
-                .style("font-weight", "bold")
-                .style("text-shadow", "1px 1px 2px rgba(43, 76, 126, 0.1)")
-                .text(d => d.data.name);
-
-            // Add labels for main categories (top-level hierarchy)
-            node.filter(d => d.depth === 1)
-                .append("text")
-                .attr("class", "main-category-label")
-                .attr("text-anchor", "middle")
-                .attr("dominant-baseline", "middle")
-                .attr("dy", d => -d.r + 20) // Position at top of circle
-                .style("font-family", "Arial, sans-serif")
-                .style("font-size", d => `${Math.min(d.r / 4, 18)}px`)
-                .style("fill", d => d3.color(colorScale(d.data.name)).darker(0.5))
-                .style("font-weight", "bold")
                 .style("pointer-events", "none")
-                .text(d => d.data.name);
+                .style("fill", "#000000")  
+                .style("font-weight", "bold")
+                .style("text-shadow", "1px 1px 2px rgba(255,255,255,0.7)")  
+                .each(function (d) {
+                    const text = d3.select(this);
+                    const name = d.data.name;
 
-            // Add smaller labels for subcategories
-            node.filter(d => d.depth > 1 && d.r > 15)
-                .append("text")
-                .attr("class", "subcategory-label")
-                .attr("text-anchor", "middle")
-                .attr("dominant-baseline", "middle")
-                .style("font-family", "Arial, sans-serif")
-                .style("font-size", d => `${Math.min(d.r / 3, 12)}px`)
-                .style("fill", "#333")
-                .style("pointer-events", "none")
-                .text(d => d.data.name);
+                    const fontSize = Math.max(5, Math.min(d.r / 4, 12));  
+                    text.style("font-size", fontSize + "px");
 
-            // Enhanced hover effects
-            node.on("mouseover", function(event, d) {
-                if (d.depth === 0) return;
+                    if (d.r < 10) {
+                        text.text("");  
+                    } else if (d.r < 25) {
+                        text.text(name.substring(0, Math.min(2, name.length)));  
+                    } else {
+                        const maxChars = Math.floor(d.r / (fontSize * 0.6));
+                        text.text(name.length > maxChars ? name.substring(0, maxChars) + "..." : name);
+                    }
+                });
 
-                // Highlight current circle
-                d3.select(this).select("circle")
-                    .style("stroke", "#000")
-                    .style("stroke-width", 2);
+            const zoom = d3.zoom()
+                .scaleExtent([0.5, 5])
+                .on("zoom", (event) => {
+                    g.attr("transform", event.transform);
+                });
 
-                // Show tooltip with full hierarchy path
-                const hierarchyPath = getHierarchyPath(d);
-                tooltip.transition()
-                    .duration(200)
-                    .style("opacity", 0.9);
-                
-                tooltip.html(hierarchyPath)
-                    .style("left", (event.pageX + 10) + "px")
-                    .style("top", (event.pageY - 10) + "px")
-                    .style("background", "rgba(255, 255, 255, 0.95)")
-                    .style("box-shadow", "0 2px 8px rgba(0, 0, 0, 0.15)")
-                    .style("border", "none")
-                    .style("padding", "10px 15px")
-                    .style("border-radius", "6px")
-                    .style("font-family", "Arial, sans-serif")
-                    .style("font-size", "14px")
-                    .style("font-weight", "500")
-                    .style("color", "#495057");
-            })
-            .on("mouseout", function(event, d) {
-                if (d.depth === 0) return;
+            svg.call(zoom);
 
-                // Reset circle style
-                d3.select(this).select("circle")
-                    .style("stroke", "#fff")
-                    .style("stroke-width", d.depth === 1 ? 2 : 1);
-
-                // Hide tooltip
-                tooltip.transition()
-                    .duration(500)
-                    .style("opacity", 0);
-            });
-        };
-
-        // Process and create visualization
-        if (queryResponse) {
-            const hierarchicalData = parseResponseToHierarchy(queryResponse);
-            console.log("Processed hierarchical data:", hierarchicalData);
-            if (hierarchicalData && hierarchicalData.children && hierarchicalData.children.length > 0) {
-                createCirclePacking(hierarchicalData);
-            } else {
-                console.warn("No valid hierarchical data to visualize");
-            }
+        } catch (error) {
+            console.error("Error creating CirclePacking:", error);
+            setError(error.message);
+            container.append("div")
+                .attr("class", "error-message")
+                .style("color", "red")
+                .style("padding", "20px")
+                .text(`Error creating CirclePacking: ${error.message}`);
         }
-
-        return () => {
-            d3.select('body').selectAll('.tooltip').remove();
-        };
     }, [queryResponse]);
 
-    // Helper function to get the full hierarchy path
-    const getHierarchyPath = (node) => {
-        const path = [];
-        let current = node;
-        while (current.parent && current.depth > 0) {
-            path.unshift(current.data.name);
-            current = current.parent;
-        }
-        return path.join(" > ");
+    const parseQueryResponseToHierarchy = (text) => {
+        const root = { name: "Categories", children: [] };
+        let currentCategory = null;
+        const categoryMap = new Map();
+        const lines = text.split("\n");
+        // Common English stop words to filter out
+        const stopWords = new Set([
+            'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
+            'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'was', 'were',
+            'will', 'with', 'the', 'this', 'but', 'they', 'have', 'had', 'what', 'when',
+            'where', 'who', 'which', 'why', 'how', 'etc', 'other', 'others', 'type', 'types', 'technology', 'technologies', 'and', 'or', 'the', 'of', 'in', 'to', 'from', 'by', 'with', 'as', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'as', 'until', 'while', 'as', 'until', 'while'
+        ]);
+
+        // Helper function to clean text by removing stop words
+        const removeStopWords = (text) => {
+            return text
+                .toLowerCase()
+                .split(/\s+/)
+                .filter(word => !stopWords.has(word))
+                .join(' ');
+        };
+
+        // Clean the input text before processing
+        text = text.split('\n').map(line => {
+            if (line.startsWith('**')) {
+                // Preserve category headers
+                return line;
+            }
+            return line.split(':').map((part, index) => {
+                if (index === 0) {
+                    // Preserve subcategory names
+                    return part;
+                }
+                // Clean items
+                return part.split(',')
+                    .map(item => removeStopWords(item.trim()))
+                    .join(',');
+            }).join(':');
+        }).join('\n');
+
+        lines.forEach(line => {
+            const categoryMatch = line.match(/^\*\*([^*:]+)(?:\*\*:|\*\*)/) || line.match(/^\*\*([^*:]+):/);
+            if (categoryMatch) {
+                currentCategory = categoryMatch[1].trim();
+                if (!categoryMap.has(currentCategory)) {
+                    const newCategory = { name: currentCategory, children: [] };
+                    categoryMap.set(currentCategory, newCategory);
+                    root.children.push(newCategory);
+                }
+            } else if (currentCategory && line.includes(":")) {
+                const parts = line.split(":");
+                if (parts.length === 2) {
+                    const subcategoryName = parts[0].trim();
+                    const items = parts[1].split(",").map(item => item.trim());
+
+                    const subcategory = { name: subcategoryName, children: [] };
+                    categoryMap.get(currentCategory).children.push(subcategory);
+
+                    items.forEach(item => {
+                        if (item) subcategory.children.push({ name: item, value: 1 });
+                    });
+                }
+            }
+        });
+
+        root.children = root.children.filter(cat => cat.children.length > 0);
+        return root;
     };
 
     return (
-        <div style={{
-            width: '100%',
-            height: '800px', // Increased height
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            background: 'white',
-            borderRadius: '15px',
-            padding: '20px',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-        }}>
-            <svg
-                ref={svgRef}
-                style={{
-                    width: '100%',
-                    height: '100%',
-                    maxWidth: '800px',
-                    maxHeight: '800px'
-                }}
-            />
+        <div ref={containerRef} 
+            style={{ 
+                width: "100%",
+                height: "600px",
+                backgroundColor: "white",
+                padding: "20px",
+                borderRadius: "12px",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                position: "relative"
+            }}
+        >
+            {!queryResponse && <div style={{ padding: "20px", textAlign: "center" }}>No data provided for Circle Packing visualization</div>}
+            {error && <div style={{ color: "red", padding: "20px" }}>Error: {error}</div>}
         </div>
     );
 };
