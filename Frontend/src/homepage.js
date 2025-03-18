@@ -3,6 +3,7 @@ import axios from "axios";
 import Navbar from "./navbar";
 import Filter from './filter.png';
 import Settings from './setting.png';
+import { getAuth } from "firebase/auth";
 import "./home.css";
 
 function MyHome() {
@@ -21,6 +22,10 @@ function MyHome() {
 
     const [cronTime, setCronTime] = useState('');
     const [cronInterval, setCronInterval] = useState('');
+
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const userId = user.uid;
 
     const handleCloseHint = () => setShowHint(false);
     const showFilters = () => setOpenFilters(true);
@@ -72,20 +77,13 @@ function MyHome() {
 
         setMessages(prev => [...prev, { text: input, type: "user" }]);
 
-        // if(!filters()){
-        //     alert("select subreddit before submitting a query")
-        //     return;
-        // }
-
         try {
-            const res = await axios.post('http://localhost:5000/api/chatInput', { message: input });
+            const res = await axios.post('http://localhost:5000/api/chatInput', { message: input, userId });
             setMessages(prev => [...prev, { text: res.data.response, type: "bot" }]);
+            setInput("");
         }
         catch (error) {
             setMessages(prev => [...prev, { text: "Error: Could not fetch response.", type: "bot" }]);
-        }
-        finally {
-            setInput("");
         }
     };
 

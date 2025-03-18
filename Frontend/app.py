@@ -179,13 +179,23 @@ def getCronjob():
 
 @app.route('/api/chatInput', methods=['POST'])
 def chat_page():
+    try:
+        data = request.json
+        user_id = data.get("userId")
+        user_input = data.get("message")
+
+        response = chat_with_kg(user_input, user_id)
+
+
+        print(f"user input: {user_input}")
+        print(f"groq response: {response}")
+
+        return jsonify({"response": f"{response}"}), 200
     # Extract user input from the request
-    user_input = request.json.get('message', '')
-    # response = chat_with_groq(user_input)
-    response = chat_with_kg(user_input)
-    print(f"User input: {user_input}")  # Print to the console
-    print(f"Groq Response: {response}")
-    return jsonify({"response": f"{response}"})  # Send a response
+    # user_input = request.json.get('message', '')
+    except Exception as e:
+        print("Server error:", str(e))
+        return jsonify({"error": "Server error"}), 500
 
 
 if __name__ == '__main__':

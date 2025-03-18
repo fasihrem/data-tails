@@ -15,7 +15,7 @@ from concurrent.futures import ThreadPoolExecutor
 client = Groq(api_key="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")
 
 # ✅ CSV File for Conversation History
-csv_file_path = "../Backend/conversation_history.csv"
+csv_file_path = "conversation_history.csv"
 conversation_history = []
 
 # ✅ Define RDF Namespaces
@@ -59,9 +59,11 @@ def load_kg_ttl(file_path):
         g = Graph()
         g.parse(file_path, format="turtle")
         adjacency_list = defaultdict(list)
+
         for s, p, o in g:
             adjacency_list[str(s)].append((s, p, o))
             adjacency_list[str(o)].append((s, p, o))
+
         print(f"✅ Loaded KG.ttl with {len(g)} triples.")
         return g, adjacency_list
     except Exception as e:
@@ -69,74 +71,58 @@ def load_kg_ttl(file_path):
         return None, None
 
 
-# ✅ Multi-threaded BFS Traversal
-def bfs_traverse_parallel(adjacency_list, start_nodes, max_depth=5):
-    """Performs parallel BFS traversal for faster subgraph extraction."""
-    if not adjacency_list:
-        return "❌ Knowledge Graph not loaded."
-
-    visited = set()
-    queue = deque([(node, 0) for node in start_nodes])
-    nodes_to_display, links_to_display = set(start_nodes), set()
-    results = []
-
-    def process_node(current_node, depth):
-        if depth < max_depth:
-            for s, p, o in adjacency_list.get(current_node, []):
-                if isinstance(o, Literal):
-                    results.append(str(o))
-                else:
-                    links_to_display.add((s, p, o))
-                    queue.append((str(o), depth + 1))
-                    queue.append((str(s), depth + 1))
-
-            visited.add(current_node)
-
-    with ThreadPoolExecutor(max_workers=4) as executor:
-        while queue:
-            current_node, depth = queue.popleft()
-            executor.submit(process_node, current_node, depth)
-
-    return {"context": results[:10]} if results else "❌ Data not found."
-
-
-# ✅ Fast Context Retrieval
-def retrieve_context_fast(kg_json, adjacency_list, user_query):
-    """Finds relevant nodes based on user query and retrieves subgraph using BFS."""
+# ✅ **Optimized BFS Retrieval with Subreddit & Topic Filtering**
+def retrieve_relevant_comments(kg_json, adjacency_list, subreddit, topic):
+    """Retrieves only comments relevant to the given subreddit and topic."""
     if not kg_json:
         return "❌ KG.json not loaded."
 
-    query_keywords = preprocess_text(user_query)
+    subreddit_uri = f"http://reddit.com/subreddit/{subreddit}"
+    topic_uri = f"http://reddit.com/topic/{topic}"
 
-    # **Step 1: Fast Lookup in KG.json**
-    matched_entities = set()
+    matched_comments = set()
+
+    # **Step 1: Find Posts Related to Subreddit & Topic**
+    relevant_posts = set()
     for entity_id, entity in kg_json.items():
-        for key, value in entity.items():
-            if isinstance(value, str) and any(keyword in value.lower() for keyword in query_keywords):
-                matched_entities.add(entity_id)
+        if "sioc:Container" in entity and entity["sioc:Container"] == subreddit_uri:
+            # Check if topic is mentioned
+            if "sioc:topic" in entity and topic_uri in entity["sioc:topic"]:
+                relevant_posts.add(entity_id)
 
-    if not matched_entities:
-        return "❌ Data not found."
+    if not relevant_posts:
+        return "❌ No posts found for the given subreddit & topic."
 
-    # **Step 2: BFS traversal in KG.ttl for details**
+    # **Step 2: Retrieve Only Comments from Relevant Posts**
+    for post_uri in relevant_posts:
+        for comment_uri, p, o in adjacency_list.get(post_uri, []):
+            if "sioc:Comment" in str(o):
+                matched_comments.add(comment_uri)
+
+    if not matched_comments:
+        return "❌ No relevant comments found."
+
+    # **Step 3: Retrieve Context of Matched Comments**
     context_results = []
-    for entity in matched_entities:
-        subgraph = bfs_traverse_parallel(adjacency_list, [entity], max_depth=5)
-        if subgraph != "❌ Data not found.":
-            context_results.extend(subgraph["context"])
+    for comment in matched_comments:
+        comment_text = kg_json.get(comment, {}).get("dc:title", "")
+        if comment_text:
+            context_results.append(comment_text)
 
     return {"context": context_results[:10]} if context_results else "❌ Data not found."
 
 
 # ✅ Groq Chat API
-def chat_with_groq(context, user_query):
+def chat_with_groq(context, user_query, userID):
     """Interacts with Groq model using retrieved KG context."""
     global conversation_history
 
-    # Add user message to conversation history
+    file_path = "conversation_history.csv"
+    csv_file_path = f"{userID}_{file_path}"
+    conversation_history = []
+
     conversation_history.append({"role": "user", "content": user_query})
 
-    # Create chat prompt
     prompt = f"""
     Context:
     {context}
@@ -147,19 +133,14 @@ def chat_with_groq(context, user_query):
     Provide a detailed answer based on the context.
     """
 
-    # Call Groq API
     chat_completion = client.chat.completions.create(
         messages=conversation_history,
         model="llama3-8b-8192"
     )
 
-    # Extract response
     response = chat_completion.choices[0].message.content
-
-    # Add response to history
     conversation_history.append({"role": "assistant", "content": response})
 
-    # Update conversation history in CSV
     with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow(["Role", "Content"])
@@ -168,9 +149,8 @@ def chat_with_groq(context, user_query):
 
     return response
 
-
 # ✅ Run Main Program
-def chat_with_kg(user_query):
+def chat_with_kg(user_query, userID):
     kg_json_path = "../Backend/KG.json"
     kg_ttl_path = "./KG.ttl"
 
@@ -178,14 +158,18 @@ def chat_with_kg(user_query):
     kg_json = load_kg_json(kg_json_path)
     kg_ttl, adjacency_list = load_kg_ttl(kg_ttl_path)
 
-    # user_query = input("Enter your query: ")
+    subreddit = "Advice"
+    topic = "Human Health"
 
-    print("\n🔍 Retrieving Context...")
-    context = retrieve_context_fast(kg_json, adjacency_list, user_query)
+    print("\n🔍 Retrieving Relevant Comments...")
+    context = retrieve_relevant_comments(kg_json, adjacency_list, subreddit, topic)
 
     print("\n🤖 Querying Groq...")
-    response = chat_with_groq(context, user_query)
+    response = chat_with_groq(context, user_query, userID)
 
     print("\n💡 Groq Response:", response)
 
     return response
+
+
+
