@@ -1,248 +1,217 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
 
 const LineChart = ({ queryResponse }) => {
-    const svgRef = useRef();
-    const [tableData, setTableData] = useState([]);
-
-    // Convert text to tabular data
-    const convertToTable = (text) => {
-        if (!text) return [];
-        
-        console.log("Raw text to convert:", text);
-        
-        try {
-            const data = [];
-            
-            // Try to extract year-value pairs using different patterns
-            const lines = text.split('\n');
-            console.log("Split into lines:", lines.length, "lines");
-            
-            lines.forEach((line, index) => {
-                console.log(`Line ${index}: "${line}"`);
-                
-                // Pattern 1: **YYYY:** NNN gold medals
-                let match = line.match(/\*\*(\d{4})\*\*:\s*(\d+)\s*gold medals/);
-                if (match) {
-                    console.log(`Pattern 1 match on line ${index}:`, match);
-                    const year = parseInt(match[1]);
-                    const value = parseInt(match[2]);
-                    if (!isNaN(year) && !isNaN(value)) {
-                        data.push({ year, value });
-                        console.log(`Added data point: ${year} = ${value}`);
-                    }
-                    return;
-                }
-                
-                // Pattern 2: Year: YYYY, Value: NNN
-                match = line.match(/Year:\s*(\d{4}).*Value:\s*(\d+)/i);
-                if (match) {
-                    console.log(`Pattern 2 match on line ${index}:`, match);
-                    const year = parseInt(match[1]);
-                    const value = parseInt(match[2]);
-                    if (!isNaN(year) && !isNaN(value)) {
-                        data.push({ year, value });
-                        console.log(`Added data point: ${year} = ${value}`);
-                    }
-                    return;
-                }
-                
-                // Pattern 3: YYYY: NNN
-                match = line.match(/(\d{4}):\s*(\d+)/);
-                if (match) {
-                    console.log(`Pattern 3 match on line ${index}:`, match);
-                    const year = parseInt(match[1]);
-                    const value = parseInt(match[2]);
-                    if (!isNaN(year) && !isNaN(value)) {
-                        data.push({ year, value });
-                        console.log(`Added data point: ${year} = ${value}`);
-                    }
-                    return;
-                }
-                
-                // Pattern 4: Just try to find a year and a number in the same line
-                const yearMatch = line.match(/\b(\d{4})\b/);
-                const valueMatch = line.match(/\b(\d+)\b/g);
-                if (yearMatch && valueMatch && valueMatch.length > 1) {
-                    console.log(`Pattern 4 match on line ${index}:`, yearMatch, valueMatch);
-                    const year = parseInt(yearMatch[1]);
-                    const value = parseInt(valueMatch[1]); // Take the second number as value
-                    if (!isNaN(year) && !isNaN(value)) {
-                        data.push({ year, value });
-                        console.log(`Added data point: ${year} = ${value}`);
-                    }
-                }
-            });
-            
-            // Sort by year
-            data.sort((a, b) => a.year - b.year);
-            console.log("Final data array:", data);
-            
-            // Create a console table for better visualization
-            console.table(data);
-            
-            return data;
-        } catch (error) {
-            console.error("Error converting to table:", error);
-            return [];
-        }
-    };
+    const containerRef = useRef(null);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Convert to tabular data
-        const data = convertToTable(queryResponse);
-        setTableData(data);
-        
-        if (data.length === 0) {
-            console.log("No data to visualize");
+        if (!queryResponse || !containerRef.current) {
+            setError("Missing data or container reference");
             return;
         }
 
-        // Create visualization
-        const width = 800;
-        const height = 400;
-        const margin = { top: 40, right: 40, bottom: 60, left: 60 };
-        const innerWidth = width - margin.left - margin.right;
-        const innerHeight = height - margin.top - margin.bottom;
+        const container = d3.select(containerRef.current);
+        container.selectAll("svg").remove();
+        container.selectAll(".tooltip").remove();
+        setError(null);
 
-        // Clear previous content
-        const svg = d3.select(svgRef.current);
-        svg.selectAll("*").remove();
+        try {
+            console.log("Raw queryResponse:", queryResponse);
 
-        // Set up SVG
-        svg
-            .attr("width", width)
-            .attr("height", height);
+            // Parse the data
+            const data = [];
+            const lines = queryResponse.split('\n');
+            
+            // Multiple patterns to try
+            const patterns = [
+                // Pattern 1: Year with number (with optional $ and billion/million)
+                /(\d{4}).*?[^\d](\d+\.?\d*)\s*(billion|million)?/i,
+                // Pattern 2: Year with events/count
+                /(\d{4}).*?(\d+)\s*events?/i,
+                // Pattern 3: Year with any number after colon
+                /(\d{4}):\s*.*?(\d+\.?\d*)/,
+                // Pattern 4: Year with any number in the line
+                /(\d{4}).*?[^\d](\d+\.?\d*)/
+            ];
+            
+            lines.forEach((line, index) => {
+                console.log(`Processing line ${index}:`, line);
+                
+                for (const pattern of patterns) {
+                    const match = line.trim().match(pattern);
+                    if (match) {
+                        const year = parseInt(match[1]);
+                        let value = parseFloat(match[2]);
+                        
+                        // Adjust value if billion/million is specified
+                        if (match[3]) {
+                            if (match[3].toLowerCase() === 'billion') {
+                                value *= 1000;
+                            }
+                            if (match[3].toLowerCase() === 'million') {
+                                value *= 1;
+                            }
+                        }
+                        
+                        if (!isNaN(year) && !isNaN(value)) {
+                            const existingPoint = data.find(d => d.date.getFullYear() === year);
+                            if (!existingPoint) {
+                                data.push({
+                                    date: new Date(year, 0),
+                                    value: value
+                                });
+                                console.log("Added data point:", { year, value });
+                                break; // Stop trying other patterns
+                            }
+                        }
+                    }
+                }
+            });
 
-        // Create chart area
-        const chart = svg.append("g")
-            .attr("transform", `translate(${margin.left},${margin.top})`);
+            if (data.length === 0) {
+                throw new Error("No valid data points found in the response");
+            }
 
-        // Create scales
-        const xScale = d3.scaleLinear()
-            .domain(d3.extent(data, d => d.year))
-            .range([0, innerWidth]);
+            // Sort data chronologically
+            data.sort((a, b) => a.date - b.date);
+            console.log("Final parsed data:", data);
 
-        const yScale = d3.scaleLinear()
-            .domain([0, d3.max(data, d => d.value) * 1.1])
-            .range([innerHeight, 0]);
+            const width = containerRef.current.clientWidth;
+            const height = 400;
+            const margin = { top: 20, right: 30, bottom: 30, left: 60 };
 
-        // Create line
-        const line = d3.line()
-            .x(d => xScale(d.year))
-            .y(d => yScale(d.value))
-            .curve(d3.curveMonotoneX);
+            // Create SVG
+            const svg = container.append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .attr("viewBox", [0, 0, width, height]);
 
-        // Add line path
-        chart.append("path")
-            .datum(data)
-            .attr("fill", "none")
-            .attr("stroke", "#2196F3")
-            .attr("stroke-width", 2)
-            .attr("d", line);
+            // Create scales
+            const x = d3.scaleTime()
+                .domain(d3.extent(data, d => d.date))
+                .range([margin.left, width - margin.right]);
 
-        // Add points
-        chart.selectAll("circle")
-            .data(data)
-            .enter()
-            .append("circle")
-            .attr("cx", d => xScale(d.year))
-            .attr("cy", d => yScale(d.value))
-            .attr("r", 4)
-            .attr("fill", "#2196F3")
-            .attr("stroke", "white")
-            .attr("stroke-width", 2);
+            const y = d3.scaleLinear()
+                .domain([0, d3.max(data, d => d.value) * 1.1])
+                .nice()
+                .range([height - margin.bottom, margin.top]);
 
-        // Add value labels
-        chart.selectAll("text.value")
-            .data(data)
-            .enter()
-            .append("text")
-            .attr("class", "value")
-            .attr("x", d => xScale(d.year))
-            .attr("y", d => yScale(d.value) - 10)
-            .attr("text-anchor", "middle")
-            .attr("font-size", "10px")
-            .text(d => d.value);
+            // Add X axis
+            svg.append("g")
+                .attr("transform", `translate(0,${height - margin.bottom})`)
+                .call(d3.axisBottom(x)
+                    .tickFormat(d3.timeFormat("%Y")))
+                .call(g => g.select(".domain").attr("stroke", "#999"))
+                .call(g => g.selectAll(".tick line").attr("stroke", "#999"))
+                .call(g => g.selectAll(".tick text")
+                    .attr("fill", "#666")
+                    .style("font-size", "12px"));
 
-        // Add axes
-        chart.append("g")
-            .attr("transform", `translate(0,${innerHeight})`)
-            .call(d3.axisBottom(xScale)
-                .tickFormat(d3.format("d"))
-                .ticks(10));
+            // Add Y axis with flexible formatting
+            svg.append("g")
+                .attr("transform", `translate(${margin.left},0)`)
+                .call(d3.axisLeft(y)
+                    .tickFormat(d => {
+                        if (d >= 1000) return `${d/1000}K`;
+                        return d.toString();
+                    }))
+                .call(g => g.select(".domain").attr("stroke", "#999"))
+                .call(g => g.selectAll(".tick line").attr("stroke", "#999"))
+                .call(g => g.selectAll(".tick text")
+                    .attr("fill", "#666")
+                    .style("font-size", "12px"));
 
-        chart.append("g")
-            .call(d3.axisLeft(yScale));
+            // Add the line
+            const line = d3.line()
+                .x(d => x(d.date))
+                .y(d => y(d.value))
+                .curve(d3.curveMonotoneX);
 
-        // Add labels
-        chart.append("text")
-            .attr("x", innerWidth / 2)
-            .attr("y", innerHeight + 40)
-            .attr("text-anchor", "middle")
-            .attr("fill", "#666")
-            .text("Year");
+            svg.append("path")
+                .datum(data)
+                .attr("fill", "none")
+                .attr("stroke", "#4CAF50")
+                .attr("stroke-width", 2)
+                .attr("d", line);
 
-        chart.append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("x", -innerHeight / 2)
-            .attr("y", -40)
-            .attr("text-anchor", "middle")
-            .attr("fill", "#666")
-            .text("Value");
+            // Add dots
+            svg.selectAll("circle")
+                .data(data)
+                .join("circle")
+                .attr("cx", d => x(d.date))
+                .attr("cy", d => y(d.value))
+                .attr("r", 4)
+                .attr("fill", "#4CAF50")
+                .attr("stroke", "white")
+                .attr("stroke-width", 2);
 
-        // Add title
-        chart.append("text")
-            .attr("x", innerWidth / 2)
-            .attr("y", -20)
-            .attr("text-anchor", "middle")
-            .attr("font-size", "16px")
-            .attr("font-weight", "bold")
-            .text("Data Visualization");
+            // Add tooltip with flexible formatting
+            const tooltip = container.append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0)
+                .style("position", "absolute")
+                .style("background-color", "white")
+                .style("border", "1px solid #999")
+                .style("border-radius", "4px")
+                .style("padding", "8px")
+                .style("font-size", "12px")
+                .style("pointer-events", "none")
+                .style("box-shadow", "0 2px 4px rgba(0,0,0,0.1)");
 
+            // Add hover effects
+            svg.append("rect")
+                .attr("width", width)
+                .attr("height", height)
+                .style("fill", "none")
+                .style("pointer-events", "all")
+                .on("mousemove", function(event) {
+                    const [xPos] = d3.pointer(event, this);
+                    const bisect = d3.bisector(d => d.date).left;
+                    const x0 = x.invert(xPos);
+                    const i = bisect(data, x0, 1);
+                    if (i >= data.length) return;
+                    
+                    const d0 = data[i - 1];
+                    const d1 = data[i];
+                    if (!d0 || !d1) return;
+                    
+                    const d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+
+                    tooltip.style("opacity", 1)
+                        .html(`Year: ${d.date.getFullYear()}<br/>Value: ${d.value >= 1000 ? (d.value/1000).toFixed(1) + 'K' : d.value}`)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 28) + "px");
+
+                    svg.selectAll("circle")
+                        .attr("r", 4)
+                        .filter(dd => dd === d)
+                        .attr("r", 6);
+                })
+                .on("mouseleave", function() {
+                    tooltip.style("opacity", 0);
+                    svg.selectAll("circle").attr("r", 4);
+                });
+
+        } catch (error) {
+            console.error("Error creating LineChart:", error);
+            setError(error.message);
+        }
     }, [queryResponse]);
 
     return (
-        <div style={{ 
-            padding: '20px',
-            width: '100%',
-            maxWidth: '900px',
-            margin: '0 auto',
-            backgroundColor: '#ffffff',
-            borderRadius: '8px',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-        }}>
-            <svg 
-                ref={svgRef}
-                style={{
-                    display: 'block',
-                    width: '100%',
-                    height: '400px'
-                }}
-            />
-            
-            {/* Display table for debugging */}
-            {tableData.length > 0 && (
-                <div style={{ marginTop: '20px' }}>
-                    <h3>Data Table</h3>
-                    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                        <thead>
-                            <tr>
-                                <th style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Year</th>
-                                <th style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {tableData.map((row, index) => (
-                                <tr key={index}>
-                                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{row.year}</td>
-                                    <td style={{ border: '1px solid #ddd', padding: '8px' }}>{row.value}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            )}
+        <div ref={containerRef} 
+            style={{ 
+                width: "100%",
+                height: "400px",
+                backgroundColor: "white",
+                padding: "20px",
+                borderRadius: "8px",
+                boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+            }}
+        >
+            {!queryResponse && <div style={{ padding: "20px", textAlign: "center" }}>No data provided for Line Chart</div>}
+            {error && <div style={{ color: "red", padding: "20px" }}>Error: {error}</div>}
         </div>
     );
 };
