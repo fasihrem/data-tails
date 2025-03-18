@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, abort, g, make_response
 # from groqbot import chat_with_groq
 from kg_chat import chat_with_kg
+from vrs import getViz
 from flask_cors import CORS
 from crontab import CronTab
 import datetime
@@ -185,12 +186,13 @@ def chat_page():
         user_input = data.get("message")
 
         response = chat_with_kg(user_input, user_id)
-
+        vizs = getViz(user_input, response)
 
         print(f"user input: {user_input}")
         print(f"groq response: {response}")
+        print(f"vrs: {vizs}")
 
-        return jsonify({"response": f"{response}"}), 200
+        return jsonify({"response": f"{response}"})
     # Extract user input from the request
     # user_input = request.json.get('message', '')
     except Exception as e:
