@@ -2,7 +2,7 @@ import openai
 import json
 
 # Set up your OpenAI API key
-openai.api_key = ""
+# openai.api_key = ""
 
 def createData(res, viz):
     # Define the query
