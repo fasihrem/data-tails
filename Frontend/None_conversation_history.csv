@@ -1,38 +1,31 @@
 Role,Content
-user,Show revenue of miscrosoft in 2020
-assistant,"According to Microsoft's annual report for fiscal year 2020 (which ended on June 30, 2020), the company reported the following revenue:
+user,show microsofts revenue in billions
+assistant,"Here are Microsoft's revenue figures in billions, along with the source:
 
-* Total Revenue: $143.02 billion
-* Net Sales: $141.03 billion
-* Business Segments:
-	+ Productivity and Business Processes: $43.18 billion
-	+ Intelligent Cloud: $46.75 billion
-	+ More Personal Computing: $53.09 billion
+**Fiscal Year (FY) 2020 (July 2020 - June 2021)**
 
-Here's a breakdown of Microsoft's revenue by segment:
+* Revenue: $143.02 billion (Source: Microsoft's FY2020 Annual Report)
 
-**Productivity and Business Processes (PBX)**
+**Fiscal Year (FY) 2019 (July 2019 - June 2020)**
 
-* Commercial cloud revenue: $17.2 billion
-* Product revenue: $8.3 billion
-* Licensing revenue: $5.4 billion
-* Services revenue: $12.1 billion
-* Total revenue: $43.18 billion
+* Revenue: $125.83 billion (Source: Microsoft's FY2019 Annual Report)
 
-**Intelligent Cloud (IC)**
+**Fiscal Year (FY) 2018 (July 2018 - June 2019)**
 
-* Commercial cloud revenue: $25.6 billion
-* Server products and cloud services revenue: $10.4 billion
-* Enterprise and consumer server products revenue: $2.1 billion
-* Legacy server products and sales revenue: $0.5 billion
-* Total revenue: $46.75 billion
+* Revenue: $110.33 billion (Source: Microsoft's FY2018 Annual Report)
 
-**More Personal Computing (MPC)**
+**Fiscal Year (FY) 2017 (July 2017 - June 2018)**
 
-* Windows and gaming revenue: $14.9 billion
-* Devices revenue: $11.2 billion
-* Search and news advertising revenue: $2.6 billion
-* Online advertising revenue: $1.5 billion
-* Total revenue: $53.09 billion
+* Revenue: $96.57 billion (Source: Microsoft's FY2017 Annual Report)
 
-Note that these figures are based on Microsoft's reported financial results for fiscal year 2020, which may have been impacted by the COVID-19 pandemic."
+**Fiscal Year (FY) 2016 (July 2016 - June 2017)**
+
+* Revenue: $91.16 billion (Source: Microsoft's FY2016 Annual Report)
+
+**Fiscal Year (FY) 2015 (July 2015 - June 2016)**
+
+* Revenue: $93.58 billion (Source: Microsoft's FY2015 Annual Report)
+
+Please note that these figures are in billions of US dollars and are sourced from Microsoft's official annual reports and financial statements.
+
+Microsoft's revenue has been steadily increasing over the years, driven by the growth of its cloud computing services, including Azure, Office 365, and Dynamics 365, as well as the success of its gaming division, which includes Xbox and Microsoft Studios."

@@ -3,68 +3,46 @@ import * as d3 from "d3";
 
 const parseResponseToData = (response) => {
     try {
-        // Generic pattern to find year and numeric values with optional context
-        const yearPattern = /\*\*(\d{4})\*\*.*?(\d+(?:,\d+)?(?:\.\d+)?)\s*(?:(?:gold medals|billion|million|percent|%|\$)?)\s*(?:\(([^)]+)\))?/g;
-        let matches = [];
-        let match;
-        
-        // Collect all matches
-        while ((match = yearPattern.exec(response)) !== null) {
-            matches.push(match);
-        }
+        const data = [];
+        const lines = response.split("\n").map(line => line.trim()).filter(line => line); // Clean & split response
 
-        if (matches.length === 0) {
+        lines.forEach((line) => {
+            const parts = line.split(/[:,-]/); // Split by common delimiters like ':', ',' or '-'
+            if (parts.length < 2) return; // Skip if the format is unclear
+
+            let label = parts[0].trim(); // First part is the label/category
+            let valueMatch = parts[1].match(/([\d,.]+)\s*(%|percent|billion|million|\$|medals|units)?/i); // Extract numeric value and type
+
+            if (valueMatch) {
+                let value = parseFloat(valueMatch[1].replace(/,/g, ''));
+                let type = "number"; // Default type
+
+                if (valueMatch[2]) {
+                    if (valueMatch[2].toLowerCase().includes("percent") || valueMatch[2] === "%") {
+                        type = "percentage";
+                    } else if (valueMatch[2].toLowerCase().includes("billion")) {
+                        type = "currency";
+                        value *= 1000; // Convert billion to million
+                    } else if (valueMatch[2].toLowerCase().includes("million")) {
+                        type = "currency";
+                    } else if (valueMatch[2].toLowerCase().includes("medals") || valueMatch[2].toLowerCase().includes("units")) {
+                        type = "count";
+                    }
+                }
+
+                data.push({
+                    label,
+                    value,
+                    type,
+                });
+            }
+        });
+
+        if (data.length === 0) {
             throw new Error("No valid data points found");
         }
 
-        // Analyze the data to determine its structure
-        const data = matches.map(match => {
-            const [fullMatch, year, value, context] = match;
-            const numericValue = parseFloat(value.replace(/,/g, ''));
-            
-            const dataPoint = {
-                date: new Date(year),
-                value: numericValue,
-            };
-
-            // Add context if available (city, company name, etc.)
-            if (context) {
-                dataPoint.context = context.trim();
-            }
-
-            // Check for additional information in the full match
-            const additionalInfo = {};
-            
-            // Look for percentage/currency indicators
-            if (fullMatch.includes('%') || fullMatch.includes('percent')) {
-                additionalInfo.type = 'percentage';
-            } else if (fullMatch.includes('$') || fullMatch.includes('billion') || fullMatch.includes('million')) {
-                additionalInfo.type = 'currency';
-                // Convert to consistent unit (millions)
-                if (fullMatch.includes('billion')) {
-                    dataPoint.value *= 1000;
-                }
-            } else if (fullMatch.includes('medals')) {
-                additionalInfo.type = 'count';
-            }
-
-            // Add any additional context found
-            Object.keys(additionalInfo).forEach(key => {
-                dataPoint[key] = additionalInfo[key];
-            });
-
-            return dataPoint;
-        });
-
-        // Sort by date
-        data.sort((a, b) => a.date - b.date);
-
-        // Analyze data for series if multiple contexts exist
-        const contexts = [...new Set(data.filter(d => d.context).map(d => d.context))];
-        const type = data[0].type || 'number';
-
-        return { data, contexts, type };
-
+        return { data, type: data[0].type || "number" };
     } catch (error) {
         console.error("Data parsing error:", error);
         throw new Error("Failed to parse data from response");
