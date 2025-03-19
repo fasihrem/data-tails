@@ -1,27 +1,28 @@
 Role,Content
-user,show revenue of microsoft in millions
-assistant,"Here is the revenue of Microsoft in millions of US Dollars for the last 10 years:
+user,show microsoft revenue in millions
+assistant,"Here are Microsoft's annual revenues in millions of US dollars:
 
-**2020:** $242,795 million
+| Fiscal Year | Revenue (in millions) |
+| --- | --- |
+| 2004 | $36,833 |
+| 2005 | $40,285 |
+| 2006 | $44,282 |
+| 2007 | $51,124 |
+| 2008 | $58,437 |
+| 2009 | $62,408 |
+| 2010 | $62,427 |
+| 2011 | $69,943 |
+| 2012 | $73,718 |
+| 2013 | $77,859 |
+| 2014 | $86,833 |
+| 2015 | $93,580 |
+| 2016 | $125,843 |
+| 2017 | $110,360 |
+| 2018 | $111,657 |
+| 2019 | $125,843 |
+| 2020 | $143,014 |
+| 2021 | $168,059 |
 
-**2019:** $221,192 million
+Note: The fiscal year for Microsoft is from July to June, so the revenue figures listed above are for the company's fiscal years ending June 30th of the given year.
 
-**2018:** $208,713 million
-
-**2017:** $191,301 million
-
-**2016:** $171,551 million
-
-**2015:** $136,084 million
-
-**2014:** $104,297 million
-
-**2013:** $77,856 million
-
-**2012:** $73,723 million
-
-**2011:** $69,94 million
-
-Source: Microsoft's Annual Reports and Quarterly Earnings Releases.
-
-Note: The revenue figures are in millions of US Dollars and are based on the company's reported figures using Generally Accepted Accounting Principles (GAAP) in the United States."
+Source: Microsoft's Annual Reports and SEC filings."

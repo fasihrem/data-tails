@@ -2,22 +2,36 @@ import openai
 import json
 
 # Set up your OpenAI API key
-# openai.api_key = ""
 
 def createData(res, viz):
     # Define the query
-    d1 = """
-    Extract important data from the above response and output it in tabular json format to create the following visualizations listed below. Label the columns as x and y axis so it can be used in D3.js.
+
+    system_prompt = """
+    you will be given a query response and list of visualisations. using the given data, you have to generate json formatted data for all the given visualisations. 
+    
+    an example of the type of data you need to export is:
+    chart name{
+            [
+            data   
+    ]
+    },
+    chart2 name{
+            [
+            data
+        ]
+    },
+    etc...
     """
 
-    query = res + d1 + str(viz)
+    query = "response: " + res + "\n\n type of visualisations: " + str(viz)
 
     # print(query)
 
     # Make an API request using the updated method
     response = openai.ChatCompletion.create(
         model="gpt-4",
-        messages=[{"role": "user", "content": query}]
+        messages=[{"role": "system", "content": system_prompt},
+                  {"role": "user", "content": query}]
     )
 
     # Extract response

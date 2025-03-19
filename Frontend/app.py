@@ -2,11 +2,14 @@ from flask import Flask, jsonify, request, abort, g, make_response
 # from groqbot import chat_with_groq
 from kg_chat import chat_with_kg
 from vrs import getViz
+from parser import convertToJson
 from flask_cors import CORS
 from crontab import CronTab
 import datetime
 import traceback
 from TAG import createData
+import json
+
 
 
 app = Flask(__name__)
@@ -192,6 +195,10 @@ def chat_page():
 
         vizData = createData(response, vizs)
 
+        print(vizData)
+
+
+
         # Convert numpy float32 to regular Python float
         if vizs and isinstance(vizs, list):
             converted_vizs = [
@@ -201,20 +208,33 @@ def chat_page():
         else:
             converted_vizs = []
 
-        print("DEBUG:")
-        print(f"User input: {user_input}")
-        print(f"Response: {response}")
-        print(f"Vizs type: {type(vizs)}")
-        print(f"Vizs content: {vizs}")
-        print(f"Converted vizs: {converted_vizs}")
+        print(type(vizData))
+        jsonVizData = json.loads(vizData)
+        print(type(jsonVizData))
+
+        word_cloud_data = jsonVizData.get("word_cloud", {}).get("data", [])
+        line_chart_data = jsonVizData.get("line_chart", {}).get("data", [])
+        bar_chart_data = jsonVizData.get("bar_chart", {}).get("data", [])
+        heatmap_chart_data = jsonVizData.get("heatmap_chart", {}).get("data", [])
+
+        # Debugging Output
+        print("Word Cloud Data:", word_cloud_data)
+        print("Line Chart Data:", line_chart_data)
+        print("Bar Chart Data:", bar_chart_data)
+        print("Heatmap Chart Data:", heatmap_chart_data)
+
 
         # Create response object
         response_data = {
             "response": response,
-            "vizs": converted_vizs
+            "vizs": converted_vizs,
+            "bar_data": bar_chart_data,
+            "lineChart_data": line_chart_data,
+            "wordcloud_data": word_cloud_data,
+            "heatmap_data": heatmap_chart_data
         }
 
-        print(f"Sending to frontend: {response_data}")
+        # print(f"Sending to frontend: {response_data}")
         
         return jsonify(response_data)
 
