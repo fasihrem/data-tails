@@ -1,11 +1,9 @@
 import openai
 import json
-from dotenv import load_dotenv
-import os
-load_dotenv()
+
 # Set up your OpenAI API key
-openai.api_key = os.getenv("OPENAI_API_KEY")
-print(openai.api_key)
+openai.api_key = ""
+
 def createData(res, viz):
     # Define the query
     d1 = """
