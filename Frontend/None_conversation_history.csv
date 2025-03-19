@@ -1,31 +1,27 @@
 Role,Content
-user,show microsofts revenue in billions
-assistant,"Here are Microsoft's revenue figures in billions, along with the source:
+user,show revenue of microsoft in millions
+assistant,"Here is the revenue of Microsoft in millions of US Dollars for the last 10 years:
 
-**Fiscal Year (FY) 2020 (July 2020 - June 2021)**
+**2020:** $242,795 million
 
-* Revenue: $143.02 billion (Source: Microsoft's FY2020 Annual Report)
+**2019:** $221,192 million
 
-**Fiscal Year (FY) 2019 (July 2019 - June 2020)**
+**2018:** $208,713 million
 
-* Revenue: $125.83 billion (Source: Microsoft's FY2019 Annual Report)
+**2017:** $191,301 million
 
-**Fiscal Year (FY) 2018 (July 2018 - June 2019)**
+**2016:** $171,551 million
 
-* Revenue: $110.33 billion (Source: Microsoft's FY2018 Annual Report)
+**2015:** $136,084 million
 
-**Fiscal Year (FY) 2017 (July 2017 - June 2018)**
+**2014:** $104,297 million
 
-* Revenue: $96.57 billion (Source: Microsoft's FY2017 Annual Report)
+**2013:** $77,856 million
 
-**Fiscal Year (FY) 2016 (July 2016 - June 2017)**
+**2012:** $73,723 million
 
-* Revenue: $91.16 billion (Source: Microsoft's FY2016 Annual Report)
+**2011:** $69,94 million
 
-**Fiscal Year (FY) 2015 (July 2015 - June 2016)**
+Source: Microsoft's Annual Reports and Quarterly Earnings Releases.
 
-* Revenue: $93.58 billion (Source: Microsoft's FY2015 Annual Report)
-
-Please note that these figures are in billions of US dollars and are sourced from Microsoft's official annual reports and financial statements.
-
-Microsoft's revenue has been steadily increasing over the years, driven by the growth of its cloud computing services, including Azure, Office 365, and Dynamics 365, as well as the success of its gaming division, which includes Xbox and Microsoft Studios."
+Note: The revenue figures are in millions of US Dollars and are based on the company's reported figures using Generally Accepted Accounting Principles (GAAP) in the United States."

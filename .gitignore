@@ -4,4 +4,5 @@ Frontend/conversation_history.csv
 KG.ttl
 Backend/KG.json
 Backend/conversation_history.csv
+Frontend/.env
 

@@ -327,6 +327,12 @@ function MyHome() {
                                             title="Data Visualization"
                                         />
                                     )}
+                                    {selectedChart === 'DAG' && (
+                                        <DAG
+                                            queryResponse={lastBotResponse}
+                                            title="Data Visualisation"
+                                        />
+                                    )}
                                 </div>
                             )}
                         </div>

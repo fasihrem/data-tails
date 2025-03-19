@@ -6,6 +6,7 @@ from flask_cors import CORS
 from crontab import CronTab
 import datetime
 import traceback
+from TAG import createData
 
 
 app = Flask(__name__)
@@ -188,6 +189,8 @@ def chat_page():
 
         response = chat_with_kg(user_input, user_id)
         vizs = getViz(user_input, response)
+
+        vizData = createData(response, vizs)
 
         # Convert numpy float32 to regular Python float
         if vizs and isinstance(vizs, list):
