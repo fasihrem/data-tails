@@ -1,0 +1,169 @@
+.pricing-container {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.pricing-content {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.pricing-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.pricing-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.pricing-box {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-box:hover {
+    transform: translateY(-5px);
+}
+
+.free {
+    background-color: #e6f7f0;
+    border: 2px solid #28BE88;
+}
+
+.premium {
+    background-color: #fce8ee;
+    border: 2px solid #BE285E;
+}
+
+.plan-header {
+    margin-bottom: 30px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.plan-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.free .plan-header h2 {
+    color: #28BE88;
+}
+
+.premium .plan-header h2 {
+    color: #BE285E;
+}
+
+.price {
+    margin-bottom: 30px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.currency {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.amount {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.period {
+    font-size: 1rem;
+    color: #666;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.features li {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.get-started-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+}
+
+.free-btn {
+    background-color: #28BE88;
+    color: white;
+}
+
+.free-btn:hover {
+    background-color: #229e73;
+}
+
+.premium-btn {
+    background-color: #BE285E;
+    color: white;
+}
+
+.premium-btn:hover {
+    background-color: #9e224f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pricing-boxes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-box {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .pricing-title {
+        font-size: 2rem;
+    }
+} 

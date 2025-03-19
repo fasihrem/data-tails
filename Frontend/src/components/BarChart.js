@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 
-const BarChart = ({ queryResponse, title = "" }) => {
+const BarChart = ({ response, title = "" }) => {
     const svgRef = useRef();
     const [chartData, setChartData] = useState([]);
     const [error, setError] = useState(null);
 
-    /** 🛠 Extract structured data from chatbot response */
     const parseResponseToData = (response) => {
         if (!response || (typeof response === "string" && response.trim() === "")) {
             setError("Empty response received");
@@ -15,46 +14,101 @@ const BarChart = ({ queryResponse, title = "" }) => {
 
         let data = [];
         try {
-            if (typeof response === "object") {
-                data = Object.entries(response).map(([key, value]) => ({
-                    category: key,
-                    value: parseFloat(value),
-                }));
-            } else {
-                const text = typeof response === "string" ? response : JSON.stringify(response);
-                const lines = text.split("\n").map(line => line.trim()).filter(line => line.length > 0);
-
-                const patterns = [
-                    { regex: /\*\*(.*?)\*\*.*?([\d,]+)\s*(billion|million|thousand|%)?/i }, // **Category**: Value
-                    { regex: /([\w\s-]+):\s*([\d,]+)\s*(billion|million|thousand|%)?/i }, // Category: Value
-                    { regex: /([\w\s-]+)\s*-\s*([\d,]+)\s*(billion|million|thousand|%)?/i }, // Category - Value
-                    { regex: /(\d+)\.\s*\*\*(.*?)\*\*/, rank: true } // "1. **Item Name**"
-                ];
-
-                let inferredRank = 5; // Default inferred ranking
-                lines.forEach((line, index) => {
-                    for (const pattern of patterns) {
-                        const match = line.match(pattern.regex);
-                        if (match) {
-                            let category = match[1].trim();
-                            let value = match[2] ? match[2].replace(/,/g, "").trim() : index + 1;
-
-                            if (/billion/i.test(match[3])) value = parseFloat(value) * 1000;
-                            else if (/million/i.test(match[3])) value = parseFloat(value);
-                            else if (/thousand/i.test(match[3])) value = parseFloat(value) / 1000;
-                            else value = parseFloat(value);
-
-                            if (!match[2]) value = inferredRank - index;
-
-                            if (category && !isNaN(value)) {
-                                data.push({ category, value });
-                                break;
-                            }
+            if (typeof response === "string") {
+                // Pattern 1: Fiscal Year with dollar amounts
+                const fiscalYearPattern = /Fiscal Year (\d{4}):\s*\$?([\d,\.]+)\s*(billion|million|thousand)?/gi;
+                let match;
+                
+                while ((match = fiscalYearPattern.exec(response)) !== null) {
+                    let value = parseFloat(match[2].replace(/,/g, ''));
+                    if (match[3]) {
+                        switch (match[3].toLowerCase()) {
+                            case 'billion': value *= 1000; break;
+                            case 'million': break;
+                            case 'thousand': value /= 1000; break;
                         }
                     }
-                });
+                    data.push({
+                        category: `FY ${match[1]}`,
+                        value: value
+                    });
+                }
+
+                // Pattern 2: Numbered items with values (e.g., game sales)
+                if (data.length === 0) {
+                    const numberedValuePattern = /\d+\.\s*\*\*([^*]+)\*\*[^$]*?(\d+(?:\.\d+)?)\s*(billion|million|thousand)?/gi;
+                    while ((match = numberedValuePattern.exec(response)) !== null) {
+                        let value = parseFloat(match[2]);
+                        if (match[3]) {
+                            switch (match[3].toLowerCase()) {
+                                case 'billion': value *= 1000; break;
+                                case 'million': break;
+                                case 'thousand': value /= 1000; break;
+                            }
+                        }
+                        data.push({
+                            category: match[1].trim(),
+                            value: value
+                        });
+                    }
+                }
+
+                // Pattern 3: Simple numbered genres/items (e.g., music genres)
+                if (data.length === 0) {
+                    const numberedItemPattern = /\d+\.\s*\*\*([\w\s/-]+)\*\*/g;
+                    let rankValue = 10; // Start with high value for ranking
+                    while ((match = numberedItemPattern.exec(response)) !== null) {
+                        data.push({
+                            category: match[1].trim(),
+                            value: rankValue
+                        });
+                        rankValue--; // Decrease rank value for next item
+                    }
+                }
+
+                // Pattern 4: Decades with genres
+                if (data.length === 0) {
+                    const decadePattern = /(\d{4})s:\s*\*([^*]+)\*/g;
+                    while ((match = decadePattern.exec(response)) !== null) {
+                        const decade = match[1];
+                        const genres = match[2].split('*').filter(g => g.trim());
+                        data.push({
+                            category: `${decade}s`,
+                            value: genres.length
+                        });
+                    }
+                }
+
+                // Pattern 5: Fallback for any asterisk-marked items
+                if (data.length === 0) {
+                    const fallbackPattern = /\*\*([\w\s/-]+)\*\*/g;
+                    let fallbackValue = 5;
+                    while ((match = fallbackPattern.exec(response)) !== null) {
+                        data.push({
+                            category: match[1].trim(),
+                            value: fallbackValue
+                        });
+                        fallbackValue--;
+                    }
+                }
+
+                // Sort data appropriately
+                if (data.length > 0) {
+                    if (data[0].category.includes('FY') || data[0].category.includes('s')) {
+                        // Chronological order for years/decades
+                        data.sort((a, b) => {
+                            const yearA = parseInt(a.category.match(/\d+/)[0]);
+                            const yearB = parseInt(b.category.match(/\d+/)[0]);
+                            return yearA - yearB;
+                        });
+                    } else {
+                        // Value order for rankings
+                        data.sort((a, b) => b.value - a.value);
+                    }
+                }
             }
         } catch (error) {
+            console.error("Parsing error:", error);
             setError("Failed to parse response data");
             return [];
         }
@@ -65,10 +119,10 @@ const BarChart = ({ queryResponse, title = "" }) => {
             setError(null);
         }
 
+        console.log("Parsed data:", data);
         return data;
     };
 
-    /** 📊 Create Bar Chart using D3.js */
     const createBarChart = (data) => {
         const svgElement = svgRef.current;
         d3.select(svgElement).selectAll("*").remove();
@@ -163,11 +217,11 @@ const BarChart = ({ queryResponse, title = "" }) => {
     };
 
     useEffect(() => {
-        if (queryResponse) {
-            const data = parseResponseToData(queryResponse);
+        if (response) {
+            const data = parseResponseToData(response);
             setChartData(data);
         }
-    }, [queryResponse]);
+    }, [response]);
 
     useEffect(() => {
         if (chartData.length > 0) {

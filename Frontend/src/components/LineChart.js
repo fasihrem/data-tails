@@ -1,6 +1,76 @@
 import React, { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
 
+const parseResponseToData = (response) => {
+    try {
+        // Generic pattern to find year and numeric values with optional context
+        const yearPattern = /\*\*(\d{4})\*\*.*?(\d+(?:,\d+)?(?:\.\d+)?)\s*(?:(?:gold medals|billion|million|percent|%|\$)?)\s*(?:\(([^)]+)\))?/g;
+        let matches = [];
+        let match;
+        
+        // Collect all matches
+        while ((match = yearPattern.exec(response)) !== null) {
+            matches.push(match);
+        }
+
+        if (matches.length === 0) {
+            throw new Error("No valid data points found");
+        }
+
+        // Analyze the data to determine its structure
+        const data = matches.map(match => {
+            const [fullMatch, year, value, context] = match;
+            const numericValue = parseFloat(value.replace(/,/g, ''));
+            
+            const dataPoint = {
+                date: new Date(year),
+                value: numericValue,
+            };
+
+            // Add context if available (city, company name, etc.)
+            if (context) {
+                dataPoint.context = context.trim();
+            }
+
+            // Check for additional information in the full match
+            const additionalInfo = {};
+            
+            // Look for percentage/currency indicators
+            if (fullMatch.includes('%') || fullMatch.includes('percent')) {
+                additionalInfo.type = 'percentage';
+            } else if (fullMatch.includes('$') || fullMatch.includes('billion') || fullMatch.includes('million')) {
+                additionalInfo.type = 'currency';
+                // Convert to consistent unit (millions)
+                if (fullMatch.includes('billion')) {
+                    dataPoint.value *= 1000;
+                }
+            } else if (fullMatch.includes('medals')) {
+                additionalInfo.type = 'count';
+            }
+
+            // Add any additional context found
+            Object.keys(additionalInfo).forEach(key => {
+                dataPoint[key] = additionalInfo[key];
+            });
+
+            return dataPoint;
+        });
+
+        // Sort by date
+        data.sort((a, b) => a.date - b.date);
+
+        // Analyze data for series if multiple contexts exist
+        const contexts = [...new Set(data.filter(d => d.context).map(d => d.context))];
+        const type = data[0].type || 'number';
+
+        return { data, contexts, type };
+
+    } catch (error) {
+        console.error("Data parsing error:", error);
+        throw new Error("Failed to parse data from response");
+    }
+};
+
 const LineChart = ({ queryResponse }) => {
     const containerRef = useRef(null);
     const [error, setError] = useState(null);
@@ -17,180 +87,290 @@ const LineChart = ({ queryResponse }) => {
         setError(null);
 
         try {
-            console.log("Raw queryResponse:", queryResponse);
-
-            // Parse the data
-            const data = [];
-            const lines = queryResponse.split('\n');
-            
-            // Multiple patterns to try
-            const patterns = [
-                // Pattern 1: Year with number (with optional $ and billion/million)
-                /(\d{4}).*?[^\d](\d+\.?\d*)\s*(billion|million)?/i,
-                // Pattern 2: Year with events/count
-                /(\d{4}).*?(\d+)\s*events?/i,
-                // Pattern 3: Year with any number after colon
-                /(\d{4}):\s*.*?(\d+\.?\d*)/,
-                // Pattern 4: Year with any number in the line
-                /(\d{4}).*?[^\d](\d+\.?\d*)/
-            ];
-            
-            lines.forEach((line, index) => {
-                console.log(`Processing line ${index}:`, line);
-                
-                for (const pattern of patterns) {
-                    const match = line.trim().match(pattern);
-                    if (match) {
-                        const year = parseInt(match[1]);
-                        let value = parseFloat(match[2]);
-                        
-                        // Adjust value if billion/million is specified
-                        if (match[3]) {
-                            if (match[3].toLowerCase() === 'billion') {
-                                value *= 1000;
-                            }
-                            if (match[3].toLowerCase() === 'million') {
-                                value *= 1;
-                            }
-                        }
-                        
-                        if (!isNaN(year) && !isNaN(value)) {
-                            const existingPoint = data.find(d => d.date.getFullYear() === year);
-                            if (!existingPoint) {
-                                data.push({
-                                    date: new Date(year, 0),
-                                    value: value
-                                });
-                                console.log("Added data point:", { year, value });
-                                break; // Stop trying other patterns
-                            }
-                        }
-                    }
-                }
-            });
+            const { data, contexts, type } = parseResponseToData(queryResponse);
 
             if (data.length === 0) {
                 throw new Error("No valid data points found in the response");
             }
 
-            // Sort data chronologically
-            data.sort((a, b) => a.date - b.date);
-            console.log("Final parsed data:", data);
+            // Adjust dimensions for better visibility
+            const margin = { 
+                top: 50,
+                right: 80,     // More space for y-axis labels
+                bottom: 80,    // Space for x-axis labels
+                left: 120      // More space for y-axis labels with billions
+            };
 
-            const width = containerRef.current.clientWidth;
-            const height = 400;
-            const margin = { top: 20, right: 30, bottom: 30, left: 60 };
+            // Optimize dimensions
+            const width = 850;   // Slightly smaller width
+            const height = 600;  // Slightly smaller height
 
-            // Create SVG
+            // Clear previous chart
+            container.selectAll("*").remove();
+
             const svg = container.append("svg")
-                .attr("width", width)
-                .attr("height", height)
-                .attr("viewBox", [0, 0, width, height]);
+                .attr("width", "100%")
+                .attr("height", "100%")
+                .attr("viewBox", `0 0 ${width} ${height}`)
+                .attr("preserveAspectRatio", "xMidYMid meet");
 
-            // Create scales
+            // Update scales with more padding and better ranges
             const x = d3.scaleTime()
                 .domain(d3.extent(data, d => d.date))
-                .range([margin.left, width - margin.right]);
+                .range([margin.left, width - margin.right])
+                .nice();
+
+            // Adjust y-axis scale to focus on the data range
+            const yMin = d3.min(data, d => d.value) * 0.9; // 10% padding below
+            const yMax = d3.max(data, d => d.value) * 1.1; // 10% padding above
 
             const y = d3.scaleLinear()
-                .domain([0, d3.max(data, d => d.value) * 1.1])
-                .nice()
-                .range([height - margin.bottom, margin.top]);
+                .domain([yMin, yMax])
+                .range([height - margin.bottom, margin.top])
+                .nice();
 
-            // Add X axis
+            // Dynamic y-axis formatting based on data type
+            const yAxisFormat = (d) => {
+                switch (type) {
+                    case 'currency':
+                        return d >= 1000 ? `$${d/1000}B` : `$${d}M`;
+                    case 'percentage':
+                        return `${d}%`;
+                    case 'count':
+                        return d.toLocaleString();
+                    default:
+                        return d.toLocaleString();
+                }
+            };
+
+            // Update y-axis
             svg.append("g")
+                .attr("class", "y-axis")
+                .attr("transform", `translate(${margin.left},0)`)
+                .style("font-weight", "bold")
+                .call(d3.axisLeft(y).tickFormat(yAxisFormat));
+
+            // Update x-axis with consistent styling and single set of labels
+            const xAxis = svg.append("g")
+                .attr("class", "x-axis")
                 .attr("transform", `translate(0,${height - margin.bottom})`)
                 .call(d3.axisBottom(x)
+                    .ticks(8)  // Adjust number of ticks as needed
                     .tickFormat(d3.timeFormat("%Y")))
-                .call(g => g.select(".domain").attr("stroke", "#999"))
-                .call(g => g.selectAll(".tick line").attr("stroke", "#999"))
-                .call(g => g.selectAll(".tick text")
-                    .attr("fill", "#666")
-                    .style("font-size", "12px"));
+                .call(g => {
+                    g.selectAll(".tick text")
+                        .style("fill", "#000")  // Consistent black color
+                        .style("font-size", "12px")
+                        .style("font-weight", "normal");
+                    
+                    g.selectAll(".tick line")
+                        .style("stroke", "#999")
+                        .style("stroke-width", "1px");
+                    
+                    g.select(".domain")
+                        .style("stroke", "#999")
+                        .style("stroke-width", "1px");
+                });
 
-            // Add Y axis with flexible formatting
+            // Remove any duplicate or background grid lines for x-axis
+            svg.selectAll(".x-grid")
+                .remove();
+
+            // Add clean grid lines if needed
             svg.append("g")
-                .attr("transform", `translate(${margin.left},0)`)
-                .call(d3.axisLeft(y)
-                    .tickFormat(d => {
-                        if (d >= 1000) return `${d/1000}K`;
-                        return d.toString();
-                    }))
-                .call(g => g.select(".domain").attr("stroke", "#999"))
-                .call(g => g.selectAll(".tick line").attr("stroke", "#999"))
-                .call(g => g.selectAll(".tick text")
-                    .attr("fill", "#666")
-                    .style("font-size", "12px"));
+                .attr("class", "grid x-grid")
+                .attr("transform", `translate(0,${height - margin.bottom})`)
+                .style("stroke-dasharray", "3,3")
+                .style("opacity", 0.1)
+                .call(d3.axisBottom(x)
+                    .ticks(8)
+                    .tickSize(-(height - margin.top - margin.bottom))
+                    .tickFormat("")
+                )
+                .call(g => g.select(".domain").remove());
 
-            // Add the line
+            // Add X-axis label
+            svg.append("text")
+                .attr("class", "x-label")
+                .attr("text-anchor", "middle")
+                .attr("x", width/2)
+                .attr("y", height - margin.bottom/3)
+                .style("font-size", "14px")
+                .style("fill", "#666")
+                .text("Year");
+
+            // Add Y axis label
+            svg.append("text")
+                .attr("class", "y-label")
+                .attr("text-anchor", "middle")
+                .attr("transform", "rotate(-90)")
+                .attr("y", margin.left/3)
+                .attr("x", -height/2)
+                .style("font-size", "14px")
+                .style("fill", "#666")
+                .text("");
+
+            // Update line generator
             const line = d3.line()
                 .x(d => x(d.date))
                 .y(d => y(d.value))
                 .curve(d3.curveMonotoneX);
 
-            svg.append("path")
+            // Add the line with animation
+            const path = svg.append("path")
                 .datum(data)
                 .attr("fill", "none")
-                .attr("stroke", "#4CAF50")
+                .attr("stroke", "#2196F3")
                 .attr("stroke-width", 2)
                 .attr("d", line);
 
-            // Add dots
-            svg.selectAll("circle")
+            // Animate the line
+            const pathLength = path.node().getTotalLength();
+            path.attr("stroke-dasharray", pathLength + " " + pathLength)
+                .attr("stroke-dashoffset", pathLength)
+                .transition()
+                .duration(1000)
+                .attr("stroke-dashoffset", 0);
+
+            // Add data points with dynamic labels
+            const dots = svg.selectAll(".data-point")
                 .data(data)
-                .join("circle")
+                .enter()
+                .append("g")
+                .attr("class", "data-point");
+
+            // Define color scale for multiple series/contexts
+            const colorScale = d3.scaleOrdinal()
+                .domain(contexts)
+                .range(d3.schemeCategory10); // Built-in D3 color scheme
+
+            // Add dots
+            dots.append("circle")
+                .attr("r", 4)
                 .attr("cx", d => x(d.date))
                 .attr("cy", d => y(d.value))
-                .attr("r", 4)
-                .attr("fill", "#4CAF50")
-                .attr("stroke", "white")
-                .attr("stroke-width", 2);
+                .style("fill", d => contexts.length > 1 ? colorScale(d.context) : "#2196F3")
+                .style("stroke", "white")
+                .style("stroke-width", 2);
 
-            // Add tooltip with flexible formatting
-            const tooltip = container.append("div")
-                .attr("class", "tooltip")
-                .style("opacity", 0)
-                .style("position", "absolute")
-                .style("background-color", "white")
-                .style("border", "1px solid #999")
-                .style("border-radius", "4px")
-                .style("padding", "8px")
-                .style("font-size", "12px")
-                .style("pointer-events", "none")
-                .style("box-shadow", "0 2px 4px rgba(0,0,0,0.1)");
+            // Add value labels
+            dots.append("text")
+                .attr("x", d => x(d.date))
+                .attr("y", d => y(d.value) - 15)
+                .attr("text-anchor", "middle")
+                .attr("font-size", "11px")
+                .attr("font-weight", "bold")
+                .style("fill", "#666")
+                .text(d => yAxisFormat(d.value));
 
-            // Add hover effects
-            svg.append("rect")
-                .attr("width", width)
-                .attr("height", height)
-                .style("fill", "none")
-                .style("pointer-events", "all")
-                .on("mousemove", function(event) {
-                    const [xPos] = d3.pointer(event, this);
-                    const bisect = d3.bisector(d => d.date).left;
-                    const x0 = x.invert(xPos);
-                    const i = bisect(data, x0, 1);
-                    if (i >= data.length) return;
-                    
-                    const d0 = data[i - 1];
-                    const d1 = data[i];
-                    if (!d0 || !d1) return;
-                    
-                    const d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+            // Add context labels if available
+            if (contexts.length > 0) {
+                dots.append("text")
+                    .attr("x", d => x(d.date))
+                    .attr("y", d => y(d.value) - 30)
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "10px")
+                    .style("fill", "#666")
+                    .text(d => d.context || '');
+            }
 
-                    tooltip.style("opacity", 1)
-                        .html(`Year: ${d.date.getFullYear()}<br/>Value: ${d.value >= 1000 ? (d.value/1000).toFixed(1) + 'K' : d.value}`)
-                        .style("left", (event.pageX + 10) + "px")
-                        .style("top", (event.pageY - 28) + "px");
+            // Add hover interaction with more details
+            dots.on("mouseover", function(event, d) {
+                d3.select(this)
+                    .select("circle")
+                    .transition()
+                    .duration(200)
+                    .attr("r", 6)
+                    .style("fill", d => d3.color(d.context).brighter(0.5));
 
-                    svg.selectAll("circle")
-                        .attr("r", 4)
-                        .filter(dd => dd === d)
-                        .attr("r", 6);
-                })
-                .on("mouseleave", function() {
-                    tooltip.style("opacity", 0);
-                    svg.selectAll("circle").attr("r", 4);
+                d3.select(this)
+                    .select("text")
+                    .transition()
+                    .duration(200)
+                    .attr("font-size", "12px")
+                    .style("fill", "#000");
+            })
+            .on("mouseout", function(event, d) {
+                d3.select(this)
+                    .select("circle")
+                    .transition()
+                    .duration(200)
+                    .attr("r", 4)
+                    .style("fill", d => d3.color(d.context));
+
+                d3.select(this)
+                    .select("text")
+                    .transition()
+                    .duration(200)
+                    .attr("font-size", "11px")
+                    .style("fill", "#666");
+            });
+
+            // Add legend if multiple contexts
+            if (contexts.length > 1) {
+                const legend = svg.append("g")
+                    .attr("class", "legend")
+                    .attr("transform", `translate(${width - margin.right - 100}, ${margin.top})`);
+
+                contexts.forEach((context, i) => {
+                    legend.append("rect")
+                        .attr("x", 0)
+                        .attr("y", i * 20)
+                        .attr("width", 15)
+                        .attr("height", 15)
+                        .style("fill", colorScale(context));
+
+                    legend.append("text")
+                        .attr("x", 20)
+                        .attr("y", i * 20 + 12)
+                        .text(context)
+                        .style("font-size", "12px");
+                });
+            }
+
+            // Update container styles to fill right side
+            containerRef.current.style.width = "100%";
+            containerRef.current.style.height = "100vh";
+            containerRef.current.style.minHeight = "380px";
+            containerRef.current.style.maxHeight = "650px";
+            containerRef.current.style.position = "relative";
+
+            // Update chart title position and style
+            svg.append("text")
+                .attr("x", width / 2)
+                .attr("y", margin.top / 2)
+                .attr("text-anchor", "middle")
+                .style("font-size", width < 600 ? "14px" : "16px")
+                .style("font-weight", "bold")
+                .text("");
+
+            // Update font sizes for better visibility
+            svg.selectAll("text")
+                .style("font-size", "14px");
+
+            svg.selectAll(".axis-label")
+                .style("font-size", "16px");
+
+            svg.select(".chart-title")
+                .style("font-size", "20px");
+
+            // Update font sizes to match BarChart
+            svg.selectAll(".axis text")
+                .style("font-size", "12px");
+
+            svg.selectAll(".title")
+                .style("font-size", "16px");
+
+            // Update tooltips to show appreciation
+            dots.append("title")
+                .text(d => {
+                    let tooltip = `${d.context ? d.context + ': ' : ''}$${d.value.toLocaleString()}`;
+                    if (d.type === 'percentage') {
+                        tooltip += `\n${d.value}%`;
+                    } else if (d.type === 'currency') {
+                        tooltip += `\n(${d.type.toUpperCase()})`;
+                    }
+                    return tooltip;
                 });
 
         } catch (error) {
@@ -202,16 +382,41 @@ const LineChart = ({ queryResponse }) => {
     return (
         <div ref={containerRef} 
             style={{ 
-                width: "100%",
-                height: "400px",
+                width: "100%",          // Take full width
+                height: "100vh",        // Take full viewport height
                 backgroundColor: "white",
                 padding: "20px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                position: "relative",    // For proper positioning
+                margin: 0,              // Remove margin
                 borderRadius: "8px",
                 boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
             }}
         >
-            {!queryResponse && <div style={{ padding: "20px", textAlign: "center" }}>No data provided for Line Chart</div>}
-            {error && <div style={{ color: "red", padding: "20px" }}>Error: {error}</div>}
+            <div style={{
+                width: "100%",
+                maxWidth: "800px",      // Increased max width
+                height: "500px",        // Increased height
+                position: "relative"    // For chart positioning
+            }}>
+                {!queryResponse && <div style={{ padding: "20px", textAlign: "center" }}>No data provided for Line Chart</div>}
+            </div>
+            {error && (
+                <div style={{ 
+                    color: "red", 
+                    padding: "20px",
+                    textAlign: "center",
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)"
+                }}>
+                    Error: {error}
+                </div>
+            )}
         </div>
     );
 };

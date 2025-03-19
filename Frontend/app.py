@@ -5,6 +5,7 @@ from vrs import getViz
 from flask_cors import CORS
 from crontab import CronTab
 import datetime
+import traceback
 
 
 app = Flask(__name__)
@@ -188,17 +189,36 @@ def chat_page():
         response = chat_with_kg(user_input, user_id)
         vizs = getViz(user_input, response)
 
-        print(f"user input: {user_input}")
-        print(f"groq response: {response}")
-        print(f"vrs: {vizs}")
+        # Convert numpy float32 to regular Python float
+        if vizs and isinstance(vizs, list):
+            converted_vizs = [
+                (chart_name, float(score)) 
+                for chart_name, score in vizs
+            ]
+        else:
+            converted_vizs = []
 
-        return jsonify({"response": f"{response}"})
-    # Extract user input from the request
-    # user_input = request.json.get('message', '')
+        print("DEBUG:")
+        print(f"User input: {user_input}")
+        print(f"Response: {response}")
+        print(f"Vizs type: {type(vizs)}")
+        print(f"Vizs content: {vizs}")
+        print(f"Converted vizs: {converted_vizs}")
+
+        # Create response object
+        response_data = {
+            "response": response,
+            "vizs": converted_vizs
+        }
+
+        print(f"Sending to frontend: {response_data}")
+        
+        return jsonify(response_data)
+
     except Exception as e:
         print("Server error:", str(e))
+        print("Error traceback:", traceback.format_exc())
         return jsonify({"error": "Server error"}), 500
-
 
 if __name__ == '__main__':
     app.run(debug=True)
