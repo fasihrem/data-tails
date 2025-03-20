@@ -1,180 +1,95 @@
-import React, { useEffect, useRef } from 'react';
-import * as d3 from 'd3';
+import React, { useEffect, useRef, useState } from "react";
+import * as d3 from "d3";
 
-const MosaicPlot = ({ queryResponse }) => {
-    const svgRef = useRef(null);
+const MosaicPlot = () => {
+  const svgRef = useRef();
+  const [data, setData] = useState([]);
 
-    const parseResponseToData = (response) => {
-        try {
-            if (!response) return [];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/data/output.json"); // ✅ Correct path
+        const jsonData = await response.json();
 
-            const text = typeof response === 'string' ? response : JSON.stringify(response);
-            const lines = text.split('\n')
-                .map(line => line.trim())
-                .filter(line => line && !line.toLowerCase().includes('here are'));
-
-            // Group data into categories and subcategories
-            const categories = {};
-            let currentCategory = null;
-
-            lines.forEach(line => {
-                if (line.includes('**')) {
-                    // Main category
-                    currentCategory = line.replace(/\*\*/g, '').split(':')[0].trim();
-                    categories[currentCategory] = [];
-                } else if (currentCategory && line.includes(':')) {
-                    // Subcategory
-                    const name = line.split(':')[0].trim();
-                    const value = Math.random() * 30 + 10; // Random value between 10-40 for demonstration
-                    categories[currentCategory].push({ name, value });
-                }
-            });
-
-            return Object.entries(categories).map(([category, subcategories]) => ({
-                category,
-                subcategories,
-                total: d3.sum(subcategories, d => d.value)
-            }));
-        } catch (error) {
-            console.error("Error parsing response for mosaic plot:", error);
-            return [];
+        if (!jsonData.mosaic_plot || !jsonData.mosaic_plot.data) {
+          console.error("No mosaic plot data available.");
+          setData([]);
+          return;
         }
+
+        // ✅ Convert "billion" values to numbers
+        const formattedData = jsonData.mosaic_plot.data.map((d) => ({
+          title: d.title,
+          gross: parseFloat(d.gross.replace(" billion", "")), // "2.79 billion" → 2.79
+        }));
+
+        setData(formattedData);
+      } catch (error) {
+        console.error("Error loading mosaic plot data:", error);
+      }
     };
 
-    useEffect(() => {
-        if (!queryResponse) return;
+    fetchData();
 
-        const data = parseResponseToData(queryResponse);
-        if (data.length === 0) return;
+  }, []);
 
-        // Clear previous visualization
-        d3.select(svgRef.current).selectAll("*").remove();
+  useEffect(() => {
+    if (data.length === 0) return;
 
-        // Set dimensions
-        const width = 1000;
-        const height = 600;
-        const margin = { top: 40, right: 40, bottom: 40, left: 40 };
-        const innerWidth = width - margin.left - margin.right;
-        const innerHeight = height - margin.top - margin.bottom;
+    const width = 800;
+    const height = 400;
+    const margin = { top: 40, right: 30, bottom: 100, left: 80 };
 
-        // Calculate totals
-        const totalSum = d3.sum(data, d => d.total);
+    d3.select(svgRef.current).selectAll("*").remove();
 
-        // Create scales
-        const xScale = d3.scaleLinear()
-            .domain([0, 100])
-            .range([0, innerWidth]);
+    const svg = d3
+      .select(svgRef.current)
+      .attr("width", width)
+      .attr("height", height)
+      .append("g")
+      .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-        const yScale = d3.scaleLinear()
-            .domain([0, 100])
-            .range([innerHeight, 0]);
+    const totalGross = d3.sum(data, (d) => d.gross);
+    let xOffset = 0;
 
-        // Create color scales
-        const categoryColor = d3.scaleOrdinal(d3.schemeAccent);
+    const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
-        // Create SVG
-        const svg = d3.select(svgRef.current)
-            .attr("width", width)
-            .attr("height", height)
-            .append("g")
-            .attr("transform", `translate(${margin.left},${margin.top})`);
 
-        // Create axes
-        const xAxis = d3.axisBottom(xScale).ticks(10).tickFormat(d => d + "%");
-        const yAxis = d3.axisLeft(yScale).ticks(10).tickFormat(d => d + "%");
+    data.forEach((d, i) => {
+      const widthPercentage = (d.gross / totalGross) * (width - margin.left - margin.right);
+      const heightPercentage = height - margin.top - margin.bottom;
 
-        svg.append("g")
-            .attr("transform", `translate(0,${innerHeight})`)
-            .call(xAxis);
-
-        svg.append("g")
-            .call(yAxis);
-
-        // Create tooltip
-        const tooltip = d3.select(svgRef.current.parentNode)
-            .append("div")
-            .attr("class", "mosaic-tooltip")
-            .style("position", "absolute")
-            .style("visibility", "hidden")
-            .style("background-color", "white")
-            .style("padding", "8px")
-            .style("border-radius", "4px")
-            .style("box-shadow", "0 2px 4px rgba(0,0,0,0.1)")
-            .style("font-size", "12px")
-            .style("pointer-events", "none");
-
-        // Draw rectangles
-        let xPosition = 0;
-        data.forEach((category, i) => {
-            const categoryWidth = (category.total / totalSum) * 100;
-            let yPosition = 100;
-
-            category.subcategories.forEach((subcat, j) => {
-                const subcatHeight = (subcat.value / category.total) * 100;
-                yPosition -= subcatHeight;
-
-                svg.append("rect")
-                    .attr("x", xScale(xPosition))
-                    .attr("y", yScale(yPosition + subcatHeight))
-                    .attr("width", xScale(categoryWidth) - xScale(0))
-                    .attr("height", yScale(yPosition) - yScale(yPosition + subcatHeight))
-                    .attr("fill", categoryColor(j))
-                    .attr("stroke", "white")
-                    .attr("stroke-width", 1)
-                    .on("mouseover", function(event) {
-                        tooltip
-                            .style("visibility", "visible")
-                            .html(`
-                                ${category.category} - ${subcat.name}<br/>
-                                ${subcatHeight.toFixed(1)}% of category<br/>
-                                ${((categoryWidth * subcatHeight) / 100).toFixed(1)}% of total
-                            `)
-                            .style("left", (event.pageX + 10) + "px")
-                            .style("top", (event.pageY - 10) + "px");
-                    })
-                    .on("mousemove", function(event) {
-                        tooltip
-                            .style("left", (event.pageX + 10) + "px")
-                            .style("top", (event.pageY - 10) + "px");
-                    })
-                    .on("mouseout", function() {
-                        tooltip.style("visibility", "hidden");
-                    });
-            });
-
-            xPosition += categoryWidth;
+      svg
+        .append("rect")
+        .attr("x", xOffset)
+        .attr("y", 0)
+        .attr("width", widthPercentage)
+        .attr("height", heightPercentage)
+        .attr("fill", colorScale(i))
+        .attr("stroke", "white")
+        .on("mouseover", function () {
+          d3.select(this).attr("fill", "orange");
+        })
+        .on("mouseout", function () {
+          d3.select(this).attr("fill", colorScale(i));
         });
 
-        // Cleanup
-        return () => {
-            tooltip.remove();
-        };
 
-    }, [queryResponse]);
+      svg
+        .append("text")
+        .attr("x", xOffset + widthPercentage / 2)
+        .attr("y", heightPercentage / 2)
+        .attr("text-anchor", "middle")
+        .style("fill", "white")
+        .style("font-size", "14px")
+        .text(d.title);
 
-    return (
-        <div style={{
-            width: '100%',
-            height: '600px',
-            display: 'flex',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            background: 'white',
-            borderRadius: '8px',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            position: 'relative',
-            overflowX: 'auto',
-            overflowY: 'hidden',
-            padding: '10px'
-        }}>
-            <div style={{
-                minWidth: 'fit-content',
-                height: '100%'
-            }}>
-                <svg ref={svgRef}></svg>
-            </div>
-        </div>
-    );
+      xOffset += widthPercentage;
+    });
+
+  }, [data]);
+
+  return <svg ref={svgRef}></svg>;
 };
 
 export default MosaicPlot;

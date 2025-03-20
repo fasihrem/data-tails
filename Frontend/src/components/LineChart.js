@@ -1,62 +1,56 @@
-import React, { useRef, useEffect } from "react";
-import * as d3 from "d3";
-
-const LineChart = ({ data }) => {
-    const containerRef = useRef(null);
-
-    useEffect(() => {
-        if (!data || !data.length) return;
-
-        const container = d3.select(containerRef.current);
-        container.selectAll("svg").remove();
-
-        const margin = { top: 50, right: 50, bottom: 50, left: 50 };
-        const width = 800, height = 500;
-
-        const svg = container.append("svg")
-            .attr("width", width)
-            .attr("height", height);
-
-        const xScale = d3.scalePoint()
-            .domain(data.map(d => d.x))
-            .range([margin.left, width - margin.right])
-            .padding(0.5);
-
-        const yScale = d3.scaleLinear()
-            .domain([0, d3.max(data, d => d.y)])
-            .range([height - margin.bottom, margin.top]);
-
-        const line = d3.line()
-            .x(d => xScale(d.x))
-            .y(d => yScale(d.y))
-            .curve(d3.curveMonotoneX);
-
-        svg.append("g")
-            .attr("transform", `translate(0,${height - margin.bottom})`)
-            .call(d3.axisBottom(xScale));
-
-        svg.append("g")
-            .attr("transform", `translate(${margin.left},0)`)
-            .call(d3.axisLeft(yScale));
-
-        svg.append("path")
-            .datum(data)
-            .attr("fill", "none")
-            .attr("stroke", "steelblue")
-            .attr("stroke-width", 2)
-            .attr("d", line);
-
-        svg.selectAll(".dot")
-            .data(data)
-            .enter().append("circle")
-            .attr("cx", d => xScale(d.x))
-            .attr("cy", d => yScale(d.y))
-            .attr("r", 4)
-            .attr("fill", "steelblue");
-
-    }, [data]);
-
-    return <div ref={containerRef}></div>;
-};
-
-export default LineChart;
+// import React, { useEffect, useState } from "react";
+// import {LineChart as ReLineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,} from "recharts";
+//
+// const LineChart = () => {
+//   const [data, setData] = useState([]);
+//
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const response = await fetch("/output.json");
+//         if (!response.ok) throw new Error("Failed to load JSON");
+//         const jsonData = await response.json();
+//
+//         if (!jsonData.line_chart || !jsonData.line_chart.data) {
+//           console.error("No data available for the line chart.");
+//           setData([]);
+//           return;
+//         }
+//
+//         const formattedData = jsonData.line_chart.data.map((d) => ({
+//           title: d.title,
+//           gross: parseFloat(d.gross.replace(" billion", "")),
+//         }));
+//
+//         setData(formattedData);
+//       } catch (error) {
+//         console.error("Error loading data:", error);
+//       }
+//     };
+//
+//     fetchData();
+//
+//   }, []);
+//
+//   return (
+//     <div>
+//       <h2>Line Chart</h2>
+//       {data.length === 0 ? (
+//         <p>Line chart data not available.</p>
+//       ) : (
+//         <ResponsiveContainer width="100%" height={400}>
+//           <ReLineChart data={data}>
+//             <CartesianGrid strokeDasharray="3 3" />
+//             <XAxis dataKey="title" />
+//             <YAxis />
+//             <Tooltip />
+//             <Legend />
+//             <Line type="monotone" dataKey="gross" stroke="#8884d8" />
+//           </ReLineChart>
+//         </ResponsiveContainer>
+//       )}
+//     </div>
+//   );
+// };
+//
+// export default LineChart;

@@ -1,5 +1,6 @@
 import openai
 import json
+import re
 
 # Set up your OpenAI API key
 
@@ -10,22 +11,22 @@ def createData(res, viz):
     you will be given a query response and list of visualisations. using the given data, you have to generate json formatted data for all the given visualisations. 
     
     an example of the type of data you need to export is:
-    chart name{
-            [
-            data   
-    ]
-    },
-    chart2 name{
-            [
-            data
+    {
+        chart name{
+                [
+                data   
         ]
-    },
+        },
+        chart2 name{
+                [
+                data
+            ]
+        },
     etc...
+    }
     """
 
     query = "response: " + res + "\n\n type of visualisations: " + str(viz)
-
-    # print(query)
 
     # Make an API request using the updated method
     response = openai.ChatCompletion.create(
@@ -35,6 +36,9 @@ def createData(res, viz):
     )
 
     # Extract response
-    response_text = response.choices[0].message.content
+    response_text = response.choices[0].message.content.strip()
+
+    if not response_text.startswith("{"):
+        response_text = re.sub(r"^.*?({)", r"\1", response_text, flags=re.DOTALL)
 
     return response_text

@@ -1,28 +1,25 @@
 Role,Content
-user,show microsoft revenue in millions
-assistant,"Here are Microsoft's annual revenues in millions of US dollars:
+user,show top 5 grossing movies
+assistant,"Here are the top 5 grossing movies of all time:
 
-| Fiscal Year | Revenue (in millions) |
-| --- | --- |
-| 2004 | $36,833 |
-| 2005 | $40,285 |
-| 2006 | $44,282 |
-| 2007 | $51,124 |
-| 2008 | $58,437 |
-| 2009 | $62,408 |
-| 2010 | $62,427 |
-| 2011 | $69,943 |
-| 2012 | $73,718 |
-| 2013 | $77,859 |
-| 2014 | $86,833 |
-| 2015 | $93,580 |
-| 2016 | $125,843 |
-| 2017 | $110,360 |
-| 2018 | $111,657 |
-| 2019 | $125,843 |
-| 2020 | $143,014 |
-| 2021 | $168,059 |
+**1. Avengers: Endgame (2019)** - $2.79 billion
 
-Note: The fiscal year for Microsoft is from July to June, so the revenue figures listed above are for the company's fiscal years ending June 30th of the given year.
+The culmination of a decade-long Marvel Cinematic Universe story arc, ""Avengers: Endgame"" brought together a star-studded cast, including Robert Downey Jr., Chris Evans, and Scarlett Johansson, to deliver a thrilling conclusion to the Infinity Saga.
 
-Source: Microsoft's Annual Reports and SEC filings."
+**2. Avatar (2009)** - $2.78 billion
+
+James Cameron's sci-fi epic ""Avatar"" pushed the boundaries of visual effects and storytelling, transporting audiences to the world of Pandora and the Na'vi. The film's stunning visuals and groundbreaking 3D technology made it a global phenomenon.
+
+**3. Titanic (1997)** - $2.18 billion
+
+Another James Cameron masterpiece, ""Titanic"" is a romantic epic disaster film that tells the tragic story of the RMS Titanic's ill-fated maiden voyage. With its memorable soundtrack, stunning visuals, and iconic performances, ""Titanic"" became one of the highest-grossing films of all time.
+
+**4. Star Wars: The Force Awakens (2015)** - $2.06 billion
+
+The seventh installment in the Star Wars saga, ""The Force Awakens"" introduced a new generation to the beloved franchise, with its engaging characters, thrilling action sequences, and nostalgic nods to the original trilogy.
+
+**5. Avengers: Infinity War (2018)** - $2.05 billion
+
+The 19th film in the Marvel Cinematic Universe, ""Avengers: Infinity War"" brought together a vast array of beloved characters to face off against Thanos, a powerful villain with a devastating plan to balance the universe. The film's epic scale and emotional impact resonated with audiences worldwide.
+
+Note: These figures are based on worldwide box office grosses and are subject to change over time due to inflation, re-releases, and re-evaluations."

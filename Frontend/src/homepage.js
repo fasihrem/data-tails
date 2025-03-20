@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Navbar from "./navbar";
 import Filter from './filter.png';
 import Settings from './setting.png';
 import "./home.css";
+import {useCallback} from "react";
 
 // Import all chart components
 import AreaChart from './components/AreaChart';
@@ -25,16 +26,17 @@ import TreeDiagram from './components/TreeDiagram';
 import TreemapChart from './components/TreemapChart';
 import VoronoiMap from './components/VoronoiMap';
 import WordCloud from './components/WordCloud';
+import barChart from "./components/BarChart";
 
 
 function MyHome() {
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
-    const [isChatStarted, setIsChatStarted] = useState(false);
+    let [isChatStarted, setIsChatStarted] = useState(false);
     const [showHint, setShowHint] = useState(true);
     const [openFilters, setOpenFilters] = useState(false);
     const [openCronjob, setOpenCronjob] = useState(false);
-    const [isSplitScreen, setIsSplitScreen] = useState(false);
+    let [isSplitScreen, setIsSplitScreen] = useState(false);
 
 
     const [cron, filters] = useState(false);
@@ -74,9 +76,6 @@ function MyHome() {
     //     'word_cloud': WordCloud
     // };
 
-    let barData = "";
-    let lineChart_data = ""
-
     // // Chart descriptions for tooltips
     // const chartDescriptions = {
     //     'area_chart': "Shows cumulative data trends with a filled area.",
@@ -106,41 +105,46 @@ function MyHome() {
     const handleChange = (event) => setSelectedOption(event.target.value);
 
     const filterSubmit = async (e) => {
-        e.preventDefault();
-        if (!selectedOption) {
-            alert("Please select an option before submitting.");
-            return;
-        }
+    e.preventDefault(); // Ensures page doesn't refresh
+    if (!selectedOption) {
+        alert("Please select an option before submitting.");
+        return;
+    }
 
-        try {
-            const response = await axios.post("http://localhost:5000/api/setFilter", {
-                selectedOption: selectedOption,
-            });
+    try {
+        const response = await axios.post("http://localhost:5000/api/setFilter", {
+            selectedOption: selectedOption,
+        });
 
-            alert(`Server Response: ${response.data.message}`);
-            filters(true);
-        } catch (error) {
-            alert("Failed to submit data. Please try again.");
-        }
+        alert("Server Response:", response.data.message);
+        filters(true);
+    } catch (error) {
+        alert("Failed to submit data. Please try again.");
+    }
 
-        setOpenFilters(false);
-    };
+    setOpenFilters(false);
+};
 
-    const cronSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post("http://localhost:5000/api/setCronjob", {
-                cronInterval: cronInterval,
-                cronTime: cronTime,
-            });
-            alert(`Server Response: ${response.data.message}`);
-            cron(true);
-        } catch (error) {
-            alert("Failed to submit data. Please try again.");
-        }
+const cronSubmit = async (e) => {
+    e.preventDefault(); // Ensures page doesn't refresh
+    try {
+        const response = await axios.post("http://localhost:5000/api/setCronjob", {
+            cronInterval: cronInterval,
+            cronTime: cronTime,
+        });
+        alert("Server Response:", response.data.message);
+        cron(true);
+    } catch (error) {
+        alert("Failed to submit data. Please try again.");
+    }
 
-        setOpenCronjob(false);
-    };
+    setOpenCronjob(false);
+};
+
+
+    let vizs = "";
+    let barCharts = "";
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -153,41 +157,50 @@ function MyHome() {
         try {
             const res = await axios.post('http://localhost:5000/api/chatInput', { message: input });
             console.log("Full response:", res.data);
-            
+
             // Store the bot's response
             setLastBotResponse(res.data.response);
             setMessages(prev => [...prev, { text: res.data.response, type: "bot" }]);
 
-            barData = res.data.bar_data;
-            console.log("bar chart data: ", barData);
+            setTimeout(function() {
+                }, 1000);
 
-            // lineChart_data = res.data.lineChart_data;
-
-            
             if (res.data.vizs && Array.isArray(res.data.vizs)) {
                 console.log("Available charts:", res.data.vizs);
                 setRecommendedCharts(res.data.vizs.map(viz => viz[0]));
             }
-            
-            setInput("");
+
+            vizs = res.data.viz_data;
+            console.log("data for visualisations:")
+            console.log(vizs);
+
+            console.log("type: ", typeof vizs);
+
+            barCharts = vizs.bar_chart.data || [];
+            console.log("data for bar charts");
+            console.log(barCharts);
+
         }
         catch (error) {
             console.error("Error in handleSubmit:", error);
             setMessages(prev => [...prev, { text: "Error: Could not fetch response.", type: "bot" }]);
         }
+        finally {
+            setInput("");
+        }
     };
 
     // Also add a useEffect to monitor recommendedCharts changes
-    useEffect(() => {
-        console.log("Updated recommended charts:", recommendedCharts);
-    }, [recommendedCharts]);
+    // useEffect(() => {
+    //     console.log("Updated recommended charts:", recommendedCharts);
+    // }, [recommendedCharts]);
 
-    const handleChartSelection = (chartType) => {
+    const handleChartSelection = useCallback((chartType) => {
+    if (chartType !== selectedChart) {
         console.log(`Selected chart: ${chartType}`);
-        console.log("Passing response to chart:", lastBotResponse);  // Debug log
         setSelectedChart(chartType);
-        setShowChartDropdown(false);
-    };
+        }
+    }, [selectedChart]);
 
     return (
         <div className="ai-page">
@@ -295,7 +308,7 @@ function MyHome() {
                 {isSplitScreen && (
                     <div className="visual-pane">
                         <div className="chart-selector">
-                            <button 
+                            <button
                                 className="chart-dropdown-button"
                                 onClick={() => {
                                     console.log("Current bot response:", lastBotResponse); // Debug log
@@ -304,11 +317,11 @@ function MyHome() {
                             >
                                 + Add Chart
                             </button>
-                            
+
                             {showChartDropdown && recommendedCharts.length > 0 && (
                                 <div className="chart-dropdown-menu">
                                     {recommendedCharts.map((chart, index) => (
-                                        <button 
+                                        <button
                                             key={index}
                                             className="chart-option"
                                             onClick={() => handleChartSelection(chart)}
@@ -327,20 +340,21 @@ function MyHome() {
                             {selectedChart && (
                                 <div className="chart-wrapper">
                                     {selectedChart === 'bar_chart' && (
-                                        <BarChart data={barData} />
+                                        <BarChart
+                                        data={barCharts}/>
                                     )}
-                                    {selectedChart === 'line_chart' && (
-                                        <LineChart
-                                            queryResponse={lastBotResponse}
-                                            title="Data Visualization"
-                                        />
-                                    )}
-                                    {selectedChart === 'DAG' && (
-                                        <DAG
-                                            queryResponse={lastBotResponse}
-                                            title="Data Visualisation"
-                                        />
-                                    )}
+                                    {/*{selectedChart === 'line_chart' && (*/}
+                                    {/*    <LineChart*/}
+                                    {/*        queryResponse={lastBotResponse}*/}
+                                    {/*        title="Data Visualization"*/}
+                                    {/*    />*/}
+                                    {/*)}*/}
+                                    {/*{selectedChart === 'DAG' && (*/}
+                                    {/*    <DAG*/}
+                                    {/*        queryResponse={lastBotResponse}*/}
+                                    {/*        title="Data Visualisation"*/}
+                                    {/*    />*/}
+                                    {/*)}*/}
                                 </div>
                             )}
                         </div>
