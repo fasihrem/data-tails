@@ -1,0 +1,137 @@
+/* Login Box Styling */
+
+.login-page{
+    width: 100vw;
+    height: 100vh;
+    background: #F5F5F5;
+}
+
+.login-box {
+    width: 30%;
+    /*height: 591px;*/
+    border-radius: 40px;
+    background-color: #28BE88;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 75px;
+    padding: 30px;
+    position: relative;
+    left: 32%;
+    overflow: hidden; /* Prevents content overflow */
+}
+
+/* Username and Password Inputs */
+.username-box,
+.password-box {
+    font-family: Courier;
+    display: block;
+    width: 75%;
+    height: 50px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    outline: none;
+    box-sizing: border-box;
+    position: relative;
+    left: 13%;
+    text-align: center;
+}
+
+/* Styling the Login Button */
+.enter-btn {
+    display: block;
+    position: relative;
+    left: 35%;
+    width: 30%;
+    padding: 10px;
+    margin: 15px 0;
+    background-color: #BE285E;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, font-size 0.3s;
+}
+
+/* Button Hover Effect */
+.enter-btn:hover {
+    background-color: #e14a81;
+    font-size: 20px;
+}
+
+/* Login Header */
+.login-head {
+    text-align: center;
+    margin-top: -20px;
+    margin-bottom: 10px;
+}
+
+/* Container for Toggle Switch */
+.toggle-container {
+    position: absolute; /* Positioned within the login box */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    display: flex;
+    align-items: center;
+}
+
+/* Label for Toggle */
+.toggle-label {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+/* Hidden Checkbox Input */
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider for the Toggle */
+.toggle-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+    border: 2px solid black;
+}
+
+/* Slider Handle */
+.toggle-slider:before {
+    position: absolute;
+    content: '';
+    height: 10px;
+    width: 10px;
+    bottom: 1px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+/* Checkbox Checked State */
+.toggle-input:checked + .toggle-slider {
+    background-color: transparent;
+}
+
+.toggle-input:checked + .toggle-slider:before {
+    transform: translateX(20px);
+}
+
+/* Toggle Text */
+.toggle-text {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #333;
+}

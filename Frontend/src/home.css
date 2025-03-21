@@ -1,0 +1,300 @@
+.ai-page {
+    width: 100%;
+    height: 100vh;
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+}
+
+/* For the chat container */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center it vertically */
+    align-items: center; /* Center it horizontally */
+    padding: 20px;
+    overflow-y: auto;
+    transition: all 0.5s ease; /* Transition only applies when class changes */
+}
+
+/* When chat starts, align the chat at the bottom */
+.chat-container.chat-started {
+    justify-content: flex-start; /* Move the content to the bottom */
+}
+
+.start-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    transition: all 0.5s ease;
+}
+
+.home-start-text {
+    line-height: 45px;
+}
+
+.purp {
+    font-size: 80px;
+    color: #BE285E;
+}
+
+.green {
+    font-size: 40px;
+    color: black;
+}
+
+.messages {
+    font-family: "Inter";
+    font-weight: bold;
+    font-size: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+    overflow-y: auto; /* Allows scrolling for previous messages */
+    padding: 10px;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #BE285E #F5F5F5; /* Customize scrollbar colors */
+}
+
+.messages::-webkit-scrollbar {
+    width: 8px; /* Scrollbar width for Webkit browsers */
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: #BE285E;
+    border-radius: 4px;
+}
+
+.message {
+    max-width: 60%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 12px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.message.user {
+    align-self: flex-end;
+    background-color: #E0E0E0;
+    color: #605F5E;
+}
+
+.message.bot {
+    align-self: flex-start;
+    background-color: #605F5E;
+    color: #E0E0E0;
+}
+
+/* Transition for the input box */
+.chat-input-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 600px;
+    position: fixed; /* Stay at the bottom once moved */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%) translateY(0); /* Center adjustment */
+    bottom: 20%; /* Initially at lower position */
+    transition: bottom 0.5s ease; /* Only transition the vertical movement */
+}
+
+/* After the query is submitted, move the input form to the bottom */
+.chat-input-form.moved {
+    bottom: 2%; /* Move even closer to the bottom */
+}
+
+.chat-input-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.chat-input-bottom {
+    position: static;
+    margin-top: auto;
+    background: #F5F5F5;
+    border-top: 1px solid #E0E0E0;
+}
+
+/* Input box */
+.chat-text {
+    flex-grow: 1;
+    height: 37px;
+    border: none;
+    border-radius: 20px;
+    padding: 0 15px;
+    font-size: 16px;
+    background: #605F5E;
+    color: #000;
+}
+
+.chat-text::placeholder {
+    font-family: "Inter";
+    font-weight: bold;
+    position: fixed;
+    left: 20px;
+    color: #BCBCBC;
+}
+/* Submit button */
+.chat-submit {
+    font-family: "Inter";
+    font-weight: bold;
+    background-color: #BE285E;
+    color: #FFF;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.chat-submit:hover {
+    background-color: #e14a81;
+}
+
+.filter-button{
+    display: flex;              /* Use Flexbox */
+    justify-content: center;    /* Horizontally align */
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #D9D9D9;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.filter-button:hover{
+    cursor: pointer;
+}
+
+.filter-button img{
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.extra-buttons{
+    display: flex;
+    flex-direction: row;        /* Arrange children horizontally */
+    justify-content: flex-end; /* Push buttons to the right */
+    align-items: center;
+    gap: 5px;
+    position: fixed;
+    right: 30%;
+    top: 20%
+}
+
+/* Add these new styles for visualization */
+.visualization-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.viz-control {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.viz-button {
+    background-color: #C2185B;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+    margin: 2px;
+}
+
+.viz-button:hover {
+    background-color: #E91E63;
+}
+
+.viz-button:active {
+    transform: scale(0.98);
+}
+
+/* Update the show-viz-button styles */
+.show-viz-button {
+    position: fixed;
+    top: 100px;  /* Adjust this value to position below the navbar */
+    right: 20px;
+    padding: 8px 15px;
+    background-color: #BE285E;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-family: "Inter";
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1000;  /* Ensure it stays above other content */
+}
+
+.show-viz-button:hover {
+    background-color: #e14a81;
+}
+
+/* Add these styles to your existing CSS */
+.tree-diagram {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Optional: Add specific styles for tree links and nodes */
+.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+}
+
+.node circle {
+    fill: #fff;
+    stroke: #69b3a2;
+    stroke-width: 2px;
+}
+
+.node text {
+    font: 12px sans-serif;
+}
+.viz-recommendation {
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.viz-select {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-size: 1rem;
+}

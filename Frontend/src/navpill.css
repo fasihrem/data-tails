@@ -1,0 +1,62 @@
+.navpill {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0; /* Initially it will be hidden */
+  visibility: hidden;
+  /*transform: translateY(-20px); !* Start slightly above *!*/
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+  z-index: 1000;
+  top: 3%;
+  left: 2%;
+  }
+
+  .navpill-logo {
+    width: 390px;
+    height: 65px;
+    background-color: #BE285E;
+    border: 3px solid black;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    transition: font-size 0.3s;
+    position: fixed;
+    left: 35%;
+  }
+
+.navpill-menu a:hover {
+    font-size: 35px;
+}
+
+  .navpill.show {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Enable interaction */
+    /*transform: translateY(0); !* Reset position for smooth slide-in *!*/
+  }
+
+  .navpill-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  .navpill-menu li {
+    margin: 0 30px;
+  }
+
+  .navpill-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: font-size 0.3s;
+  }
+
+
+
+
